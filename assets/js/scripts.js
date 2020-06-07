@@ -58,10 +58,10 @@ if(document.querySelector("#typing") && document.querySelector("#typing").scroll
     window.addEventListener("blur", Reset);
 
     function Type(){
-        if(window.innerWidth > 1000) copy = ["I can code.", "I can design.", "I can create.", "I can get it done!"];
-        else copy = ["I can<br>design.", "I can<br>write.", "I can<br>build.", "I can<br>get it done!"];
+       /* if(window.innerWidth > 1000) */ copy = ["I can code.", "I can design.", "I can create.", "I can get it done!"];
+      //  else copy = ["I can<br>design.", "I can<br>write.", "I can<br>build.", "I can<br>get it done!"];
         backspaceTo = 5;
-        if(window.innerWidth < 1000) backspaceTo = 8;
+      //  if(window.innerWidth < 1000) backspaceTo = 8;
         TypedChars = copy[cycle].split("");
         backspacing = false;
         Typing.innerHTML = copy[cycle];

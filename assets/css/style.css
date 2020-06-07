@@ -63,7 +63,31 @@ ul li{
 }
 
 #profWork{
-    margin-bottom: 48px;
+    margin-bottom: 12px;
+}
+
+@media only screen and (min-width:801px){
+    .portfolioSectionHeader{
+        width: 60%;
+        padding: 12px 24px;
+        padding-left: 63px;
+        border-radius: 42px;
+        padding-bottom: 6px;
+        z-index: -1;
+        transform: translateY(58px);
+        background-color: #fefefe;
+        color: #373449;
+    
+        border-bottom-left-radius: 0px;
+        border-bottom-right-radius: 0px;
+        padding-top: 32px;
+    }
+    
+    #profWork{
+        padding-bottom: 48px;
+        border-radius: 0px;
+        padding-top: 0px;
+    }
 }
 
 #profWork::before{
@@ -112,7 +136,10 @@ ul li{
 
 .upper{
     margin-top: 0px !important;
-    margin-bottom: 60px !important;
+}
+.homepageText.upper {
+    padding-bottom: 88px !important;
+    padding-top: 160px;
 }
 
 #top-nav{
@@ -206,9 +233,29 @@ footer{
         font-size: 24px;
         letter-spacing: 0px;
         width: 100%;
+        margin-left: 10px;
     }
 
     #projects::before, #profWork::before{
         transform: translateY(16px);
+    }
+
+    #profWork{
+        margin-bottom: 24px;
+    }
+
+    #cursor{
+        font-size: 60px;
+        transform: translateY(-0px);
+    }
+
+    h1{
+        width: 80%;
+        margin-left: 10% !important;
+        left: 0%;
+    }
+
+    .homepageText.upper {
+        padding-bottom: 48px !important;
     }
 }
