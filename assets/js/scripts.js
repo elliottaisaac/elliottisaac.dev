@@ -52,8 +52,8 @@ if(window.innerWidth > 1240){
 if(document.querySelector("#typing") && document.querySelector("#typing").scrollTop > -100){
 
     var Typing = document.querySelector("#typing");
-    let copy, backspacing, TypedChars, backspaceTo, lag, lag2;
-    let cycle = 0;
+    var copy, backspacing, TypedChars, backspaceTo, lag, lag2;
+    var cycle = 0;
 
     window.addEventListener("load", Type);
     window.addEventListener("resize", Type);
