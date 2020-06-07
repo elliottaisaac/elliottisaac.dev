@@ -122,30 +122,30 @@ if(document.querySelector("#typing") && document.querySelector("#typing").scroll
 //----------------------------------------------------------------------------------------->
 //dot field-------------------------------------------------------------------------------->
 //----------------------------------------------------------------------------------------->
-if(window.innerWidth > 1240){
-    let cols =  Math.floor(document.documentElement.clientWidth / 16);
-    let rows =  Math.floor(208 / 16);
-    let numOfDots = cols * rows;
+//if(window.innerWidth > 1240){
+    var cols =  Math.floor(document.documentElement.clientWidth / 16);
+    var rows =  Math.floor(208 / 16);
+    var numOfDots = cols * rows;
+    var opacity;
 
-    let dotField = document.querySelector("#dot-field");
+    var dotField = document.querySelector("#dot-field");
 
     for(i = 0; i < numOfDots; i++){
-        const d = document.createElement("div");
+        var d = document.createElement("div");
         d.classList.add("dot");
         dotField.appendChild(d);
     }
 
-    let dotArray = [];
+    var dotArray = [];
     document.querySelectorAll(".dot").forEach(dot => dotArray.push(dot));
 
     dotField.addEventListener("mousemove", (e) => UpdateDotField(e) );
     dotField.addEventListener("click", (e) => UpdateDotField(e) );
     dotField.click();
 
-    let opacity;
     function UpdateDotField(e){
         for(i = 0; i < dotArray.length; i++){
-                const distance = GetDistance(e.clientX, e.clientY, dotArray[i].getBoundingClientRect().left, dotArray[i].getBoundingClientRect().top);
+                const distance = GetDistance(e.clientX, e.clientY, dotArray[i].getBoundingClientRect().left,  dotArray[i].getBoundingClientRect().top);
                 opacity = (1 / (distance / 10)).toFixed(2);
                 dotArray[i].style.opacity = opacity; 
         }        
@@ -154,7 +154,7 @@ if(window.innerWidth > 1240){
     function GetDistance(x1, y1, x2, y2){
         return Math.sqrt(Math.pow((x2 - x1), 2) + Math.pow((y2 - y1), 2));
     }
-}
+//}
 //----------------------------------------------------------------------------------------->
 //----------------------------------------------------------------------------------------->
 //----------------------------------------------------------------------------------------->
