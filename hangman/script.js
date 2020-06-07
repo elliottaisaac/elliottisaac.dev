@@ -235,6 +235,7 @@ function HangMan(LifeCount){
 	document.getElementById("result").innerHTML = loser;
 	let Word = localStorage.getItem("WORD");	
 	document.querySelector("#mysteryBox").innerHTML = Word;
+	document.querySelector("#googleIt").style.display = "inline-block";
 		
 	document.querySelectorAll(".letter").forEach(letter => {
 		letter.disabled = true;
@@ -247,3 +248,8 @@ document.querySelector("#reset").addEventListener("click", () => {
 	location.reload();
 });	
 
+
+function GoogleIt(){
+	googleQuery = "https://www.google.com/search?q=" + document.querySelector("#mysteryBox").innerHTML.toLowerCase() + "+definition";
+	window.open(googleQuery);
+}
