@@ -1,43 +1,45 @@
 //----------------------------------------------------------------------------------------->
 // nav & scroll scripts ----------------------------------------------------------->
 //----------------------------------------------------------------------------------------->
-let lastScrollTop = 0;
-    
-window.addEventListener("scroll", UpdateNav);
-window.addEventListener("resize", UpdateNav);
-
- function UpdateNav(){
-   let st = document.querySelector("html").scrollTop; 
-   let nav = document.querySelector("#top-nav");
+if(window.innerWidth > 1240){
+    let lastScrollTop = 0;
         
-         //scrolling up---------------------------------------------------->
-         if (st - 24 > lastScrollTop || st < 250 || window.innerWidth < 1200){
-             nav.style.height = "46px";
-             nav.style.margin = "25px auto 0 auto";  
-             nav.style.paddingTop = "0px"; 
-             nav.style.backgroundColor = "transparent";
-             nav.style.position = "static";
-             nav.classList.remove = "scrolling";
-             nav.style.borderBottom = "1px solid transparent";
-         } 
-         //---------------------------------------------------------------->
+    window.addEventListener("scroll", UpdateNav);
+    window.addEventListener("resize", UpdateNav);
 
-         //scrolling down-------------------------------------------------->
-         else if(st + 24 < lastScrollTop && window.innerWidth > 1200) {
-             nav.style.backgroundColor = "hsla(34,24%,94%,0.625)";
-             nav.style.position = "fixed";
-             nav.style.marginTop = "0px";  
-             nav.style.paddingTop = "25px"; 
-             nav.style.zIndex = "10"; 
-             nav.style.top = "0px";  
-             nav.style.height = "96px";
-             nav.style.borderBottom = "1px solid #cc3333";
-             nav.style.maxWidth = "1240px";
-         }
-         //---------------------------------------------------------------->
-         
-         lastScrollTop = st <= 0 ? 0 : st;
- }
+    function UpdateNav(){
+    let st = document.querySelector("html").scrollTop; 
+    let nav = document.querySelector("#top-nav");
+            
+            //scrolling up---------------------------------------------------->
+            if (st - 24 > lastScrollTop || st < 250 || window.innerWidth < 1200){
+                nav.style.height = "46px";
+                nav.style.margin = "25px auto 0 auto";  
+                nav.style.paddingTop = "0px"; 
+                nav.style.backgroundColor = "transparent";
+                nav.style.position = "static";
+                nav.classList.remove = "scrolling";
+                nav.style.borderBottom = "1px solid transparent";
+            } 
+            //---------------------------------------------------------------->
+
+            //scrolling down-------------------------------------------------->
+            else if(st + 24 < lastScrollTop && window.innerWidth > 1200) {
+                nav.style.backgroundColor = "hsla(34,24%,94%,0.625)";
+                nav.style.position = "fixed";
+                nav.style.marginTop = "0px";  
+                nav.style.paddingTop = "25px"; 
+                nav.style.zIndex = "10"; 
+                nav.style.top = "0px";  
+                nav.style.height = "96px";
+                nav.style.borderBottom = "1px solid #cc3333";
+                nav.style.maxWidth = "1240px";
+            }
+            //---------------------------------------------------------------->
+            
+            lastScrollTop = st <= 0 ? 0 : st;
+    }
+}
 //----------------------------------------------------------------------------------------->
 //----------------------------------------------------------------------------------------->
 //----------------------------------------------------------------------------------------->
@@ -121,39 +123,36 @@ if(document.querySelector("#typing") && document.querySelector("#typing").scroll
 //dot field-------------------------------------------------------------------------------->
 //----------------------------------------------------------------------------------------->
 if(window.innerWidth > 1240){
-    let cols =  Math.floor((document.documentElement.clientWidth / 16));
-    let rows =  200 / 16;
-    let dots = cols * rows;
-    const dotArray = [];
-    let opacity;
+    let cols =  Math.floor(document.documentElement.clientWidth / 16);
+    let rows =  Math.floor(208 / 16);
+    let numOfDots = cols * rows;
 
-    let dotField = document.createElement("div");
-    dotField.style="height:200px; width:100vw; position:absolute; top:0px; right:0px; display:flex; flex-wrap:wrap; border-radius:60px; overflow:hidden; margin-top: 120px;";
-    document.querySelector("body").appendChild(dotField);
+    let dotField = document.querySelector("#dot-field");
 
-    for(i=0; i < dots; i++){
+    for(i = 0; i < numOfDots; i++){
         const d = document.createElement("div");
         d.classList.add("dot");
         dotField.appendChild(d);
     }
-    
+
+    let dotArray = [];
     document.querySelectorAll(".dot").forEach(dot => dotArray.push(dot));
 
     dotField.addEventListener("mousemove", (e) => UpdateDotField(e) );
-    //dotField.addEventListener("click", (e) => UpdateDotField(e) );
-
+    dotField.addEventListener("click", (e) => UpdateDotField(e) );
     dotField.click();
 
+    let opacity;
     function UpdateDotField(e){
         for(i = 0; i < dotArray.length; i++){
-                const distance = GetDistance(e.clientX, e.clientY, dotArray[i].getBoundingClientRect().left,  dotArray[i].getBoundingClientRect().top);
-                opacity = 1 / (distance / 10).toFixed(2);
+                const distance = GetDistance(e.clientX, e.clientY, dotArray[i].getBoundingClientRect().left, dotArray[i].getBoundingClientRect().top);
+                opacity = (1 / (distance / 10)).toFixed(2);
                 dotArray[i].style.opacity = opacity; 
         }        
     }
 
     function GetDistance(x1, y1, x2, y2){
-        return Math.sqrt( Math.pow((x2 - x1), 2) + Math.pow((y2 - y1), 2));
+        return Math.sqrt(Math.pow((x2 - x1), 2) + Math.pow((y2 - y1), 2));
     }
 }
 //----------------------------------------------------------------------------------------->

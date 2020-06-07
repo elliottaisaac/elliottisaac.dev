@@ -69,6 +69,20 @@ ul li{
 }
 
 
+.dot{
+    background-color: white;
+    height: 8px;
+    width: 8px;
+    border-radius: 50%;
+    margin: 4px;
+    z-index: -5;
+    opacity: 0;
+    transition: 0.375s opacity linear;
+}
+
+
+
+
 
 @media only screen and (min-width:801px){
     .portfolioSectionHeader{
@@ -175,6 +189,10 @@ ul li{
     #barMenu li a:active{
         color: #0031FF !important;
     }
+
+    #dot-field{
+        display: none;
+    }
 }
 
 #profWork::before{
@@ -216,6 +234,9 @@ ul li{
     letter-spacing: 0px;
     color:white;
 }
+h1{
+    margin-bottom: 48px !important;
+}
 
 #cursor{
     font-size: 88px;
@@ -235,7 +256,7 @@ ul li{
 }
 
 #resume-btn{
-    width:220px;
+    width:240px;
     height: 48px;
     text-align: center;
     color: var(--white);
@@ -276,6 +297,19 @@ ul li{
 
 footer{
     height: 600px;
+}
+
+#dot-field{
+    height:208px;
+    width:100vw;
+    position:absolute;
+    top:0px;
+    right:0px; 
+    display:flex;
+    flex-wrap:wrap;
+    border-radius:103px;
+    overflow:hidden;
+    margin-top: 120px;
 }
 
 
@@ -361,16 +395,31 @@ footer{
         font-size: 60px;
         transform: translateY(-0px);
     }
-}
 
+    #top-bar{
+        display: none;
+    }
 
-.dot{
-    background-color: white;
-    height: 8px;
-    width: 8px;
-    border-radius: 50%;
-    margin: 4px;
-    z-index: -5;
-    opacity: 0;
-    transition: 0.375s opacity linear;
+    #top-nav{
+        display: block;
+    }
+
+    #Blogo {
+        position: absolute;
+        transform: scale(0.625);
+        left: -60px;
+        top: -10px;
+    }
+
+    #barMenu li a{
+        font-size: 14px;
+    }
+
+    .featured{
+        width: 90vw;
+    }
+
+    #barMenu {
+        transform: translateY(-8px);
+    }
 }
