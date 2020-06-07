@@ -444,6 +444,7 @@ footer{
         border-bottom: none;
         border-right: none;
         border-left: none;
+        text-transform: capitalize;
     }
 
     .prof .workImgHeader{
