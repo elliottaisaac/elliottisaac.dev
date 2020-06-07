@@ -395,12 +395,12 @@ footer{
     .workDesc{
         font-size: 14px;
     }
-    .featured:hover {
+    .featured:hover, .featured:active {
         background-color: #0031FF;
         filter:none;
         box-shadow:  black 0px 0px 10px 2px;
      }
-     .prof:hover{
+     .prof:hover, .prof:active{
         background-color: #cc3333;
      }
 }
