@@ -84,7 +84,7 @@ if(document.querySelector("#typing") && document.querySelector("#typing").scroll
                         if (Typing.innerHTML.length == copy[cycle].length) clearInterval(lag); 
                     }
             }, 200);     
-        }, 6000);  
+        }, 5000);  
     }
     
     function Reset(){

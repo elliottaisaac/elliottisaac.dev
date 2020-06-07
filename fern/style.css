@@ -21,18 +21,15 @@ canvas{
 	transition:color 0.5s ease-in-out, letter-spacing 0.5s ease-in-out, background 0.25s ease-in-out;
 	outline:none;
 	justify-content: flex-end;
+	cursor: pointer;
 }
 
-.Button:hover{
+
+
+
+.Button:hover, .Button:active{
 	background:#222;
 	color:whitesmoke;
-}
-
-.Button:active{
-	background-image: radial-gradient(whitesmoke, #fff);
-	color:black;
-	letter-spacing:0px;
-	outline:none;	
 }
 
 #draw{
