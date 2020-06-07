@@ -1,6 +1,8 @@
 :root {
-	--white: #e9e8e8;
+    --white: #e9e8e8;
+
     --black: #373449;
+    --navy: #003366;
     --primary-font: Collegiate, sans-serif;
 }
 
@@ -66,27 +68,112 @@ ul li{
     margin-bottom: 12px;
 }
 
+
+
 @media only screen and (min-width:801px){
     .portfolioSectionHeader{
         width: 60%;
         padding: 12px 24px;
         padding-left: 63px;
-        border-radius: 42px;
+        border-radius: 60px;
         padding-bottom: 6px;
-        z-index: -1;
-        transform: translateY(58px);
-        background-color: #fefefe;
+        z-index: 3;
+  
+        background-color:white;
         color: #373449;
+        letter-spacing: 0px;
     
         border-bottom-left-radius: 0px;
         border-bottom-right-radius: 0px;
-        padding-top: 32px;
+        padding-top: 48px;
+    }
+
+    #projects{
+        box-shadow: 6px 0px 0px 0px var(--white);
+        transform: translateY(86px);
     }
     
     #profWork{
-        padding-bottom: 48px;
+        margin-bottom: 48px;
         border-radius: 0px;
         padding-top: 0px;
+        transform: translateY(86px);
+    }
+
+    #roundCorner{
+        background-color:white;
+        height: 42px;
+        width: 42px;
+        transform: translateY(86px);
+        z-index: 3;
+    }
+    #roundCorner div{
+        border-radius: 0px 0px 0px 42px;
+        background-color:var(--black);
+        height: 100%;
+        width: 100%;
+        border: 6px solid var(--white);
+        border-top: none;
+        border-right: none;
+    }
+}
+
+
+@media only screen and (max-width:1296px){
+    .portfolioSectionHeader{
+        font-size: 32px;
+        border-radius: 80px 80px 0px 0px;
+    }
+  
+    #projects::before, #profWork::before{
+        transform: translateY(16px);
+    }
+
+    #roundCorner{
+        transform: translateY(79px);
+    }
+    .featuredGrid {
+        width: 100%;
+        height: auto !important;
+    }
+
+    h1{
+        margin: 0px 0 0 0;
+        height: 284px;
+        display: block;
+    }
+
+    #top-nav{
+        width: 88vw;
+        margin-left: 6vw !important;
+    }
+
+    #barMenu{
+        padding-right: 48px;
+        transform: translateY(-4px);
+    }
+    
+    #top-nav{
+        background-color: white !important;
+        border-top-left-radius: 12px;
+        border-bottom-left-radius: 12px;
+        margin-right: 0px !important;
+        margin-left: auto !important;
+    }
+
+    #Blogo{
+        transform: translateX(-60px);
+    }
+
+    #barMenu li a:link, #barMenu li a:visited{
+        color: var(--black) !important;
+    }
+    #barMenu li a:hover{
+        color: #cc3333 !important;
+        transition: none;
+    }
+    #barMenu li a:active{
+        color: #0031FF !important;
     }
 }
 
@@ -127,6 +214,7 @@ ul li{
     font-size: 88px;
     font-family: var(--primary-font) !important;
     letter-spacing: 0px;
+    color:white;
 }
 
 #cursor{
@@ -138,8 +226,8 @@ ul li{
     margin-top: 0px !important;
 }
 .homepageText.upper {
-    padding-bottom: 88px !important;
-    padding-top: 160px;
+    padding-bottom: 0px !important;
+    color:var(--white);
 }
 
 #top-nav{
@@ -167,6 +255,11 @@ ul li{
 #aboutMe{
     margin-top:180px;
     margin-left: calc((100vw - 1240px) / 2);
+    background-color: unset;
+    border-radius: unset;
+    width: 100%;
+    transform: unset;
+    color:unset;
 }
 
 .workDesc{
@@ -188,11 +281,16 @@ footer{
 
 @media only screen and (min-width:801px) {
     #portfolio, #letterbody{
-        background-color:  #fefefe;
+        background-color:  white;
         color: #373449;
         width: 100%;
         padding: 60px;
         border-radius: 48px;
+        box-shadow: 6px 0px 0px 0px var(--white);
+        margin-bottom: 6px;
+        border-top: 6px solid var(--white);
+        z-index: 2;
+        border-top-left-radius: 0px;
     }
 }
 
@@ -204,7 +302,7 @@ footer{
         display: flex;
         flex-wrap: wrap;
         margin-bottom: 33px;
-        height: 1800px !important;
+        height: auto !important;
     }
     .featuredGrid a{
         height: 200px !important;
@@ -223,6 +321,8 @@ footer{
         border-radius: 24px;
         border-top: none;
         border-left: none;
+        width: calc(50vw - 42px);
+        margin:12px;
     }
     .prof{
         border: 2px solid #cc3333;
@@ -236,19 +336,15 @@ footer{
         margin-left: 10px;
     }
 
-    #projects::before, #profWork::before{
-        transform: translateY(16px);
-    }
-
     #profWork{
         margin-bottom: 24px;
     }
 
     #cursor{
-        font-size: 60px;
-        transform: translateY(-0px);
+        font-size: 74px;
+        transform: translateY(32px);
     }
-
+    
     h1{
         width: 80%;
         margin-left: 10% !important;
@@ -258,4 +354,23 @@ footer{
     .homepageText.upper {
         padding-bottom: 48px !important;
     }
+}
+
+@media only screen and (max-width:600px) {
+    #cursor{
+        font-size: 60px;
+        transform: translateY(-0px);
+    }
+}
+
+
+.dot{
+    background-color: white;
+    height: 8px;
+    width: 8px;
+    border-radius: 50%;
+    margin: 4px;
+    z-index: -5;
+    opacity: 0;
+    transition: 0.375s opacity linear;
 }

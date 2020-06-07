@@ -83,8 +83,8 @@ if(document.querySelector("#typing") && document.querySelector("#typing").scroll
                         if (Typing.innerHTML.length < copy[cycle].length) Typing.innerHTML += TypedChars[Typing.innerHTML.length];
                         if (Typing.innerHTML.length == copy[cycle].length) clearInterval(lag); 
                     }
-            }, 133);     
-        }, 4169);  
+            }, 200);     
+        }, 6000);  
     }
     
     function Reset(){
@@ -113,8 +113,49 @@ if(document.querySelector("#typing") && document.querySelector("#typing").scroll
 }
 //----------------------------------------------------------------------------------------->
 //----------------------------------------------------------------------------------------->
+//----------------------------------------------------------------------------------------->
 
 
 
+//----------------------------------------------------------------------------------------->
+//dot field-------------------------------------------------------------------------------->
+//----------------------------------------------------------------------------------------->
+if(window.innerWidth > 1240){
+    let cols =  Math.floor((document.documentElement.clientWidth / 16));
+    let rows =  200 / 16;
+    let dots = cols * rows;
+    const dotArray = [];
+    let opacity;
 
+    let dotField = document.createElement("div");
+    dotField.style="height:200px; width:100vw; position:absolute; top:0px; right:0px; display:flex; flex-wrap:wrap; border-radius:60px; overflow:hidden; margin-top: 120px;";
+    document.querySelector("body").appendChild(dotField);
 
+    for(i=0; i < dots; i++){
+        const d = document.createElement("div");
+        d.classList.add("dot");
+        dotField.appendChild(d);
+    }
+    
+    document.querySelectorAll(".dot").forEach(dot => dotArray.push(dot));
+
+    dotField.addEventListener("mousemove", (e) => UpdateDotField(e) );
+    //dotField.addEventListener("click", (e) => UpdateDotField(e) );
+
+    dotField.click();
+
+    function UpdateDotField(e){
+        for(i = 0; i < dotArray.length; i++){
+                const distance = GetDistance(e.clientX, e.clientY, dotArray[i].getBoundingClientRect().left,  dotArray[i].getBoundingClientRect().top);
+                opacity = 1 / (distance / 10).toFixed(2);
+                dotArray[i].style.opacity = opacity; 
+        }        
+    }
+
+    function GetDistance(x1, y1, x2, y2){
+        return Math.sqrt( Math.pow((x2 - x1), 2) + Math.pow((y2 - y1), 2));
+    }
+}
+//----------------------------------------------------------------------------------------->
+//----------------------------------------------------------------------------------------->
+//----------------------------------------------------------------------------------------->
