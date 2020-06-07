@@ -395,6 +395,9 @@ footer{
         font-size: 60px;
         transform: translateY(-0px);
     }
+    #typing{
+        font-size: 60px;
+    }
 
     #top-bar{
         display: none;
@@ -423,6 +426,9 @@ footer{
         transform: translateY(-8px);
     }
 
+    .portfolioSectionHeader{
+        font-size: 18px;
+    }
 
     #top-nav{
        transform: unset;
