@@ -407,8 +407,8 @@ footer{
     #Blogo {
         position: absolute;
         transform: scale(0.625);
-        left: -60px;
-        top: -10px;
+        left: -5px;
+        top: 14px;
     }
 
     #barMenu li a{
@@ -423,11 +423,6 @@ footer{
         transform: translateY(-8px);
     }
 
-
-    .grid-container {
-        width: 100vw;
-        overflow: hidden !important;
-    }
 
     #top-nav{
        transform: unset;
