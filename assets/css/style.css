@@ -129,6 +129,10 @@ h1{
         border-top: none;
         border-right: none;
     }
+
+    #projects::before, #profWork::before{
+        transform: translateY(8px);
+    }
 }
 
 
