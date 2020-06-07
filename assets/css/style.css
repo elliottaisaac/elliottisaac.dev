@@ -479,11 +479,12 @@ footer{
         border-right: none;
         border-left: none;
         text-transform: capitalize;
-        padding: 8px 0px;
+        margin-bottom: 0px;
     }
 
     .workDesc{
         line-height: 100%;
+        padding: 8px 0px;
     }
 
     .prof .workImgHeader{
