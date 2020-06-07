@@ -16,10 +16,6 @@ body{
     color: var(--white);
 }
 
-.grid-container {
-    overflow: hidden !important;
-}
-
 ul li{
     color: #fefefe !important; 
 }
@@ -426,4 +422,11 @@ footer{
     #barMenu {
         transform: translateY(-8px);
     }
+
+
+    .grid-container {
+        width: 100vw;
+        overflow: hidden !important;
+    }
+
 }
