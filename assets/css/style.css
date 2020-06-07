@@ -14,7 +14,10 @@
 body{
     background-color: var(--black);
     color: var(--white);
-    overflow: hidden;
+}
+
+.grid-container {
+    overflow: hidden !important;
 }
 
 ul li{
