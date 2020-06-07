@@ -397,6 +397,7 @@ footer{
     }
     #typing{
         font-size: 60px;
+        line-height: 80%;
     }
 
     #top-bar{
@@ -432,6 +433,19 @@ footer{
 
     #top-nav{
        transform: unset;
+    }
+
+    .workImgHeader {
+        background-color:  #0031FF;
+        border: 1px solid white;
+        border-radius: 24px;
+        border-bottom: none;
+        border-right: none;
+        border-left: none;
+    }
+
+    .prof .workImgHeader{
+        background-color: #cc3333;
     }
 
 }
