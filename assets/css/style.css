@@ -419,6 +419,9 @@ footer{
      .prof:hover, .prof:active{
         background-color: #cc3333;
      }
+     #tileInst{
+         display: none;
+     }
 }
 
 @media only screen and (max-width:600px) {
