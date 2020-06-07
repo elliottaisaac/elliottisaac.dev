@@ -422,6 +422,11 @@ footer{
      #tileInst{
          display: none;
      }
+     .workDesc{
+        line-height: 100%;
+        padding: 12px;
+        margin-left: 0px !important;
+    }
 }
 
 @media only screen and (max-width:600px) {
@@ -440,6 +445,10 @@ footer{
 
     #top-nav{
         display: block;
+    }
+
+    #barMenu{
+        padding-right: 4px;
     }
 
     #Blogo {
@@ -483,8 +492,8 @@ footer{
     }
 
     .workDesc{
-        line-height: 100%;
         padding: 8px 0px;
+        margin-left: 26px !important;
     }
 
     .prof .workImgHeader{
