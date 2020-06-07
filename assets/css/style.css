@@ -479,8 +479,12 @@ footer{
         border-right: none;
         border-left: none;
         text-transform: capitalize;
+        margin-bottom: 0px;
     }
 
+    .workDesc{
+        line-height: 100%;
+    }
 
     .prof .workImgHeader{
         background-color: #cc3333;

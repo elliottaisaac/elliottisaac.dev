@@ -12,7 +12,7 @@ if(window.innerWidth > 1240){
     let nav = document.querySelector("#top-nav");
             
             //scrolling up---------------------------------------------------->
-            if (st - 24 > lastScrollTop || st < 250 || window.innerWidth < 1200){
+            if (st - 12 > lastScrollTop || st < 250 || window.innerWidth < 1200){
                 nav.style.height = "46px";
                 nav.style.margin = "25px auto 0 auto";  
                 nav.style.paddingTop = "0px"; 
@@ -24,7 +24,7 @@ if(window.innerWidth > 1240){
             //---------------------------------------------------------------->
 
             //scrolling down-------------------------------------------------->
-            else if(st + 24 < lastScrollTop && window.innerWidth > 1200) {
+            else if(st + 12 < lastScrollTop && window.innerWidth > 1200) {
                 nav.style.backgroundColor = "hsla(34,24%,94%,0.625)";
                 nav.style.position = "fixed";
                 nav.style.marginTop = "0px";  
@@ -60,10 +60,8 @@ if(document.querySelector("#typing") && document.querySelector("#typing").scroll
     window.addEventListener("blur", Reset);
 
     function Type(){
-       /* if(window.innerWidth > 1000) */ copy = ["I can code.", "I can design.", "I can create.", "I can get it done!"];
-      //  else copy = ["I can<br>design.", "I can<br>write.", "I can<br>build.", "I can<br>get it done!"];
+        copy = ["I can code.", "I can design.", "I can create.", "I can get it done!"];
         backspaceTo = 5;
-      //  if(window.innerWidth < 1000) backspaceTo = 8;
         TypedChars = copy[cycle].split("");
         backspacing = false;
         Typing.innerHTML = copy[cycle];
