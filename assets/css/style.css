@@ -439,6 +439,8 @@ footer{
         background-color:  #0031FF;
         border: 1px solid white;
         border-radius: 24px;
+        border-bottom-left-radius: 0px;
+        border-bottom-right-radius: 0px;
         border-bottom: none;
         border-right: none;
         border-left: none;
