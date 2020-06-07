@@ -51,7 +51,7 @@ if(window.innerWidth > 1240){
 //----------------------------------------------------------------------------------------->
 if(document.querySelector("#typing") && document.querySelector("#typing").scrollTop > -100){
 
-    const Typing = document.querySelector("#typing");
+    var Typing = document.querySelector("#typing");
     let copy, backspacing, TypedChars, backspaceTo, lag, lag2;
     let cycle = 0;
 
@@ -122,21 +122,21 @@ if(document.querySelector("#typing") && document.querySelector("#typing").scroll
 //----------------------------------------------------------------------------------------->
 //dot field-------------------------------------------------------------------------------->
 //----------------------------------------------------------------------------------------->
-//if(window.innerWidth > 1240){
-    var cols =  Math.floor(document.documentElement.clientWidth / 16);
-    var rows =  Math.floor(208 / 16);
-    var numOfDots = cols * rows;
-    var opacity;
+if(window.innerWidth > 1240){
+    let cols =  Math.floor(document.documentElement.clientWidth / 16);
+    let rows =  Math.floor(208 / 16);
+    let numOfDots = cols * rows;
+    let opacity;
 
-    var dotField = document.querySelector("#dot-field");
+    let dotField = document.querySelector("#dot-field");
 
     for(i = 0; i < numOfDots; i++){
-        var d = document.createElement("div");
+        const d = document.createElement("div");
         d.classList.add("dot");
         dotField.appendChild(d);
     }
 
-    var dotArray = [];
+    let dotArray = [];
     document.querySelectorAll(".dot").forEach(dot => dotArray.push(dot));
 
     dotField.addEventListener("mousemove", (e) => UpdateDotField(e) );
@@ -154,7 +154,7 @@ if(document.querySelector("#typing") && document.querySelector("#typing").scroll
     function GetDistance(x1, y1, x2, y2){
         return Math.sqrt(Math.pow((x2 - x1), 2) + Math.pow((y2 - y1), 2));
     }
-//}
+}
 //----------------------------------------------------------------------------------------->
 //----------------------------------------------------------------------------------------->
 //----------------------------------------------------------------------------------------->
