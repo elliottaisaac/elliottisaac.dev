@@ -47,7 +47,7 @@ if(window.innerWidth > 1240){
 
 
 //----------------------------------------------------------------------------------------->
-//homepage animated text typing ----------------------------------------------------------->
+// homepage animated text typing ----------------------------------------------------------->
 //----------------------------------------------------------------------------------------->
 if(document.querySelector("#typing") && document.querySelector("#typing").scrollTop > -100){
 
@@ -120,9 +120,9 @@ if(document.querySelector("#typing") && document.querySelector("#typing").scroll
 
 
 //----------------------------------------------------------------------------------------->
-//dot field-------------------------------------------------------------------------------->
+// dot field -------------------------------------------------------------------------------->
 //----------------------------------------------------------------------------------------->
-if(window.innerWidth > 1240){
+if(window.innerWidth > 820){
     let cols =  Math.floor(document.documentElement.clientWidth / 16);
     let rows =  Math.floor(208 / 16);
     let numOfDots = cols * rows;
@@ -139,13 +139,13 @@ if(window.innerWidth > 1240){
     let dotArray = [];
     document.querySelectorAll(".dot").forEach(dot => dotArray.push(dot));
 
-    dotField.addEventListener("mousemove", (e) => UpdateDotField(e) );
+    window.addEventListener("mousemove", (e) => UpdateDotField(e) );
     dotField.addEventListener("click", (e) => UpdateDotField(e) );
     dotField.click();
 
     function UpdateDotField(e){
         for(i = 0; i < dotArray.length; i++){
-                const distance = GetDistance(e.clientX, e.clientY, dotArray[i].getBoundingClientRect().left,  dotArray[i].getBoundingClientRect().top);
+                const distance = GetDistance(e.clientX, e.clientY, dotArray[i].getBoundingClientRect().left, dotArray[i].getBoundingClientRect().top);
                 opacity = (1 / (distance / 10)).toFixed(2);
                 dotArray[i].style.opacity = opacity; 
         }        
