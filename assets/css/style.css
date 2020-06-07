@@ -429,4 +429,8 @@ footer{
         overflow: hidden !important;
     }
 
+    #top-nav{
+       transform: unset;
+    }
+
 }
