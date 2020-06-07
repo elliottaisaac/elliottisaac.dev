@@ -122,7 +122,7 @@ if(document.querySelector("#typing") && document.querySelector("#typing").scroll
 //----------------------------------------------------------------------------------------->
 // dot field -------------------------------------------------------------------------------->
 //----------------------------------------------------------------------------------------->
-if(window.innerWidth > 820){
+if(window.innerWidth > 820 && document.querySelector("html").scrollTop < 328){
     let cols =  Math.floor(document.documentElement.clientWidth / 16);
     let rows =  Math.floor(208 / 16);
     let numOfDots = cols * rows;

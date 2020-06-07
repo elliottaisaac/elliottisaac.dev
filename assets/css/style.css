@@ -23,6 +23,7 @@ ul li{
 #top-bar, #top-nav{
     background-color: #373449;
     margin-left: calc((100vw - 1242px) / 2) !important;
+    transform: translateX(24px);
 }
 
 #top-nav ul li:link, #top-nav ul li:visited{ 
@@ -35,12 +36,14 @@ ul li{
 
 .logo{
     height: 48px;
-
 }
-
 .logo:hover{
     background-color: #cc3333;
     border-radius: 50%;
+}
+
+h1{
+    margin-top: 88px;
 }
 
 .workImgHeader {
@@ -50,6 +53,7 @@ ul li{
 .featured:hover {
     background-color: #0031FF;
     filter:none;
+    box-shadow:  gray 0px 0px 10px 2px;
  }
 
  .prof:hover {
@@ -92,11 +96,9 @@ ul li{
         border-radius: 60px;
         padding-bottom: 6px;
         z-index: 3;
-  
         background-color:white;
         color: #373449;
         letter-spacing: 0px;
-    
         border-bottom-left-radius: 0px;
         border-bottom-right-radius: 0px;
         padding-top: 48px;
@@ -104,21 +106,18 @@ ul li{
 
     #projects{
         box-shadow: 6px 0px 0px 0px var(--white);
-        transform: translateY(86px);
     }
     
     #profWork{
         margin-bottom: 48px;
         border-radius: 0px;
         padding-top: 0px;
-        transform: translateY(86px);
     }
 
     #roundCorner{
         background-color:white;
         height: 42px;
         width: 42px;
-        transform: translateY(86px);
         z-index: 3;
     }
     #roundCorner div{
@@ -144,7 +143,7 @@ ul li{
     }
 
     #roundCorner{
-        transform: translateY(79px);
+        transform: translateY(-7px);
     }
     .featuredGrid {
         width: 100%;
@@ -188,10 +187,6 @@ ul li{
     }
     #barMenu li a:active{
         color: #0031FF !important;
-    }
-
-    #dot-field{
-        display: none;
     }
 }
 
@@ -249,11 +244,10 @@ h1{
 .homepageText.upper {
     padding-bottom: 0px !important;
     color:var(--white);
+    width: 100%;
+    text-align: right;
 }
 
-#top-nav{
-    transform: translateX(20px);
-}
 
 #resume-btn{
     width:240px;
@@ -274,7 +268,7 @@ h1{
 }
 
 #aboutMe{
-    margin-top:180px;
+    margin-top:0px;
     margin-left: calc((100vw - 1240px) / 2);
     background-color: unset;
     border-radius: unset;
@@ -290,6 +284,9 @@ h1{
     width: 100%;
     opacity: 0;
     transition: all 0.375s linear;
+}
+.featured{
+    border-radius: 12px;
 }
 .featured:hover .workDesc{
     opacity: 1;
@@ -309,22 +306,22 @@ footer{
     flex-wrap:wrap;
     border-radius:103px;
     overflow:hidden;
-    margin-top: 120px;
+    margin-top: 100px;
 }
 
 
 @media only screen and (min-width:801px) {
-    #portfolio, #letterbody{
+    #portfolio{
         background-color:  white;
-        color: #373449;
         width: 100%;
         padding: 60px;
-        border-radius: 48px;
-        box-shadow: 6px 0px 0px 0px var(--white);
         margin-bottom: 6px;
-        border-top: 6px solid var(--white);
-        z-index: 2;
+        border-radius: 48px;
         border-top-left-radius: 0px;
+        border-top: 6px solid var(--white);
+        box-shadow: 6px 0px 0px 0px var(--white);
+        z-index: 2;
+        transform: translateY(-86px);
     }
 }
 
@@ -387,7 +384,25 @@ footer{
 
     .homepageText.upper {
         padding-bottom: 48px !important;
+        width: 60%;
+        text-align: left;
     }
+
+    #dot-field{
+        display: none;
+    }
+
+    .workDesc{
+        font-size: 14px;
+    }
+    .featured:hover {
+        background-color: #0031FF;
+        filter:none;
+        box-shadow:  black 0px 0px 10px 2px;
+     }
+     .prof:hover{
+        background-color: #cc3333;
+     }
 }
 
 @media only screen and (max-width:600px) {
@@ -447,7 +462,7 @@ footer{
         text-transform: capitalize;
     }
 
-    
+
     .prof .workImgHeader{
         background-color: #cc3333;
     }
