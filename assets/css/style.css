@@ -131,7 +131,7 @@ h1{
     }
 
     #projects::before, #profWork::before{
-        transform: translateY(8px);
+            transform: translateY(8px);
     }
 }
 

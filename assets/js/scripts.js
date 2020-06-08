@@ -3,6 +3,7 @@
 //----------------------------------------------------------------------------------------->
 if(window.innerWidth > 1240){
     let lastScrollTop = 0;
+    let ref;
         
     window.addEventListener("scroll", UpdateNav);
     window.addEventListener("resize", UpdateNav);
@@ -20,6 +21,7 @@ if(window.innerWidth > 1240){
                 nav.style.position = "static";
                 nav.classList.remove = "scrolling";
                 nav.style.borderBottom = "1px solid transparent";
+                document.querySelector("#Blogo").href = "index.html";
             } 
             //---------------------------------------------------------------->
 
@@ -34,6 +36,7 @@ if(window.innerWidth > 1240){
                 nav.style.height = "96px";
                 nav.style.borderBottom = "1px solid #cc3333";
                 nav.style.maxWidth = "1240px";
+                document.querySelector("#Blogo").href = "#doc";
             }
             //---------------------------------------------------------------->
             
