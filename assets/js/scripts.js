@@ -161,6 +161,7 @@ if(window.innerWidth > 820 && document.querySelector("html").scrollTop < 328){
 //----------------------------------------------------------------------------------------->
 
 
+//hover state for touchscreens
 document.querySelectorAll(".featured").forEach(tile => {
     tile.addEventListener("touchstart", () => {
         tile.hover();
