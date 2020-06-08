@@ -1,0 +1,5 @@
+RewriteEngine on
+
+RewriteCond %{THE_REQUEST} \/index\.(php|html)\ HTTP [NC]
+
+RewriteRule (.*)index\.(php|html)$ /$1 [R=301,L]

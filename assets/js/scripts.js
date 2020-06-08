@@ -21,7 +21,7 @@ if(window.innerWidth > 1240){
                 nav.style.position = "static";
                 nav.classList.remove = "scrolling";
                 nav.style.borderBottom = "1px solid transparent";
-                document.querySelector("#Blogo").href = "/";
+                document.querySelector("#Blogo").href = "index.html";
             } 
             //---------------------------------------------------------------->
 

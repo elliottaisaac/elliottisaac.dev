@@ -13,7 +13,7 @@
 
   <body>
     <nav id="top-nav">
-        <a id="Blogo"><img src="assets/img/logo.svg" class="logo"></a>
+        <a id="Blogo" href="index.html"><img src="assets/img/logo.svg" class="logo"></a>
         <ul id="barMenu">
             <li id="work"><a href="#projects">My work</a></li>
             <li id="about"><a href="#lowerText">About me</a></li>
@@ -22,6 +22,11 @@
     </nav>
 
     <div id="dot-field"></div>
+
+    <div id="top-bar">
+        <a href="/"><img src="assets/img/logo.svg" class="logo"></a>
+        <button class="float-right" type="button" data-open="nav_main" data-close="nav_main">&#x2630;</button>
+    </div>
         
     <div class="grid-container">
 
@@ -59,7 +64,7 @@
                 <p class="upper workDesc">Fractals are so awesome. This one is one of my favorites. I built it into a custom generator that draws the fractal dot by dot, up to one million. I also built my own color picking UI out of the HTML range slider so you can change the colors of the fractal while it's drawing. Quite fun!</p>
               </a>
 
-              <a href="hangman/game.html" target="blank" class="featured" id="F5" style="background-image:url('assets/img/hangman.png')">
+              <a href="hangman/index.html" target="blank" class="featured" id="F5" style="background-image:url('assets/img/hangman.png')">
                 <h5 class="workImgHeader">Javascript Hangman</h5>
                 <p class="upper workDesc">I found an array of all English words of 10 letters or fewer and I couldn't resist.<br><br><span style="font-size: 80%;">See also: <span onclick="window.open('battleship/battleship.html');" style='cursor: default;; text-decoration: underline;'>battleship</span></span></p>
               </a>
