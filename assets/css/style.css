@@ -266,6 +266,7 @@ h1{
     color:var(--white);
     width: 100%;
     text-align: right;
+    line-height: 112%;
 }
 
 
