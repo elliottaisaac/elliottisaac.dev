@@ -400,6 +400,7 @@ footer{
         width: 80%;
         margin-left: 10% !important;
         left: 0%;
+        line-height: 48px;
     }
 
     .homepageText.upper {
@@ -440,7 +441,7 @@ footer{
     }
     #typing{
         font-size: 60px;
-        line-height: 80%;
+        line-height: 32px;
     }
 
     #top-bar{
