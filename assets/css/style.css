@@ -424,7 +424,7 @@ footer{
         background-color: #cc3333;
      }
      #tileInst{
-         display: none;
+    display: none;
      }
      .workDesc{
         line-height: 100%;
@@ -502,6 +502,16 @@ footer{
 
     .prof .workImgHeader{
         background-color: #cc3333;
+    }
+
+    #tileInst{
+        display: block;
+        position: relative;
+        margin-left: auto;
+        margin-top: -12px;
+        background-color: var(--black);
+        color: var(--white);
+        margin-right: -36px;
     }
 
 }
