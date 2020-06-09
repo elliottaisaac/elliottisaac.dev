@@ -80,8 +80,6 @@ h1{
     margin-right: calc((100vw - 240px) / 2);
 }
 
-
-
 .dot{
     background-color: white;
     height: 8px;
@@ -91,6 +89,30 @@ h1{
     z-index: -5;
     opacity: 0;
     transition: 0.375s opacity linear;
+}
+
+#me{
+    border-radius: 50%;
+    width: 140px;
+    height: 140px;
+    top: -160px;
+    margin-bottom: 20px;
+    position: relative;
+    left: 120%;
+    filter: grayscale();
+    transform: rotate(360deg);
+    border:0px solid var(--white);
+    transition: all 0.125s ease-out;
+}
+.bio:hover #me, #lowerText:hover p #me, #resume-btn:hover #me{
+    width: 160px;
+    height: 160px;
+    margin: 0px;
+    filter: none;
+    box-shadow: 2px 2px 0px 0px var(--white);
+    border:1px solid var(--white);
+    transform: rotate(0deg);
+    margin: 0px;
 }
 
 
@@ -144,6 +166,14 @@ h1{
 
 
 @media only screen and (max-width:1296px){
+
+    #me{
+        display: none;
+    }
+    #resume-btn{
+        transform: translateY(0px) !important;
+    }
+
     .portfolioSectionHeader{
         font-size: 32px;
         border-radius: 80px 80px 0px 0px;
@@ -286,6 +316,8 @@ h1{
     margin-left: calc((100vw - 240px) / 2);
     border-bottom-left-radius: 24px;
     border-top: 2px solid var(--white);
+    transform:translateY(-160px);
+
 }
 #resume-btn:hover{
     background-color:#cc3333;
