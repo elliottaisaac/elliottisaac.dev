@@ -100,7 +100,7 @@ h1{
     position: relative;
     left: 120%;
     filter: grayscale();
-    transform: rotate(360deg);
+    transform: rotate(0deg);
     border:0px solid var(--white);
     transition: all 0.125s ease-out;
 }
