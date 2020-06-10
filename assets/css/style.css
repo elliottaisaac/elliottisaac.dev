@@ -120,130 +120,6 @@ h1{
 }
 
 
-
-@media only screen and (min-width:801px){
-    .portfolioSectionHeader{
-        width: 60%;
-        padding: 12px 24px;
-        padding-left: 63px;
-        border-radius: 60px;
-        padding-bottom: 6px;
-        z-index: 3;
-        background-color:white;
-        color: #373449;
-        letter-spacing: 0px;
-        border-bottom-left-radius: 0px;
-        border-bottom-right-radius: 0px;
-        padding-top: 48px;
-    }
-
-    #projects{
-        box-shadow: 6px 0px 0px 0px var(--white);
-    }
-    
-    #profWork{
-        margin-bottom: 48px;
-        border-radius: 0px;
-        padding-top: 0px;
-    }
-
-    #roundCorner{
-        background-color:white;
-        height: 42px;
-        width: 42px;
-        z-index: 3;
-    }
-    #roundCorner div{
-        border-radius: 0px 0px 0px 42px;
-        background-color:var(--black);
-        height: 100%;
-        width: 100%;
-        border: 6px solid var(--white);
-        border-top: none;
-        border-right: none;
-    }
-
-    #projects::before, #profWork::before{
-            transform: translateY(8px);
-    }
-}
-
-
-@media only screen and (max-width:1296px){
-
-    #me{
-        display: none;
-    }
-    #resume-btn{
-        transform: translateY(0px) !important;
-    }
-
-    .portfolioSectionHeader{
-        font-size: 32px;
-        border-radius: 80px 80px 0px 0px;
-    }
-  
-    #projects::before, #profWork::before{
-        transform: translateY(16px);
-    }
-
-    #roundCorner{
-        transform: translateY(-7px);
-    }
-    .featuredGrid {
-        width: 100%;
-        height: auto !important;
-    }
-
-    h1{
-        margin: 0px 0 0 0;
-        height: 284px;
-        display: block;
-    }
-
-    #top-nav{
-        width: 88vw;
-        margin-left: 6vw !important;
-    }
-
-    #barMenu{
-        padding-right: 48px;
-        transform: translateY(-4px);
-    }
-    
-    #top-nav{
-        background-color: white !important;
-        border-top-left-radius: 12px;
-        border-bottom-left-radius: 12px;
-        margin-right: 0px !important;
-        margin-left: auto !important;
-    }
-
-    #Blogo{
-        transform: translateX(-60px);
-    }
-
-    #barMenu li a:link, #barMenu li a:visited{
-        color: var(--black) !important;
-    }
-    #barMenu li a:hover{
-        color: #cc3333 !important;
-        transition: none;
-    }
-    #barMenu li a:active{
-        color: #0031FF !important;
-    }
-    .homepageText.bio{
-       margin:auto;
-    }
-    #aboutMe {
-        margin-left: 16.5% !important;
-    }
-}
-
-
-
-
 #profWork::before{
     content:"";
     border-radius: 50%;
@@ -303,7 +179,6 @@ h1{
     line-height: 112%;
 }
 
-
 #resume-btn{
     width:240px;
     height: 48px;
@@ -337,8 +212,6 @@ h1{
     color:unset;
 }
 
-
-
 .workDesc{
     padding:20px;
     font-size: 18px;
@@ -363,7 +236,6 @@ footer{
     position: relative;
 }
 
-
 #dot-field{
     height:208px;
     width:100vw;
@@ -376,6 +248,7 @@ footer{
     overflow:hidden;
     margin-top: 100px;
 }
+
 #tileInst{
     font-size: 10px;
     font-style: italic;
@@ -388,7 +261,23 @@ footer{
     right: 68px;
 }
 
-@media only screen and (min-width:801px) {
+
+@media only screen and (min-width:801px){
+    .portfolioSectionHeader{
+        width: 60%;
+        padding: 12px 24px;
+        padding-left: 63px;
+        border-radius: 60px;
+        padding-bottom: 6px;
+        z-index: 3;
+        background-color:white;
+        color: #373449;
+        letter-spacing: 0px;
+        border-bottom-left-radius: 0px;
+        border-bottom-right-radius: 0px;
+        padding-top: 48px;
+    }
+
     #portfolio{
         background-color:  white;
         width: 100%;
@@ -400,6 +289,109 @@ footer{
         box-shadow: 6px 0px 0px 0px var(--white);
         z-index: 2;
         transform: translateY(-86px);
+    }
+
+    #projects{
+        box-shadow: 6px 0px 0px 0px var(--white);
+    }
+    
+    #profWork{
+        margin-bottom: 48px;
+        border-radius: 0px;
+        padding-top: 0px;
+    }
+
+    #roundCorner{
+        background-color:white;
+        height: 42px;
+        width: 42px;
+        z-index: 3;
+    }
+    #roundCorner div{
+        border-radius: 0px 0px 0px 42px;
+        background-color:var(--black);
+        height: 100%;
+        width: 100%;
+        border: 6px solid var(--white);
+        border-top: none;
+        border-right: none;
+    }
+
+    #projects::before, #profWork::before{
+        transform: translateY(8px);
+    }
+}
+
+
+@media only screen and (max-width:1296px){
+    #me{
+        display: none;
+    }
+
+    #resume-btn{
+        transform: translateY(0px) !important;
+    }
+
+    .portfolioSectionHeader{
+        font-size: 32px;
+        border-radius: 80px 80px 0px 0px;
+    }
+  
+    #projects::before, #profWork::before{
+        transform: translateY(16px);
+    }
+
+    #roundCorner{
+        transform: translateY(-7px);
+    }
+
+    .featuredGrid {
+        width: 100%;
+        height: auto !important;
+    }
+
+    h1{
+        margin: 0px 0 0 0;
+        display: block;
+    }
+
+    #top-nav{
+        width: 88vw;
+        margin-left: 6vw !important;
+    }
+
+    #barMenu{
+        padding-right: 48px;
+        transform: translateY(-4px);
+    }
+    
+    #top-nav{
+        background-color: white !important;
+        border-top-left-radius: 12px;
+        border-bottom-left-radius: 12px;
+        margin-right: 0px !important;
+        margin-left: auto !important;
+    }
+
+    #Blogo{
+        transform: translateX(-60px);
+    }
+
+    #barMenu li a:link, #barMenu li a:visited{
+        color: var(--black) !important;
+    }
+    #barMenu li a:hover{
+        color: #cc3333 !important;
+        transition: none;
+    }
+    #barMenu li a:active{
+        color: #0031FF !important;
+    }
+    .homepageText.bio{
+       margin:auto;
+    }
+    #aboutMe {
+        margin-left: 16.5% !important;
     }
 }
 
@@ -474,17 +466,21 @@ footer{
     .workDesc{
         font-size: 14px;
     }
+
     .featured:hover, .featured:active {
         background-color: #0031FF;
         filter:none;
         box-shadow:  black 0px 0px 10px 2px;
      }
+
      .prof:hover, .prof:active{
         background-color: #cc3333;
      }
+
      #tileInst{
-    display: none;
+        display: none;
      }
+
      .workDesc{
         line-height: 100%;
         padding: 12px;
@@ -497,6 +493,7 @@ footer{
         font-size: 60px;
         transform: translateY(-0px);
     }
+
     #typing{
         font-size: 60px;
         line-height: 32px;
@@ -578,8 +575,9 @@ footer{
         font-size: 14px;
         line-height: 140%;
      }
-     #aboutMe {
+
+    #aboutMe {
          margin-left: 12% !important;
          font-size: 24px;
-     }
+    }
 }
