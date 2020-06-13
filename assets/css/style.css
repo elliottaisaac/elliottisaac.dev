@@ -1,6 +1,5 @@
 :root {
     --white: #e9e8e8;
-
     --black: #373449;
     --navy: #003366;
     --primary-font: Collegiate, sans-serif;
@@ -10,6 +9,8 @@
     font-family: "Collegiate";
     src: url("assets/misc/Collegiate-wM1w.ttf") format("ttf"),
 }
+
+@import "app.css";
 
 body{
     background-color: var(--black);
