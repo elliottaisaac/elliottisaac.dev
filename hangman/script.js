@@ -54,13 +54,9 @@ function PlayHangmanRound(PlayerGuess){
 		let BlankWord = localStorage.getItem("BLANKWORD");
 		let WrongGuessCounter = localStorage.getItem("WRONGGUESSCOUNTER");
 		let RemovedGuesses = localStorage.getItem("REMOVEDGUESSES");
-	
-		let IsGoodGuess = "";
-	
+		let IsGoodGuess;
 		let HangArray = Word.split("");
-	
 		let BlankArray = BlankWord.split("");
-
 		let GuessedLetter = PlayerGuess;
 
 		for (let i = 0; i < BlankWord.length; i++){
@@ -77,7 +73,7 @@ function PlayHangmanRound(PlayerGuess){
 		}
 			
 		const lives = document.querySelector("#lives");
-	    let LifeCount = (6 - WrongGuessCounter);
+		let LifeCount = (6 - WrongGuessCounter);
 		lives.innerHTML = LifeCount;
 	
 		BlankWord = BlankArray.toString();
