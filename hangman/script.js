@@ -54,7 +54,7 @@ function PlayHangmanRound(PlayerGuess){
 		let BlankWord = localStorage.getItem("BLANKWORD");
 		let WrongGuessCounter = localStorage.getItem("WRONGGUESSCOUNTER");
 		let RemovedGuesses = localStorage.getItem("REMOVEDGUESSES");
-		let IsGoodGuess;
+		let IsGoodGuess = null;
 		let HangArray = Word.split("");
 		let BlankArray = BlankWord.split("");
 		let GuessedLetter = PlayerGuess;
