@@ -129,10 +129,6 @@ canvas{
 	text-align: center;
 }
 #googleIt:hover{
-	color:whitesmoke;
-	background-image: none;
-	background-color: #ed0b29;
-	content:"look up definition";
 	font-size: 8px;
 }
 
