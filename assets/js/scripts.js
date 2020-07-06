@@ -9,8 +9,8 @@ if(window.innerWidth > 1240){
     window.addEventListener("resize", UpdateNav);
 
     function UpdateNav(){
-    let st = document.querySelector("html").scrollTop; 
-    let nav = document.querySelector("#top-nav");
+    const st = document.querySelector("html").scrollTop; 
+    const nav = document.querySelector("#top-nav");
             
             //scrolling up---------------------------------------------------->
             if (st - 12 > lastScrollTop || st < 250 || window.innerWidth < 1200){
@@ -54,6 +54,8 @@ if(window.innerWidth > 1240){
 //----------------------------------------------------------------------------------------->
 if(document.querySelector("#typing") && document.querySelector("#typing").scrollTop > -100){
 
+    // Note: for some frustrating reason this only works on apple browsers if 'var' is used to declare variables rather than the ES6 keywords
+    
     var Typing = document.querySelector("#typing");
     var copy, backspacing, TypedChars, backspaceTo, lag, lag2;
     var cycle = 0;
@@ -124,12 +126,12 @@ if(document.querySelector("#typing") && document.querySelector("#typing").scroll
 // dot field -------------------------------------------------------------------------------->
 //----------------------------------------------------------------------------------------->
 if(window.innerWidth > 820 && document.querySelector("html").scrollTop < 328){
-    let cols =  Math.floor(document.documentElement.clientWidth / 16);
-    let rows =  Math.floor(208 / 16);
-    let numOfDots = cols * rows;
+    const cols =  Math.floor(document.documentElement.clientWidth / 16);
+    const rows =  Math.floor(208 / 16);
+    const numOfDots = cols * rows;
+    const dotField = document.querySelector("#dot-field");
+    let dotArray = [];
     let opacity;
-
-    let dotField = document.querySelector("#dot-field");
 
     for(i = 0; i < numOfDots; i++){
         const d = document.createElement("div");
@@ -137,7 +139,6 @@ if(window.innerWidth > 820 && document.querySelector("html").scrollTop < 328){
         dotField.appendChild(d);
     }
 
-    let dotArray = [];
     document.querySelectorAll(".dot").forEach(dot => dotArray.push(dot));
 
     window.addEventListener("mousemove", (e) => UpdateDotField(e) );
