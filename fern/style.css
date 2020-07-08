@@ -24,9 +24,6 @@ canvas{
 	cursor: pointer;
 }
 
-
-
-
 .Button:hover, .Button:active{
 	background:#222;
 	color:whitesmoke;
