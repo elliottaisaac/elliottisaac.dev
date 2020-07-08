@@ -214,8 +214,9 @@ h1{
 }
 
 .workDesc{
-    padding:20px;
-    font-size: 18px;
+    padding:0px 20px;
+    font-size: 14px;
+    line-height: 100%;
     color: white;
     width: 100%;
     opacity: 0;
@@ -223,6 +224,7 @@ h1{
 }
 .featured{
     border-radius: 12px;
+    overflow: scroll;
 }
 .featured:hover .workDesc{
     opacity: 1;
