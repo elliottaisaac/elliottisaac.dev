@@ -55,7 +55,7 @@ if(window.innerWidth > 1240){
 if(document.querySelector("#typing") && document.querySelector("#typing").scrollTop > -100){
 
     // Note: for some frustrating reason this only works on apple browsers if 'var' is used to declare variables rather than the ES6 keywords
-    
+
     var Typing = document.querySelector("#typing");
     var copy, backspacing, TypedChars, backspaceTo, lag, lag2;
     var cycle = 0;
