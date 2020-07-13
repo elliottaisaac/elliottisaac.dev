@@ -280,6 +280,7 @@ footer{
 }
 #getCode:hover{
     opacity: 1 !important;
+    color: azure;
     background-color: #373449;;
 }
 
