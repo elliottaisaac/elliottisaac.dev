@@ -131,7 +131,6 @@ if(window.innerWidth > 820 && document.querySelector("html").scrollTop < 328){
     const numOfDots = cols * rows;
     const dotField = document.querySelector("#dot-field");
     let dotArray = [];
-    let opacity;
 
     for(i = 0; i < numOfDots; i++){
         const d = document.createElement("div");
@@ -148,7 +147,7 @@ if(window.innerWidth > 820 && document.querySelector("html").scrollTop < 328){
     function UpdateDotField(e){
         for(i = 0; i < dotArray.length; i++){
                 const distance = GetDistance(e.clientX, e.clientY, dotArray[i].getBoundingClientRect().left, dotArray[i].getBoundingClientRect().top);
-                opacity = (1 / (distance / 10)).toFixed(2);
+                const opacity = (1 / (distance / 10)).toFixed(2);
                 dotArray[i].style.opacity = opacity; 
         }        
     }
