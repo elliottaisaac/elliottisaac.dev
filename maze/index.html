@@ -1,0 +1,291 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <title>Decent Maze</title><meta charset="UTF-8">
+    </head>
+    <body></body>
+    <script>
+        const sizeInput = document.createElement("input");
+        sizeInput.type = "text";
+        sizeInput.id = "sizeInput";
+        sizeInput.placeholder = "size";
+        sizeInput.style = "border:2px solid black; font-weight:bold; font-family:monospace; font-size:2em; width:60px; text-align:center; margin-top:8px; display:block;";
+        document.querySelector("body").appendChild(sizeInput);
+
+        const build = document.createElement("button");
+        build.id = "buildBtn";
+        build.innerHTML = "Build Maze";
+        build.style = "margin-top:8px; display:block;";
+        document.querySelector("body").appendChild(build);
+
+        const show = document.createElement("button");
+        show.id = "show";
+        show.innerHTML = "Show Path";
+        show.style = "margin-top:8px; display:block;";
+        document.querySelector("body").appendChild(show);
+
+        const reset = document.createElement("button");
+        reset.id = "reset";
+        reset.innerHTML = "Reset";
+        reset.style = "margin-top:8px; display:block;";
+        document.querySelector("body").appendChild(reset);
+
+        const maze = document.createElement("div");
+        maze.id = "maze";
+        maze.style = "display:grid; grid-gap:0px; margin:-150px auto 100px auto; padding:48px 24px 12px 120px;";
+        document.querySelector("body").appendChild(maze);
+
+        let size;
+        if(localStorage.getItem("SIZE")) size = localStorage.getItem("SIZE");
+        else size = "50";
+        document.querySelector("#sizeInput").value = size;
+
+        document.querySelector("#buildBtn").addEventListener("click", () => {
+            size = document.querySelector("#sizeInput").value;
+            localStorage.setItem("SIZE", size);
+            location.reload();
+        });
+
+        document.querySelector("#reset").addEventListener("click", () => {
+            localStorage.clear();
+            location.reload();
+        });
+
+        BuildMaze(size);
+
+        function BuildMaze(size){
+            const maze = document.querySelector("#maze");
+            maze.style.width = `${20 * size}px`;
+            maze.style.height = `${20 * size}px`;
+            let edgeCells = [];
+
+            for(let i = 1; i <= size; i++){
+                maze.style.gridTemplateColumns += " 1fr";
+                maze.style.gridTemplateRows += " 1fr";
+                
+                for(let j = 1; j <= size; j++){
+                    let square = document.createElement("div");  
+                    square.style = `border:1px solid black; grid-row:${i}/span 1; grid-column:${j}/span 1; background-color:#fff;`;     
+                    square.className = "cell";        
+                    square.id = "cell" + parseInt(((i-1)*size) + j); 
+                    document.querySelector("#maze").appendChild(square); 
+
+                    if(i == 1 || i == size || square.id.substring(4, square.id.length) % size == 1 || square.id.substring(4, square.id.length) % size == 0){
+                        square.style.backgroundColor = "black";
+                        square.setAttribute("data-solid", "y");
+                        square.style.border = "none";
+                            if(i == 1){
+                                square.style.borderTop = "2px solid black";
+                                square.style.borderBottom = "1px solid black";
+                            }
+                            if(i == size){
+                                square.style.borderTop = "1px solid black";
+                                square.style.borderBottom = "2px solid black";
+                            }
+                            if(square.id.substring(4, square.id.length) % size == 1){
+                                square.style.borderRight = "1px solid black";  
+                                square.style.borderLeft = "2px solid black";
+                            }
+                            if(square.id.substring(4, square.id.length) % size == 0){
+                                square.style.borderLeft = "1px solid black";
+                                square.style.borderRight = "2px solid black";  
+                            }
+                        edgeCells.push(parseInt(square.id.substring(4, square.id.length)));
+                    } 
+                }
+            }
+
+            let startCell;
+            let endCell;
+            let startEdge;  
+            let color = "#9ea5ff";  
+            startCell = edgeCells[Math.floor(Math.random()*edgeCells.length)];
+            document.querySelector(`#cell${startCell}`).style.border = "none";
+            if(startCell <= size){
+                document.querySelector(`#cell${startCell + parseInt(size)}`).style.borderTop = "none";
+                startEdge = 1;
+            }
+            else if(startCell <= size*size && (startCell > size*(size-1))){
+                document.querySelector(`#cell${startCell - size}`).style.borderBottom = "none";
+                startEdge = 2;
+            }
+            else if(startCell % size == 1 && startCell != 1 && startCell != (size*(size-1)+1)){
+                document.querySelector(`#cell${startCell + 1}`).style.borderLeft = "none";
+                startEdge = 3;
+            }
+            else if(startCell % size == 0 && startCell > size){
+                document.querySelector(`#cell${startCell - 1}`).style.borderRight = "none";
+                startEdge = 4;
+            }
+            let endEdge = 0;
+            while(startEdge != endEdge){
+            endCell = edgeCells[Math.floor(Math.random()*edgeCells.length)];
+                if(endCell <= size){
+                    document.querySelector(`#cell${endCell + parseInt(size)}`).style.borderTop = "none";
+                    endEdge = 2;
+                }
+                else if(endCell <= size*size && endCell > size*(size-1)){
+                    document.querySelector(`#cell${endCell - size}`).style.borderBottom = "none";
+                    endEdge = 1;
+                }
+                else if(endCell % size == 1){
+                    document.querySelector(`#cell${endCell + 1}`).style.borderLeft = "none";
+                    endEdge = 4;
+                }
+                else if(endCell % size == 0){
+                    document.querySelector(`#cell${endCell - 1}`).style.borderRight = "none";
+                    endEdge = 3;
+                }
+            }
+            document.querySelector(`#cell${endCell}`).style.border = "none";
+            console.log(`start:${startCell} , end:${endCell}`);
+
+            let current = startCell;
+            let path = [startCell];
+            let next;
+            while(current != endCell){
+                if(path.length > (Math.pow(size,1.875))){
+                    location.reload();
+                    break;
+                }
+                else{
+                    next = FindPath(current, size, edgeCells, path);
+                    switch(next){
+                        case current - size:
+                            document.querySelector(`#cell${current}`).style.borderTop = "none";
+                            document.querySelector(`#cell${next}`).style.borderBottom = "none";
+                            break;
+                        case current + 1:
+                            document.querySelector(`#cell${current}`).style.borderRight = "none";
+                            document.querySelector(`#cell${next}`).style.borderLeft = "none";
+                            break;
+                        case current + size:
+                            document.querySelector(`#cell${current}`).style.borderBottom = "none";
+                            document.querySelector(`#cell${next}`).style.borderTop = "none";
+                            break;
+                        case current - 1:
+                            document.querySelector(`#cell${current}`).style.borderLeft = "none";
+                            document.querySelector(`#cell${next}`).style.borderRight = "none";
+                            break;
+                    }
+                    document.querySelector(`#cell${next}`).setAttribute("data-solid", "n");
+                    path.push(next);
+                    current = next;
+                }
+            }
+            console.log(path);
+            for(p = 0; p < path.length; p++){
+                document.querySelector(`#cell${path[p]}`).style.backgroundColor = "#fff";
+            }
+            
+            let shown = false;
+            document.querySelector("#show").addEventListener("click", () => {
+                if(shown == false){
+                    for(p = 0; p < path.length; p++){
+                        document.querySelector(`#cell${path[p]}`).style.backgroundColor = "#ffcccc";
+                    }
+                    document.querySelector("#show").innerHTML = "Hide Path";
+                    shown = true;
+                } 
+                else{
+                    for(p = 0; p < path.length; p++){
+                        document.querySelector(`#cell${path[p]}`).style.backgroundColor = "#fff";
+                    }
+                    document.querySelector("#show").innerHTML = "Show Path";
+                    shown = false;
+                }
+            });
+
+            document.querySelectorAll(".cell").forEach(cell => {
+                let nonedge = true;
+                let cellKey = parseInt(cell.id.substring(4, cell.id.length));
+                for(i = 0; i < edgeCells.length; i++){
+                    if(cellKey == edgeCells[i]){
+                        nonedge = false;
+                    }
+                }
+
+                if(nonedge == true){
+                    const random = Math.ceil(Math.random()*4);
+                    AddMazeNoise(random, cell, cellKey, size, "none");
+
+                    const random2 = Math.ceil(Math.random()*10);
+                    AddMazeNoise(random2, cell, cellKey, size, "none");
+
+                    if(cell.style.border == "none"){
+                        const random3 = Math.ceil(Math.random()*4);
+                        AddMazeNoise(random3, cell, cellKey, size, "1px solid black");
+                    }
+                }
+
+                if(cell.getAttribute("data-solid") != "y"){
+                    cell.addEventListener("mouseover", () => cell.style.backgroundColor = color);
+                    cell.addEventListener("click", () => cell.style.backgroundColor = "#fff");
+                }
+        
+                document.querySelector(`#cell${endCell}`).style.backgroundColor = color;
+                document.querySelector(`#cell${startCell}`).style.backgroundColor = color;
+                document.querySelector("body").style.backgroundColor = color;
+        });
+    }
+
+        function AddMazeNoise(random, cell, cellKey, size, style){
+            switch(random){
+                case 1:
+                    cell.style.borderTop = style;
+                    document.querySelector(`#cell${cellKey - size}`).style.borderBottom = style; 
+                    break;
+                case 2:
+                    cell.style.borderRight = style;
+                    document.querySelector(`#cell${cellKey + 1}`).style.borderLeft = style; 
+                    break;
+                case 3:
+                    cell.style.borderBottom = style;
+                    document.querySelector(`#cell${cellKey + parseInt(size)}`).style.borderTop = style;
+                    break;
+                case 4:
+                    cell.style.borderLeft = style;
+                    document.querySelector(`#cell${cellKey - 1}`).style.borderRight = style; 
+                    break;
+            }
+        }
+
+        function FindPath(current, size, edgeCells, path){
+            let nextCell;
+            let goodDirection = false;
+            while(goodDirection == false){
+                nextCell = ChooseDirection(current, size);
+                    if(nextCell < 1) goodDirection = false;
+                    else if(nextCell == path[path.length - 2]) goodDirection = false; 
+                    else if(nextCell > size*size) goodDirection = false;
+                    else if(current % size == 1 && nextCell % size == 0) goodDirection = false;
+                    else if(current % size == 0 && nextCell % size == 1) goodDirection = false;
+                    else if(current <= size && nextCell > (size * (size-1))) goodDirection = false;
+                    else if(current > (size * (size-1)) && nextCell <= size) goodDirection = false;
+                    else goodDirection =  true; 
+            }
+            return nextCell;
+        }
+
+        function ChooseDirection(currentCell, size){
+            const rand = Math.random();
+            const direction = Math.ceil(rand*4);
+            let nextCell;
+            switch(direction){
+                case 1:
+                    nextCell = parseInt(currentCell - size);
+                    break;
+                case 2:
+                    nextCell = parseInt(currentCell + 1);
+                    break;
+                case 3:
+                    nextCell = parseInt(currentCell + parseInt(size));
+                    break;
+                case 4:
+                    nextCell = parseInt(currentCell - 1);
+                    break;
+            }
+            return nextCell;
+        }
+    </script>
+</html>
