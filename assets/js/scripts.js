@@ -129,13 +129,12 @@ if(window.innerWidth > 820 && document.querySelector("html").scrollTop < 328){
     const cols =  Math.floor(document.documentElement.clientWidth / 16);
     const rows =  Math.floor(208 / 16);
     const numOfDots = cols * rows;
-    const dotField = document.querySelector("#dot-field");
     let dotArray = [];
 
     for(i = 0; i < numOfDots; i++){
         const d = document.createElement("div");
         d.classList.add("dot");
-        dotField.appendChild(d);
+        document.querySelector("#dot-field").appendChild(d);
         dotArray.push(d);
     }
 
