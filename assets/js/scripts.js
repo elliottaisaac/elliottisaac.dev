@@ -136,9 +136,8 @@ if(window.innerWidth > 820 && document.querySelector("html").scrollTop < 328){
         const d = document.createElement("div");
         d.classList.add("dot");
         dotField.appendChild(d);
+        dotArray.push(d);
     }
-
-    document.querySelectorAll(".dot").forEach(dot => dotArray.push(dot));
 
     window.addEventListener("mousemove", (e) => UpdateDotField(e) );
     dotField.addEventListener("click", (e) => UpdateDotField(e) );
