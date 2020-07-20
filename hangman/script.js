@@ -4,6 +4,8 @@ if(localStorage.getItem("WORD")) {
 	Word = localStorage.getItem("WORD"); 
 } 
 
+const canvas = document.querySelector("#hangcanvas");
+
 if(localStorage.getItem("REMOVEDGUESSES")){
 	RemovedGuesses = localStorage.getItem("REMOVEDGUESSES").split("");
 	localStorage.setItem("WRONGGUESSCOUNTER", localStorage.getItem("WRONGGUESSCOUNTER") - 1);
@@ -11,9 +13,7 @@ if(localStorage.getItem("REMOVEDGUESSES")){
 }
 else StartNewGame();
 
-const canvas = document.querySelector("#hangcanvas");
-
-function StartNewGame(){		
+function StartNewGame(){			
 		let Word = WordList[Math.floor(Math.random() * WordList.length)].toUpperCase();
 		console.log(Word);
 	
@@ -32,7 +32,8 @@ function StartNewGame(){
 		localStorage.setItem("REMOVEDGUESSES", "")
 	
 		HangMan(6);
-}
+  }
+
 
 function PlayHangmanRound(PlayerGuess){
 		let Word = localStorage.getItem("WORD");
