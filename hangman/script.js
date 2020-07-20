@@ -126,6 +126,7 @@ function HangMan(LifeCount){
 	}
 	
 	function hangBody(){
+		hangHead();
 		let body = canvas.getContext("2d");
 		body.beginPath();
 		body.moveTo(350, 175);
@@ -136,6 +137,7 @@ function HangMan(LifeCount){
 	}
 	
 	function hangLeftArm(){
+		hangBody();
 		let lArm = canvas.getContext("2d");
 		lArm.beginPath();
 		lArm.moveTo(350, 190);
@@ -146,6 +148,7 @@ function HangMan(LifeCount){
 	}
 	
 	function hangRightArm(){
+		hangLeftArm()
 		let rArm = canvas.getContext("2d");
 		rArm.beginPath();
 		rArm.moveTo(350, 190);
@@ -156,6 +159,7 @@ function HangMan(LifeCount){
 	}
 	
 	function hangLeftLeg(){
+		hangRightArm()
 		let lLeg = canvas.getContext("2d");
 		lLeg.beginPath();
 		lLeg.moveTo(350, 325);
@@ -166,6 +170,7 @@ function HangMan(LifeCount){
 	}
 
 	function hangRightLeg(){
+		hangLeftLeg()
 		let rLeg = canvas.getContext("2d");
 		rLeg.beginPath();
 		rLeg.moveTo(350, 325);
@@ -175,42 +180,17 @@ function HangMan(LifeCount){
 		rLeg.stroke();
 	}
 
-	if(LifeCount == "5"){
-		hangHead();
-	}
+	if(LifeCount == "5") hangHead();
 
-	if(LifeCount == "4"){
-		hangHead();
-		hangBody();
-	}
+	if(LifeCount == "4") hangBody();
 
-	if(LifeCount == "3"){
-		hangHead();
-		hangBody();
-		hangLeftArm();
-	}
+	if(LifeCount == "3") hangLeftArm();
 
-	if(LifeCount == "2"){
-		hangHead();
-		hangBody();
-		hangLeftArm();
-		hangRightArm();
-	}
-
-	if(LifeCount == "1"){
-		hangHead();
-		hangBody();
-		hangLeftArm();
-		hangRightArm();
-		hangLeftLeg();
-	}
+	if(LifeCount == "2") hangRightArm();
+	
+	if(LifeCount == "1") hangLeftLeg();
 
 	if(LifeCount == "0"){
-		hangHead();
-		hangBody();
-		hangLeftArm();
-		hangRightArm();
-		hangLeftLeg();
 		hangRightLeg();
 		const loser = "YOU LOSE";
 		document.getElementById("result").innerHTML = loser;
