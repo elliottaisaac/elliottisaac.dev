@@ -114,112 +114,113 @@ function HangMan(LifeCount){
 	noose.stroke();
 
 	function hangHead(){
-	let head = canvas.getContext("2d");
-	head.beginPath();
-	head.arc(350,125,50,0,2*Math.PI);
-	head.closePath;
-	head.lineWidth = 6;
-	head.strokeStyle = "darksalmon";
-	head.stroke();
-	head.fillStyle = "#ead9b6";
-	head.fill();
+		let head = canvas.getContext("2d");
+		head.beginPath();
+		head.arc(350,125,50,0,2*Math.PI);
+		head.closePath;
+		head.lineWidth = 6;
+		head.strokeStyle = "darksalmon";
+		head.stroke();
+		head.fillStyle = "#ead9b6";
+		head.fill();
 	}
 	
 	function hangBody(){
-	let body = canvas.getContext("2d");
-	body.beginPath();
-	body.moveTo(350, 175);
-	body.lineTo(350, 325);
-	body.lineWidth = 11;
-	body.strokeStyle = "orangered";
-	body.stroke();
+		let body = canvas.getContext("2d");
+		body.beginPath();
+		body.moveTo(350, 175);
+		body.lineTo(350, 325);
+		body.lineWidth = 11;
+		body.strokeStyle = "orangered";
+		body.stroke();
 	}
 	
 	function hangLeftArm(){
-	let lArm = canvas.getContext("2d");
-	lArm.beginPath();
-	lArm.moveTo(350, 190);
-	lArm.lineTo(275, 300);
-	lArm.lineWidth = 9;
-	lArm.strokeStyle = "orangered";
-	lArm.stroke();
+		let lArm = canvas.getContext("2d");
+		lArm.beginPath();
+		lArm.moveTo(350, 190);
+		lArm.lineTo(275, 300);
+		lArm.lineWidth = 9;
+		lArm.strokeStyle = "orangered";
+		lArm.stroke();
 	}
 	
 	function hangRightArm(){
-	let rArm = canvas.getContext("2d");
-	rArm.beginPath();
-	rArm.moveTo(350, 190);
-	rArm.lineTo(425, 300);
-	rArm.lineWidth = 9;
-	rArm.strokeStyle = "orangered";
-	rArm.stroke();
+		let rArm = canvas.getContext("2d");
+		rArm.beginPath();
+		rArm.moveTo(350, 190);
+		rArm.lineTo(425, 300);
+		rArm.lineWidth = 9;
+		rArm.strokeStyle = "orangered";
+		rArm.stroke();
 	}
 	
 	function hangLeftLeg(){
-	let lLeg = canvas.getContext("2d");
-	lLeg.beginPath();
-	lLeg.moveTo(350, 325);
-	lLeg.lineTo(250, 475);
-	lLeg.lineWidth = 10;
-	lLeg.strokeStyle = "whitesmoke";
-	lLeg.stroke();
+		let lLeg = canvas.getContext("2d");
+		lLeg.beginPath();
+		lLeg.moveTo(350, 325);
+		lLeg.lineTo(250, 475);
+		lLeg.lineWidth = 10;
+		lLeg.strokeStyle = "whitesmoke";
+		lLeg.stroke();
 	}
+
 	function hangRightLeg(){
-	let rLeg = canvas.getContext("2d");
-	rLeg.beginPath();
-	rLeg.moveTo(350, 325);
-	rLeg.lineTo(450, 475);
-	rLeg.lineWidth = 10;
-	rLeg.strokeStyle = "whitesmoke";
-	rLeg.stroke();
+		let rLeg = canvas.getContext("2d");
+		rLeg.beginPath();
+		rLeg.moveTo(350, 325);
+		rLeg.lineTo(450, 475);
+		rLeg.lineWidth = 10;
+		rLeg.strokeStyle = "whitesmoke";
+		rLeg.stroke();
 	}
 
 	if(LifeCount == "5"){
-	hangHead();
+		hangHead();
 	}
 
 	if(LifeCount == "4"){
-	hangHead();
-	hangBody();
+		hangHead();
+		hangBody();
 	}
 
 	if(LifeCount == "3"){
-	hangHead();
-	hangBody();
-	hangLeftArm();
+		hangHead();
+		hangBody();
+		hangLeftArm();
 	}
 
 	if(LifeCount == "2"){
-	hangHead();
-	hangBody();
-	hangLeftArm();
-	hangRightArm();
+		hangHead();
+		hangBody();
+		hangLeftArm();
+		hangRightArm();
 	}
 
 	if(LifeCount == "1"){
-	hangHead();
-	hangBody();
-	hangLeftArm();
-	hangRightArm();
-	hangLeftLeg();
+		hangHead();
+		hangBody();
+		hangLeftArm();
+		hangRightArm();
+		hangLeftLeg();
 	}
 
 	if(LifeCount == "0"){
-	hangHead();
-	hangBody();
-	hangLeftArm();
-	hangRightArm();
-	hangLeftLeg();
-	hangRightLeg();
-	const loser = "YOU LOSE";
-	document.getElementById("result").innerHTML = loser;
-	let Word = localStorage.getItem("WORD");	
-	document.querySelector("#mysteryBox").innerHTML = Word;
-	document.querySelector("#googleIt").style.display = "inline-block";
-		
-	document.querySelectorAll(".letter").forEach(letter => {
-		letter.disabled = true;
-	});
+		hangHead();
+		hangBody();
+		hangLeftArm();
+		hangRightArm();
+		hangLeftLeg();
+		hangRightLeg();
+		const loser = "YOU LOSE";
+		document.getElementById("result").innerHTML = loser;
+		let Word = localStorage.getItem("WORD");	
+		document.querySelector("#mysteryBox").innerHTML = Word;
+		document.querySelector("#googleIt").style.display = "inline-block";
+			
+		document.querySelectorAll(".letter").forEach(letter => {
+			letter.disabled = true;
+		});
 	}
 }
 
