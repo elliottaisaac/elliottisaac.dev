@@ -147,7 +147,7 @@ function HangMan(LifeCount){
 	body.moveTo(350, 175);
 	body.lineTo(350, 325);
 	body.lineWidth = 11;
-	body.strokeStyle = "green";
+	body.strokeStyle = "orangered";
 	body.stroke();
 	}
 	
@@ -157,7 +157,7 @@ function HangMan(LifeCount){
 	lArm.moveTo(350, 190);
 	lArm.lineTo(275, 300);
 	lArm.lineWidth = 9;
-	lArm.strokeStyle = "green";
+	lArm.strokeStyle = "orangered";
 	lArm.stroke();
 	}
 	
@@ -167,7 +167,7 @@ function HangMan(LifeCount){
 	rArm.moveTo(350, 190);
 	rArm.lineTo(425, 300);
 	rArm.lineWidth = 9;
-	rArm.strokeStyle = "green";
+	rArm.strokeStyle = "orangered";
 	rArm.stroke();
 	}
 	
@@ -177,7 +177,7 @@ function HangMan(LifeCount){
 	lLeg.moveTo(350, 325);
 	lLeg.lineTo(250, 475);
 	lLeg.lineWidth = 10;
-	lLeg.strokeStyle = "#0c315b";
+	lLeg.strokeStyle = "whitesmoke";
 	lLeg.stroke();
 	}
 	function hangRightLeg(){
@@ -186,7 +186,7 @@ function HangMan(LifeCount){
 	rLeg.moveTo(350, 325);
 	rLeg.lineTo(450, 475);
 	rLeg.lineWidth = 10;
-	rLeg.strokeStyle = "#0c315b";
+	rLeg.strokeStyle = "whitesmoke";
 	rLeg.stroke();
 	}
 
