@@ -114,7 +114,7 @@ document.querySelectorAll(".letter").forEach(letter => {
 
 function HangMan(LifeCount){
 	let gallows = canvas.getContext("2d");
-	gallows.moveTo(190, 545);
+	gallows.moveTo(190, 555);
 	gallows.lineTo(190, 25)
 	gallows.lineTo(350, 25);
 	gallows.lineWidth = 15;
