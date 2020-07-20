@@ -9,6 +9,7 @@ if(localStorage.getItem("REMOVEDGUESSES")){
 	localStorage.setItem("WRONGGUESSCOUNTER", localStorage.getItem("WRONGGUESSCOUNTER") - 1);
 	PlayHangmanRound("");
 }
+else StartNewGame();
 
 const canvas = document.querySelector("#hangcanvas");
 
@@ -31,9 +32,7 @@ function StartNewGame(){
 		localStorage.setItem("REMOVEDGUESSES", "")
 	
 		HangMan(6);
-  }
-
-if(!localStorage.getItem("REMOVEDGUESSES"))StartNewGame();
+}
 
 function PlayHangmanRound(PlayerGuess){
 		let Word = localStorage.getItem("WORD");
