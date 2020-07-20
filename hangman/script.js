@@ -32,7 +32,7 @@ function StartNewGame(){
 		localStorage.setItem("REMOVEDGUESSES", "")
 	
 		HangMan(6);
-  }
+}
 
 
 function PlayHangmanRound(GuessedLetter){
@@ -70,7 +70,6 @@ function PlayHangmanRound(GuessedLetter){
 		RemovedGuesses += GuessedLetter;
 		RemovedGuesses.replace(/,/g,"");
 		localStorage.setItem("REMOVEDGUESSES", RemovedGuesses);
-	
 		RemovedGuesses = RemovedGuesses.split("");
 	
 		RemovedGuesses.forEach(L => {
@@ -87,7 +86,7 @@ function PlayHangmanRound(GuessedLetter){
 		}
 	
 		HangMan(LifeCount);			
- 	}	
+}	
 
 
 document.querySelectorAll(".letter").forEach(letter => {
