@@ -8789,10 +8789,10 @@ h1 {
   background-position: center;
   background-repeat: no-repeat;
   background-color: transparent;
-  -webkit-transition: background-color 0.75s ease-out, opacity 0.5s ease-in-out, -webkit-transform 0.75s ease-in-out;
-  transition: background-color 0.75s ease-out, opacity 0.5s ease-in-out, -webkit-transform 0.75s ease-in-out;
-  transition: background-color 0.75s ease-out, transform 0.75s ease-in-out, opacity 0.5s ease-in-out;
-  transition: background-color 0.75s ease-out, transform 0.75s ease-in-out, opacity 0.5s ease-in-out, -webkit-transform 0.75s ease-in-out;
+  -webkit-transition: background-color 0.25s ease-out, opacity 0.2s ease-in-out, -webkit-transform 0.25s ease-in-out;
+  transition: background-color 0.25s ease-out, opacity 0.2s ease-in-out, -webkit-transform 0.25s ease-in-out;
+  transition: background-color 0.25s ease-out, transform 0.25s ease-in-out, opacity 0.2s ease-in-out;
+  transition: background-color 0.25s ease-out, transform 0.25s ease-in-out, opacity 0.2s ease-in-out, -webkit-transform 0.25s ease-in-out;
   opacity: 1;
   width: 99.5%;
 }
@@ -9609,8 +9609,8 @@ h2 {
   width: 566px;
   margin-bottom: 30px;
   background-color: transparent;
-  -webkit-transition: background-color 0.75s ease-out;
-  transition: background-color 0.75s ease-out;
+  -webkit-transition: background-color 0.25s ease-out;
+  transition: background-color 0.25s ease-out;
 }
 
 @media print, screen and (min-width: 40em) and (max-width: 80.99875em) {
@@ -10081,8 +10081,8 @@ h2 {
   background-repeat: no-repeat;
   height: calc(20rem - 30px);
   width: calc(20rem - 30px);
-  -webkit-transition: background-color 0.25s ease-out;
-  transition: background-color 0.25s ease-out;
+  -webkit-transition: background-color 0.2s ease-out;
+  transition: background-color 0.2s ease-out;
 }
 
 .highlightableImage:hover {
@@ -10632,7 +10632,7 @@ h1 {
   background-position: center;
   background-repeat: no-repeat;
   background-color: transparent;
-  transition: background-color 0.75s ease-out, transform 0.75s ease-in-out, opacity 0.5s ease-in-out;
+  transition: background-color 0.25s ease-out, transform 0.25s ease-in-out, opacity 0.2s ease-in-out;
   opacity: 1;
   width: 99.5%;
 }
@@ -11342,7 +11342,7 @@ h2 {
   width: 566px;
   margin-bottom: 30px;
   background-color: transparent;
-  transition: background-color 0.75s ease-out;
+  transition: background-color 0.25s ease-out;
 }
 
 @media only screen and (max-width: 800px) {
