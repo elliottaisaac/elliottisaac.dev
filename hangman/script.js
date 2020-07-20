@@ -35,7 +35,7 @@ function StartNewGame(){
   }
 
 
-function PlayHangmanRound(PlayerGuess){
+function PlayHangmanRound(GuessedLetter){
 		let Word = localStorage.getItem("WORD");
 		let BlankWord = localStorage.getItem("BLANKWORD");
 		let WrongGuessCounter = localStorage.getItem("WRONGGUESSCOUNTER");
@@ -43,7 +43,6 @@ function PlayHangmanRound(PlayerGuess){
 		let IsGoodGuess = null;
 		let HangArray = Word.split("");
 		let BlankArray = BlankWord.split("");
-		let GuessedLetter = PlayerGuess;
 
 		for (let i = 0; i < BlankWord.length; i++){
 			if (HangArray[i] == GuessedLetter){
