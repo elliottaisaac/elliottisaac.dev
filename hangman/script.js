@@ -3,11 +3,9 @@
 const canvas = document.querySelector("#hangcanvas");
 
 if(localStorage.getItem("REMOVEDGUESSES")){
-	RemovedGuesses = localStorage.getItem("REMOVEDGUESSES");
-	RemovedGuesses = RemovedGuesses.split("");
+	RemovedGuesses = localStorage.getItem("REMOVEDGUESSES").split("");
 	localStorage.setItem("WRONGGUESSCOUNTER", localStorage.getItem("WRONGGUESSCOUNTER") - 1);
 	PlayHangmanRound("");
-	
 }
 
 if(localStorage.getItem("WORD")) {
