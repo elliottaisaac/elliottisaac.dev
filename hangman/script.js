@@ -1,6 +1,8 @@
 // JavaScript Document
 
-const canvas = document.querySelector("#hangcanvas");
+if(localStorage.getItem("WORD")) {
+	Word = localStorage.getItem("WORD"); 
+} 
 
 if(localStorage.getItem("REMOVEDGUESSES")){
 	RemovedGuesses = localStorage.getItem("REMOVEDGUESSES").split("");
@@ -8,38 +10,24 @@ if(localStorage.getItem("REMOVEDGUESSES")){
 	PlayHangmanRound("");
 }
 
-if(localStorage.getItem("WORD")) {
-	Word = localStorage.getItem("WORD"); 
-} 
-
+const canvas = document.querySelector("#hangcanvas");
 
 function StartNewGame(){		
-		let rand = Math.random();
-		
-		let Word = WordList[Math.floor(rand * WordList.length)];
-		Word = Word.toUpperCase();
+		let Word = WordList[Math.floor(Math.random() * WordList.length)].toUpperCase();
 		console.log(Word);
 	
-		if(localStorage.getItem("REMOVEDGUESSES")){RemovedGuesses = localStorage.getItem("REMOVEDGUESSES");}
-		else{
-			RemovedGuesses = "";
-		}
+		if(localStorage.getItem("REMOVEDGUESSES")) RemovedGuesses = localStorage.getItem("REMOVEDGUESSES");
+		else RemovedGuesses = "";
 
 		let BlankWord = "";
-
-		for (let i = 0; i < Word.length; i++){
-			BlankWord += "_"; 
-		}
+		for (let i = 0; i < Word.length; i++) BlankWord += "_"; 
 	
 		const mystery = document.querySelector("#mysteryBox");
 		mystery.innerHTML = BlankWord;
 		
 		localStorage.setItem("WORD", Word);
-	
 		localStorage.setItem("WRONGGUESSCOUNTER", 0);
-
 		localStorage.setItem("BLANKWORD", BlankWord);
-		
 		localStorage.setItem("REMOVEDGUESSES", "")
 	
 		HangMan(6);
