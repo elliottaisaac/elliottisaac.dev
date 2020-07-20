@@ -165,8 +165,7 @@ h1{
 }
 
 #cursor{
-    font-size: 88px;
-    transform: translateY(20px);
+    transform: translateY(48px);
 }
 
 .upper{
