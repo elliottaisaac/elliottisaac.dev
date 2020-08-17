@@ -171,5 +171,9 @@ canvas{
 	.letter{
 		-webkit-appearance: none;
 		border-radius: 0px;
+		text-align: center;
+		margin-left: auto;
+		margin-right: auto;
+	}
 	}
 }
