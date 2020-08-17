@@ -167,4 +167,9 @@ canvas{
 		grid-row: 3/4;
 		grid-column: 1/2;
 	}
+
+	.letter{
+		-webkit-appearance: none;
+		border-radius: 0px;
+	}
 }
