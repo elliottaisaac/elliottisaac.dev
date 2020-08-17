@@ -78,7 +78,8 @@ function PlayHangmanRound(GuessedLetter){
 		});
 	
 		if (Word == BlankWord && WrongGuessCounter < 6){
-		   document.getElementById("result").innerHTML = "YOU WIN!";
+		   document.getElementById("guessBox").innerHTML = "YOU WIN!";
+		   document.getElementById("guessBox").style = "color:ghostwhite; font-size:3.875em; padding:18px 12px;";
 		   
 		   document.querySelectorAll(".letter").forEach(letter => {
 			  letter.disabled = true;
@@ -193,7 +194,8 @@ function HangMan(LifeCount){
 	if(LifeCount == "0"){
 		hangRightLeg();
 		const loser = "YOU LOSE";
-		document.getElementById("result").innerHTML = loser;
+		document.getElementById("guessBox").innerHTML = `${loser}`;
+		document.getElementById("guessBox").style = "color:ghostwhite; font-size:3.875em; padding:18px 12px;";
 		let Word = localStorage.getItem("WORD");	
 		document.querySelector("#mysteryBox").innerHTML = Word;
 		document.querySelector("#googleIt").style.display = "inline-block";

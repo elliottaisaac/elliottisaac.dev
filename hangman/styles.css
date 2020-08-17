@@ -124,10 +124,10 @@ canvas{
 	width: 44px;
 	transform: translateY(-36px);
 	padding: 4px 12px;
-	cursor: pointer;
 	float: right;
 	margin-right: 33%;
 	text-align: center;
+	cursor: pointer !important;
 }
 #googleIt:hover{
 	font-size: 8px;
