@@ -1,0 +1,18 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<title>Line Break Remover</title>
+    </head>
+    <body>
+        <input type="text" rows="4" cols="50" style="width:100vw;">
+        <div style="margin-top:24px;"></div>
+
+        <script>
+            document.querySelector("input").addEventListener("keyup", () => {
+                let newText =  document.querySelector("input").value.replace(/(\r\n|\n|\r)/gm, "");
+                document.querySelector("div").innerHTML = newText;
+            });
+        </script>
+    <body>
+</html>
