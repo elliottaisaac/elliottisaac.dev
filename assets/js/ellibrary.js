@@ -12,7 +12,7 @@ function qsA(selector){
  
 function AEL(element, event, Function){
     if(typeof element === 'string' || element instanceof String){
-        qs(selector).addEventListener(event, (e) => {
+        qs(element).addEventListener(event, (e) => {
             Function();
         });
     }
