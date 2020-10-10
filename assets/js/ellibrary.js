@@ -6,7 +6,7 @@ function qs(selector){
     return querySelector;
  }
 
- //Query Selector All
+//Query Selector All
 function qsa(selector){
     let querySelectorAll = document.querySelectorAll(selector);
     return querySelectorAll;
