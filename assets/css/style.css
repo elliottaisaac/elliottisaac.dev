@@ -35,6 +35,16 @@ ul li{
     color:#cc3333 !important;
 } 
 
+#barMenu li a:hover{
+    color: #fefefe !important;
+}
+
+
+#barMenu li a:hover{
+    color: #cc3333 !important;
+    transition: none;
+}
+
 .logo{
     height: 48px;
 }
