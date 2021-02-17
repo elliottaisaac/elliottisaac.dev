@@ -55,6 +55,7 @@ ul li{
 
 h1{
     margin-top: 88px;
+    color: Pl
 }
 
 .workImgHeader {
@@ -287,6 +288,20 @@ footer{
     background-color: #373449;;
 }
 
+.certs{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    margin-left: 6%;
+    width: 50%;
+    transform: translateY(-300px);
+  }
+
+  .certs a{
+      margin-bottom: 24px;
+      margin-right: 24px;
+  }
+
 
 @media only screen and (min-width:801px){
     .portfolioSectionHeader{
@@ -518,6 +533,13 @@ footer{
         line-height: 100%;
         padding: 12px;
         margin-left: 0px !important;
+    }
+
+    .certs {
+        justify-content: center;
+        margin-left: 0%;
+        width: 100%;
+        transform: translateY(-200px);
     }
 }
 
