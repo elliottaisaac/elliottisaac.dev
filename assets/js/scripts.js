@@ -155,41 +155,41 @@ if(window.innerWidth > 820 && document.querySelector("html").scrollTop < 328){
         return Math.sqrt(Math.pow(x2 - x1, 2) + Math.pow(y2 - y1, 2));
     }
    
-    function Blob(e){
-        let blob = document.querySelector(".blob");
-        let br = 50;
-        let s = 200;
-        blob.style.left = e.clientX + "px";
-        blob.style.top = e.clientY + "px";
+    // function Blob(e){
+    //     let blob = document.querySelector(".blob");
+    //     let br = 50;
+    //     let s = 200;
+    //     blob.style.left = e.clientX + "px";
+    //     blob.style.top = e.clientY + "px";
 
 
-        setInterval( () => {
-            blob.style.borderRadius = "50% 50% 50% 50% ";
-            let rd = Math.random();
+    //     setInterval( () => {
+    //         blob.style.borderRadius = "50% 50% 50% 50% ";
+    //         let rd = Math.random();
           
-            let sr = Math.random();
-            let c = Math.floor(Math.random()*4);
-            console.log(c);
-            if(rd > 0.5) br+= 5;
-            else br-= 5;
-            if(sr > 0.5) s+= 1;
-            else s-= 1;
-            switch(c){
-                case 0:
-                    blob.style.borderTopLeftRadius = br + "% "; break;
-                case 1:
-                    blob.style.borderTopRightRadius = br + "% "; break;
-                case 2:
-                    blob.style.borderBottomRightRadius = br + "% "; break;
-                case 3:
-                    blob.style.borderBottomLeftRadius = br + "% "; break;
-            }
+    //         let sr = Math.random();
+    //         let c = Math.floor(Math.random()*4);
+    //         console.log(c);
+    //         if(rd > 0.5) br+= 5;
+    //         else br-= 5;
+    //         if(sr > 0.5) s+= 1;
+    //         else s-= 1;
+    //         switch(c){
+    //             case 0:
+    //                 blob.style.borderTopLeftRadius = br + "% "; break;
+    //             case 1:
+    //                 blob.style.borderTopRightRadius = br + "% "; break;
+    //             case 2:
+    //                 blob.style.borderBottomRightRadius = br + "% "; break;
+    //             case 3:
+    //                 blob.style.borderBottomLeftRadius = br + "% "; break;
+    //         }
 
-            blob.style.height = s + "px";
-            blob.style.width = s + "px";
-        }, 4000);    
-    }
-    window.addEventListener("mousemove", (e) => Blob(e) );
+    //         blob.style.height = s + "px";
+    //         blob.style.width = s + "px";
+    //     }, 4000);    
+    // }
+    // window.addEventListener("mousemove", (e) => Blob(e) );
    
 }
 //----------------------------------------------------------------------------------------->
