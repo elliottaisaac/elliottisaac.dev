@@ -10825,6 +10825,10 @@ h1 {
   grid-row: 6/7;
   grid-column: 1/2; }
 
+.featured:nth-of-type(10) {
+  grid-row: 6/7;
+  grid-column: 2/3; }
+
 #typing {
   font-size: 88px;
   font-family: var(--primary-font) !important;
@@ -11091,10 +11095,6 @@ footer {
   #F3 {
     height: 200px !important; }
 
-  .featured:nth-of-type(9) {
-    grid-row: 10/11;
-    grid-column: 1/2; }
-
   .featured {
     border: 2px solid #0031FF;
     border-radius: 24px;
@@ -11234,3 +11234,10 @@ footer {
   #aboutMe {
     margin-left: 12% !important;
     font-size: 24px; } }
+.blob {
+  height: 200px;
+  width: 200px;
+  border-radius: 50%;
+  position: absolute;
+  background-color: orange;
+  transition: all 0.1s linear; }

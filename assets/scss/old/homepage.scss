@@ -1,3 +1,4 @@
+@import "_settings.scss";
 
 html {
     scroll-behavior: smooth;
@@ -162,7 +163,6 @@ h1{
         grid-row: 8/9;
         grid-column: 1/2;
     }
-
 }
 
 
