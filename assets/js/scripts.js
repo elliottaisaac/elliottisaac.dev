@@ -214,7 +214,7 @@ function Blob(blobElement, size, top, left){
         blob.style.left = lf + "vw";
         blob.style.height = sh + "px";
         blob.style.width = sw + "px";
-    }, 1);    
+    }, 5);    
 }
 
 if(window.innerWidth > 820){
