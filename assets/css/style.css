@@ -11244,12 +11244,6 @@ footer {
   z-index: 0;
   opacity: 0.375; }
 
-.blob.blob2 {
-  background-color: var(--navy); }
-
-.blob.blob3 {
-  background-color: var(--white); }
-
 .grid-container {
   position: relative;
   z-index: 1;

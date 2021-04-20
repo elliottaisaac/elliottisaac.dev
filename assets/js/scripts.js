@@ -156,17 +156,23 @@ if(window.innerWidth > 820 && document.querySelector("html").scrollTop < 328){
     }
 
 }
+//----------------------------------------------------------------------------------------->
+//----------------------------------------------------------------------------------------->
+//----------------------------------------------------------------------------------------->
 
 
-function Blob(blobElement){
+//----------------------------------------------------------------------------------------->
+// floating blob -------------------------------------------------------------------------------->
+//----------------------------------------------------------------------------------------->
+function Blob(blobElement, size, top, left){
     let blob = blobElement;
     let br = 50;
-    let sh = 500;
-    let sw = 500;
-    let tp = 2600;
-    let lf = 40;
+    let sh = size;
+    let sw = size;
+    let tp = top;
+    let lf = left;
     let rd,t,l,sr,c;
-    setInterval( () => {
+    let blobInt = setInterval( () => {
         rd = Math.random();
         t = Math.random();
         l = Math.random();
@@ -186,13 +192,14 @@ function Blob(blobElement){
         else lf-= 0.25;
         if(br > 100) br = 50;
         else if(br <= 20) br = 70; 
-        if(tp <= 2300) tp = 2500;
-        if(lf >= 80) lf = 10; 
-        if(lf <= 0) lf = 50; 
-        if(sh < 100) sh = 400;
-        if(sw < 100) sw = 400;
-        if(sh > 800) sh = 400;
-        if(sw > 800) sw = 400;
+        if(tp <= top - 300) tp = top;
+        if(tp <= top + 300) tp = top;
+        if(lf >= 90) lf = 50; 
+        if(lf <= 10) lf = 50; 
+        if(sh < size/4) sh = size;
+        if(sw < size/4) sw = size;
+        if(sh > size*2) sh = size;
+        if(sw > size*2) sw = size;
         switch(c){
             case 0:
                 blob.style.borderTopLeftRadius = br + "% "; break;
@@ -208,18 +215,11 @@ function Blob(blobElement){
         blob.style.height = sh + "px";
         blob.style.width = sw + "px";
     }, 1);    
-
-    // blob.addEventListener("mouseover", () => {
-    //     blob.style.zIndex= "0";
-    //     setTimeout( () => {
-    //         blob.style.zIndex= "2";
-    //     }, 3000);  
-    // });
-
 }
 
   
-Blob(document.querySelector(".blob"));
+Blob(document.querySelector(".botblob"), 400, 2600, 40);
+Blob(document.querySelector(".topblob"), 200, 300, 20);
 //----------------------------------------------------------------------------------------->
 //----------------------------------------------------------------------------------------->
 //----------------------------------------------------------------------------------------->
