@@ -36,10 +36,6 @@ ul li{
     color:#cc3333 !important;
 } 
 
-#barMenu li a:hover{
-    color: #fefefe !important;
-}
-
 
 #barMenu li a:hover{
     color: #cc3333 !important;
@@ -48,10 +44,11 @@ ul li{
 
 .logo{
     height: 48px;
-}
-.logo:hover{
-    background-color: #cc3333;
-    border-radius: 50%;
+
+    &:hover{
+        background-color: #cc3333;
+        border-radius: 50%;
+    }
 }
 
 h1{
@@ -105,7 +102,7 @@ h1{
 }
 
 #me{
-    border-radius: 50%;
+    border-radius: 50% 60% 40% 70%;
     width: 140px;
     height: 140px;
     top: -160px;
@@ -215,9 +212,10 @@ h1{
     border-bottom-left-radius: 24px;
     border-top: 2px solid var(--white);
     transform:translateY(-160px);
-}
-#resume-btn:hover{
-    background-color:#cc3333;
+
+    &:hover{
+        background-color:#cc3333;
+    }
 }
 
 #aboutMe{
@@ -305,16 +303,33 @@ footer{
 .certs{
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-evenly;
-    margin-left: 6%;
-    width: 50%;
+    justify-content: center;
+    width: 100%;
     transform: translateY(-300px);
+
+    a:not(p a){
+        margin-bottom: 24px;
+        margin-right: 24px;
+    }
+
+    p{
+        width: 100%;
+        text-align: center;
+        margin:auto auto 28px auto !important;
+
+        a{
+            color: var(--white) !important;
+        }
+    }
+
+    @media only screen and (max-width:1200px){
+        transform: translateY(-200px);
+        margin-left: 10% !important;
+    }
+
   }
 
-  .certs a{
-      margin-bottom: 24px;
-      margin-right: 24px;
-  }
+
 
 
 @media only screen and (min-width:801px){
