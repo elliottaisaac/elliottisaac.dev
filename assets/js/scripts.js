@@ -154,44 +154,72 @@ if(window.innerWidth > 820 && document.querySelector("html").scrollTop < 328){
     function GetDistance(x1, y1, x2, y2){
         return Math.sqrt(Math.pow(x2 - x1, 2) + Math.pow(y2 - y1, 2));
     }
-   
-    // function Blob(e){
-    //     let blob = document.querySelector(".blob");
-    //     let br = 50;
-    //     let s = 200;
-    //     blob.style.left = e.clientX + "px";
-    //     blob.style.top = e.clientY + "px";
 
-
-    //     setInterval( () => {
-    //         blob.style.borderRadius = "50% 50% 50% 50% ";
-    //         let rd = Math.random();
-          
-    //         let sr = Math.random();
-    //         let c = Math.floor(Math.random()*4);
-    //         console.log(c);
-    //         if(rd > 0.5) br+= 5;
-    //         else br-= 5;
-    //         if(sr > 0.5) s+= 1;
-    //         else s-= 1;
-    //         switch(c){
-    //             case 0:
-    //                 blob.style.borderTopLeftRadius = br + "% "; break;
-    //             case 1:
-    //                 blob.style.borderTopRightRadius = br + "% "; break;
-    //             case 2:
-    //                 blob.style.borderBottomRightRadius = br + "% "; break;
-    //             case 3:
-    //                 blob.style.borderBottomLeftRadius = br + "% "; break;
-    //         }
-
-    //         blob.style.height = s + "px";
-    //         blob.style.width = s + "px";
-    //     }, 4000);    
-    // }
-    // window.addEventListener("mousemove", (e) => Blob(e) );
-   
 }
+
+
+function Blob(blobElement){
+    let blob = blobElement;
+    let br = 50;
+    let sh = 500;
+    let sw = 500;
+    let tp = 2600;
+    let lf = 40;
+    let rd,t,l,sr,c;
+    setInterval( () => {
+        rd = Math.random();
+        t = Math.random();
+        l = Math.random();
+        shr = Math.random();
+        swr = Math.random();
+        c = Math.floor(Math.random()*4);
+        if(rd > 0.5) br+= 1;
+        else br-= 1;
+        if(shr > 0.5) sh+= 1;
+        else sh-= 1;
+        if(swr > 0.5) sw+= 1;
+        else sw-= 1;
+        c = Math.floor(Math.random()*4);
+        if(t > 0.5) tp+= 0.5;
+        else tp-= 0.5;
+        if(l > 0.5) lf+= 0.25;
+        else lf-= 0.25;
+        if(br > 100) br = 50;
+        else if(br <= 20) br = 70; 
+        if(tp <= 2300) tp = 2500;
+        if(lf >= 80) lf = 10; 
+        if(lf <= 0) lf = 50; 
+        if(sh < 100) sh = 400;
+        if(sw < 100) sw = 400;
+        if(sh > 800) sh = 400;
+        if(sw > 800) sw = 400;
+        switch(c){
+            case 0:
+                blob.style.borderTopLeftRadius = br + "% "; break;
+            case 1:
+                blob.style.borderTopRightRadius = br + "% "; break;
+            case 2:
+                blob.style.borderBottomRightRadius = br + "% "; break;
+            case 3:
+                blob.style.borderBottomLeftRadius = br + "% "; break;
+        }
+        blob.style.top = tp + "px";
+        blob.style.left = lf + "vw";
+        blob.style.height = sh + "px";
+        blob.style.width = sw + "px";
+    }, 1);    
+
+    // blob.addEventListener("mouseover", () => {
+    //     blob.style.zIndex= "0";
+    //     setTimeout( () => {
+    //         blob.style.zIndex= "2";
+    //     }, 3000);  
+    // });
+
+}
+
+  
+Blob(document.querySelector(".blob"));
 //----------------------------------------------------------------------------------------->
 //----------------------------------------------------------------------------------------->
 //----------------------------------------------------------------------------------------->

@@ -10796,7 +10796,9 @@ h1 {
 
 #lowerText {
   margin-top: 48px;
-  margin-bottom: -60px; }
+  margin-bottom: -60px;
+  position: relative;
+  z-index: 2; }
 
 #projWork::before, #profWork::before {
   content: "";
@@ -11235,9 +11237,20 @@ footer {
     margin-left: 12% !important;
     font-size: 24px; } }
 .blob {
-  height: 200px;
-  width: 200px;
   border-radius: 50%;
   position: absolute;
-  background-color: orange;
-  transition: all 0.1s linear; }
+  background-color: #cc3333;
+  transition: all 0.5s linear;
+  z-index: 0;
+  opacity: 0.375; }
+
+.blob.blob2 {
+  background-color: var(--navy); }
+
+.blob.blob3 {
+  background-color: var(--white); }
+
+.grid-container {
+  position: relative;
+  z-index: 1;
+  overflow: hidden; }
