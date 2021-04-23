@@ -58,12 +58,39 @@ h1{
 
 .workImgHeader {
     font-family: var(--primary-font) !important;
+
+    &.drk{
+        @media (min-width:801px){
+            color: var(--black);
+        }
+    }
 }
 
-.featured:hover {
-    background-color: #0031FF;
-    filter:none;
-    box-shadow:  gray 0px 0px 10px 2px;
+.featured{
+    &:hover{
+        background-color: #0031FF;
+        filter:none;
+        box-shadow:  gray 0px 0px 10px 2px;
+    
+        .drk{
+            color: var(--white);
+        }
+    }
+
+    &.alnRgt{
+        text-align: right;
+
+        .workImgHeader{
+            padding-right: 20px;
+        }
+    }
+
+    &.dsx{
+        border: 4px solid #4cc0ad;
+        border-top-width: 0px;
+        border-left-width: 1px;
+        border-bottom-width: 2px;
+    }
  }
 
  .prof:hover {

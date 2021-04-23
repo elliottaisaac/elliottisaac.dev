@@ -1,0 +1,303 @@
+<!doctype html>
+<html lang="en" id="doc">
+  <head>
+    <meta name="description" content="Elliott Isaac's online portfolio">
+    <meta name="keywords" content="Elliott Isaac, Elliot Isaac">
+    <meta name="author" content="Elliott Isaac">
+    <meta charset="utf-8" />
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Triangle Machine</title>
+    <link rel="shortcut icon" type="image/x-icon" href="assets/img/favicon.png"/>
+    <link rel="stylesheet" href="https://use.typekit.net/xgo4dvr.css">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <style>
+        canvas {
+        transform: scaleY(-1);
+        }
+        body {
+        background-color: #20262e;
+        color: azure;
+        font-family: sans-serif;
+        }
+        input {
+        font-size: 1.7em;
+        font-weight: bold;
+        text-align: center;
+        width: 100%;
+        background-color: transparent;
+        color: ghostwhite;
+        border: 2px solid white;
+        }
+        input[type="text"] {
+        height: 36px;
+        width: 200px;
+        display: inline;
+        border-width: 0;
+        border-bottom-width: 3px;
+        background: #323b47;
+        margin: -24px calc(50% - 100px) 6px;
+        outline: none;
+        }
+        input[type="text"]::after {
+        content: "px";
+        color: #fff;
+        height: 32px;
+        background: red;
+        width: 50px;
+        }
+        #side1slider,
+        #side2slider,
+        #side3slider {
+        width: 100%;
+        }
+        #error {
+        color: mediumvioletred;
+        font-size: 1.02em;
+        position: absolute;
+        right: 32px;
+        top: -15px;
+        font-weight: bold;
+        font-family: monospace;
+        font-size: 150%;
+        }
+        #inputBox {
+            border: 3px solid ghostwhite;
+            padding: 10px;
+            border-radius: 5px;
+            box-shadow: 3px 3px 3px #333;
+            background-color: transparent;
+            margin-bottom: 60px;
+        }
+        #home-section {
+        position: relative;
+        top: 100px;
+        }
+        #output {
+        display: flex;
+        justify-content: flex-end;
+        }
+        #inputBox p {
+        color: azure;
+        }
+        label {
+        display: inline;
+        margin: auto calc(50% - 100px) 16px;
+        position: relative;
+        top: 24px;
+        right: -212px;
+        font-weight: bold;
+        height: 36px;
+        color: azure;
+        font-family: monospace;
+        }
+        .px {
+        top: -30px;
+        left: 181px;
+        color: #fff;
+        font-family: sans-serif;
+        font-style: italic;
+        font-size: 90%;
+        opacity: 65%;
+        }
+        .pxs {
+        font-size: 75%;
+        padding-left: 2px;
+        letter-spacing: -1px;
+        }
+        #output {
+        margin: 24px 24px 32px auto;
+        font-family: monospace;
+        font-size: 120%;
+        width: 100vw;
+        text-align: center;
+        display: block;
+        color: whitesmoke;
+        }
+        #output b {
+        color: #fff;
+        }
+        h1 {
+        font-size: 90%;
+        position: absolute;
+        top: -6px;
+        left: 6px;
+        font-family: monospace;
+        font-weight: 400;
+        z-index: -1;
+        opacity: 0.25;
+        letter-spacing: -1px;
+        }
+        #draw {
+        margin: -32px 12px 6px;
+        padding: 8px 16px;
+        font-size: 85%;
+        display: block;
+        cursor: pointer;
+        border-radius: 12px;
+        border: 1px solid #fff;
+        background: transparent;
+        color: #fff;
+        }
+        #draw:hover {
+        border-color: transparent;
+        color: #20262e;
+        background: white;
+        transition: all 0.1s linear;
+        }
+        #dlb {
+        border: 4px dashed;
+        border-color: rgba(255, 255, 255, 0.5);
+        width: calc(100vw - 38px);
+        padding: 6px;
+        margin-bottom: 24px;
+        margin-top: -12px;
+        }
+    </style>
+  </head>
+
+  <body>
+    <h1>Elliott's Triangle Machine</h1>
+    <p id="output"></p>
+    <p id="error"></p>
+    
+    <div id="dlb">
+      <canvas id="TriCanvas"></canvas>
+    </div>
+    
+    <div id="input">
+      <div id="inputBox">
+        <input type="range" id="side1slider" min="1" max="1000" value="500">
+        <label>bottom side length</label><input type="text" id="side1" placeholder="Side 1 length (base)">
+        <label class="px">px</label>
+        <input type="range" id="side2slider" min="1" max="1000" value="500">
+        <label>left side length</label><input type="text" id="side2" placeholder="Side 2 length">
+        <label class="px">px</label>
+        <input type="range" id="side3slider" min="1" max="1000" value="500">
+        <label>right side length</label><input type="text" id="side3" placeholder="Side 3 length">
+        <label class="px">px</label>
+        <button onClick="DrawTriangle();" id="draw">Draw</button>
+      </div>
+    </div>
+  </body>
+
+  <footer>
+      <script>
+        //Elliott @ ellithedev.com
+        const canvas = document.querySelector("#TriCanvas");
+        const context = canvas.getContext("2d");
+        const s1 = document.getElementById("side1slider");
+        const s2 = document.getElementById("side2slider");
+        const s3 = document.getElementById("side3slider");
+        const ss = [s1, s2, s3];
+        const op = document.getElementById("side1");
+        const op2 = document.getElementById("side2");
+        const op3 = document.getElementById("side3");
+        const ops = [op, op2, op3];
+        op.value = s1.value;
+        op2.value = s2.value;
+        op3.value = s3.value;
+
+        ops.forEach((i) => {
+        i.addEventListener("keyup", (e) => {
+            if (e.keyCode == 13) DrawTriangle();
+        });
+        });
+
+        for (let j = 0; j < ss.length; j++) {
+        ss[j].oninput = () => {
+            ops[j].value = ss[j].value;
+            DrawTriangle();
+        };
+        }
+
+        function DrawTriangle() {
+        let side1 = op.value;
+        let side2 = op2.value;
+        let side3 = op3.value;
+        let err = false;
+        let s = (parseFloat(side1) + parseFloat(side2) + parseFloat(side3)) / 2; //semiperimeter
+        let area = Math.sqrt(s * ((s - side1) * (s - side2) * (s - side3))); //Heron's formula
+        let twoY = Math.round(2 * (area / side1)); //height of triangle
+        let twoX = Math.round(Math.sqrt(Math.pow(side3, 2) - Math.pow(twoY, 2))); //distance formula
+        let angleA =
+            Math.acos(
+            (parseFloat(Math.pow(side1, 2)) +
+                parseFloat(Math.pow(side2, 2)) -
+                Math.pow(side3, 2)) /
+                (2 * side1 * side2)
+            ) *
+            (180 / Math.PI);
+        let angleB =
+            Math.acos(
+            (parseFloat(Math.pow(side2, 2)) +
+                parseFloat(Math.pow(side3, 2)) -
+                Math.pow(side1, 2)) /
+                (2 * side2 * side3)
+            ) *
+            (180 / Math.PI);
+        let angleC =
+            Math.acos(
+            (parseFloat(Math.pow(side1, 2)) +
+                parseFloat(Math.pow(side3, 2)) -
+                Math.pow(side2, 2)) /
+                (2 * side1 * side3)
+            ) *
+            (180 / Math.PI);
+        let msg =
+            "Triangle Area: <b>" +
+            area.toFixed(0) +
+            "</b><span class='pxs'>px</span> | Triangle Height: <b>" +
+            twoY.toFixed(0) +
+            "</b><span class='pxs'>px</span> | Angle A: <b>" +
+            angleA.toFixed(0) +
+            "°</b> Angle B: <b>" +
+            angleB.toFixed(0) +
+            "°</b> Angle C: <b>" +
+            angleC.toFixed(0) +
+            "°</b>";
+        let triCheck = 0; //checks if math is correct
+        if (s > side1) triCheck += 1;
+        if (s > side2) triCheck += 1;
+        if (s > side3) triCheck += 1;
+        if (triCheck !== 3) {
+            var error = "No triangle possible";
+            document.querySelector("#dlb").style.borderColor = "rgba(199,21,133,0.5)";
+            err = true;
+        } else {
+            error = "";
+            document.querySelector("#dlb").style.borderColor = "rgba(255,255,255,0.5)";
+            err = false;
+        }
+        document.getElementById("error").innerHTML = error;
+        let zeroX = 0;
+        let zeroY = 0;
+        let oneY = 0;
+        let oneX = parseFloat(side1);
+        let obtuse;
+        if (angleC > 90) obtuse = true;
+        if (obtuse == true) {
+            zeroX += twoX;
+            oneX += twoX;
+            twoX = 0;
+        }
+        if (err != true) document.getElementById("output").innerHTML = msg;
+        else document.getElementById("output").innerHTML = "";
+        canvas.height = parseInt(twoY) + 10;
+        if (obtuse == true) canvas.width = oneX + 5;
+        else if (angleA > 90) canvas.width = twoX + 5;
+        else canvas.width = parseInt(side1) + 5;
+        context.beginPath();
+        context.moveTo(zeroX, zeroY + 5);
+        context.lineTo(oneX, oneY + 5);
+        context.lineTo(twoX, parseInt(twoY) + 5);
+        context.lineTo(zeroX, zeroY + 5);
+        context.closePath();
+        context.fillStyle = "gold";
+        context.fill();
+        }
+
+        DrawTriangle();
+      </script>
+  </footer>
+</html>
