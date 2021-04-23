@@ -453,7 +453,6 @@ body{
             #me{
                 display: none;
             }
-
             #resume-btn{
                 transform: translateY(0px) !important;
             }
@@ -627,6 +626,19 @@ body{
         }
 
         @media only screen and (max-width:600px) {
+            #me{
+                width: 140px !important;
+                height: 140px !important;
+                transform: scale(0.75) !important;
+                top: -25px;
+                left: 40%;
+                position: absolute;
+                display: block;
+                filter: none;
+                box-shadow: 2px 2px 0px 0px var(--white);
+                border:1px solid var(--white);
+            }
+
             #cursor{
                 font-size: 60px;
                 transform: scale(0.8) translateY(24px);
