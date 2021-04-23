@@ -629,12 +629,16 @@ body{
         @media only screen and (max-width:600px) {
             #cursor{
                 font-size: 60px;
-                transform: translateY(-0px);
+                transform: scale(0.8) translateY(24px);
             }
 
             #typing{
                 font-size: 60px;
                 line-height: 32px;
+            }
+
+            .homepageText.upper {
+                padding-top: 0 !important;
             }
 
             #top-bar{
