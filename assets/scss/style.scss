@@ -27,10 +27,8 @@ body{
        #top-nav{
             background-color: #373449;
             margin-left: calc((100vw - 1242px) / 2) !important;
-
-            #top-bar{
-                transform: translateX(24px);
-            }
+            transform: translateX(24px);
+           
 
             ul {
                 li:link, li:visited{
