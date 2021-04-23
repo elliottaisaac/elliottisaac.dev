@@ -10751,6 +10751,13 @@ h1 {
   border-left-width: 1px;
   border-bottom-width: 2px; }
 
+@media (min-width: 801px) {
+  .dub-row .featured:first-of-type {
+    width: 45%;
+    margin-right: 5%; }
+  .dub-row .featured:last-of-type {
+    width: 50%; } }
+
 .prof:hover {
   background-color: #cc3333; }
 

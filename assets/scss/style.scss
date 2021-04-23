@@ -93,6 +93,20 @@ h1{
     }
  }
 
+ .dub-row{
+     .featured{
+        @media (min-width:801px){
+            &:first-of-type{
+                width: 45%;
+                margin-right: 5%;
+            }
+            &:last-of-type{
+                width: 50%;
+            }
+        }
+     }
+ }
+
  .prof:hover {
     background-color: #cc3333;
  }
