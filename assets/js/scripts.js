@@ -165,7 +165,7 @@ if(window.innerWidth > 820 && document.querySelector("html").scrollTop < 328){
 // floating blob -------------------------------------------------------------------------------->
 //----------------------------------------------------------------------------------------->
 function Blob(blobElement, size, top, left){
-    let blob = blobElement;
+    const blob = blobElement;
     let br = 50;
     let sh = size;
     let sw = size;
