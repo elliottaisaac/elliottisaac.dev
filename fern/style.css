@@ -18,7 +18,7 @@ canvas{
 	color:#222;
 	background-image: radial-gradient(#fff, whitesmoke);
 	border: 1px solid black;
-	transition:color 0.5s ease-in-out, letter-spacing 0.5s ease-in-out, background 0.25s ease-in-out;
+	transition:all 0.125s linear;
 	outline:none;
 	justify-content: flex-end;
 	cursor: pointer;
@@ -75,7 +75,7 @@ canvas{
 	width: 50%;
 	margin-left: 48%;
 	position: fixed;
-	transition: opacity 0.333s;
+	transition: opacity 0.333s linear;
 }
 
 #color-display{
