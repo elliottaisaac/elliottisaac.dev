@@ -40,3 +40,14 @@ function NewElement(type, classes, parent){
 function log(x){
     console.log(x);
 }
+
+function GetRekt(noob){
+    let rekt = noob.getBoundingClientRect;
+    let getRekt = {
+        top: getRekt.left(),
+        left: getRekt.left(),
+        width: getRekt.width(),
+        height: getRekt.height()
+    }
+    return getRekt;
+}
