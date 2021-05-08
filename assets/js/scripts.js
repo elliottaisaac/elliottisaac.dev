@@ -218,8 +218,8 @@ function Blob(blobElement, size, top, left){
 }
 
 if(window.innerWidth > 820){
-Blob(document.querySelector(".botblob"), 400, 2600, 40);
-Blob(document.querySelector(".topblob"), 200, 300, 20);
+    Blob(document.querySelector(".botblob"), 400, 2600, 40);
+    Blob(document.querySelector(".topblob"), 200, 300, 20);
 }
 //----------------------------------------------------------------------------------------->
 //----------------------------------------------------------------------------------------->
