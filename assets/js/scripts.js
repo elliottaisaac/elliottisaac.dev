@@ -1,7 +1,7 @@
 //----------------------------------------------------------------------------------------->
 // nav & scroll scripts ----------------------------------------------------------->
 //----------------------------------------------------------------------------------------->
-if(window.innerWidth > 1240){
+if(window.innerWidth > 1200){
     let lastScrollTop = 0;
 
     window.addEventListener("scroll", UpdateNav);
@@ -12,7 +12,7 @@ if(window.innerWidth > 1240){
     const nav = document.querySelector("#top-nav");
             
             //scrolling up---------------------------------------------------->
-            if (st - 12 > lastScrollTop || st < 250 || window.innerWidth < 1200){
+            if (st - 12 > lastScrollTop || st < 250){
                 nav.style.height = "46px";
                 nav.style.margin = "25px auto 0 auto";  
                 nav.style.paddingTop = "0px"; 
@@ -25,7 +25,7 @@ if(window.innerWidth > 1240){
             //---------------------------------------------------------------->
 
             //scrolling down-------------------------------------------------->
-            else if(st + 12 < lastScrollTop && window.innerWidth > 1200) {
+            else if(st + 12 < lastScrollTop) {
                 nav.style.backgroundColor = "hsla(34,24%,94%,0.625)";
                 nav.style.position = "fixed";
                 nav.style.marginTop = "0px";  
