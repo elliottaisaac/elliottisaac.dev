@@ -386,6 +386,9 @@ body{
             position: absolute;
             top: 18px;
             right: 68px;
+            @media (max-width:801px){
+                display: none;
+            }
         }
 
         #getCode{
@@ -770,16 +773,6 @@ body{
 
             .prof .workImgHeader{
                 background-color: #cc3333;
-            }
-
-            #tileInst{
-                display: block;
-                position: relative;
-                margin-left: auto;
-                margin-top: -12px;
-                background-color: var(--black);
-                color: var(--white);
-                margin-right: -36px;
             }
 
             .homepageText.bio{
