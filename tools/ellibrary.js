@@ -1,19 +1,27 @@
 // Elliott's JS Library!
 
+//Write to Console
+function log(x){
+    console.log(x);
+}
+
 //Query Selector
 function qs(selector){
-    let querySelector = document.querySelector(selector);
-    return querySelector;
+    return document.querySelector(selector);
  }
 
 //Query Selector All
 function qsa(selector){
-    let querySelectorAll = document.querySelectorAll(selector);
-    return querySelectorAll;
+    return document.querySelectorAll(selector);
+}
+
+//Query Selector All - return array instead of node list
+function qsa(selector){
+    return Array.from(document.querySelectorAll(selector));
 }
  
-//Add Event Listener
-function AEL(element, event, Function){
+//Add Event Listener - element parameter can be selector string or node object
+function ael(element, event, Function){
     if(typeof element === 'string' || element instanceof String){
         qs(element).addEventListener(event, (e) => {
             Function();
@@ -26,32 +34,36 @@ function AEL(element, event, Function){
     }
 }
 
+//Insert element after existing element
+function InsertAfter(newNode, existingNode) {
+    existingNode.parentNode.insertBefore(newNode, existingNode.nextSibling);
+}
+
 //Create New Element
-function NewElement(type, classes, parent){
+//- classes param accepts array containing class names, if no classes use false. 
+//- use false for referenceElement param to return element as node object
+//- use a node object for referenceElement param to add new element to document after reference element
+function NewElement(type, classes, referenceElement){
     let newElement = document.createElement(type);
-    for(i = 0; i < classes.length; i++){
-        newElement.classList.add(classes[i]);
+    if(classes){
+        for(let i = 0; i < classes.length; i++){
+            newElement.classList.add(classes[i]);
+        }
     }
-    if(typeof parent === 'string' || parent instanceof String) qs(parent).appendChild(newElement);
-    else parent.appendChild(newElement);
+    if(referenceElement) InsertAfter(newElement, referenceElement);
+    else return newElement;
 }
 
-//Write to Console
-function log(x){
-    console.log(x);
-}
-
-function GetRekt(noob){
-    let rekt = noob.getBoundingClientRect;
-    let getRekt = {
-        top: getRekt.left(),
-        left: getRekt.left(),
-        width: getRekt.width(),
-        height: getRekt.height()
+//Get size and position of element
+function GetDimensions(element){
+    let rect = element.getBoundingClientRect();
+    let dims = {
+        top: rect.top,
+        left: rect.left,
+        bottom: rect.bottom,
+        right: rect.right,
+        width: rect.width,
+        height: rect.height
     }
-    return getRekt;
-}
-
-function insertAfter(newNode, referenceNode) {
-    referenceNode.parentNode.insertBefore(newNode, referenceNode.nextSibling);
+    return dims;
 }
