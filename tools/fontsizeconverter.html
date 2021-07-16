@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<title>Font size converter</title>
+       
+    </head>
+    <body>
+     
+       <input type="text" id="c1" placeholder="canvas size">
+       <input type="text" id="f1" placeholder="font size">
+       <input type="text" id="c2" placeholder="new canvas size">
+       <button>scale font size</button>
+      
+    </body>
+    <footer>
+        <script src="ellibrary.js"></script>
+        <script>
+          document.querySelector("button").addEventListener("click", () => {
+            let c1 =  parseInt(document.querySelector("#c1").value);
+            let f1 =  parseInt(document.querySelector("#f1").value);
+            let c2 =  parseInt(document.querySelector("#c2").value);
+            let f2 = (c2/c1) * f1;
+            f2 = Math.round(f2);
+            alert(f2);
+          });
+        </script>
+    </footer>
+</html>
