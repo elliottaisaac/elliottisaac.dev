@@ -16,7 +16,7 @@ function qsa(selector){
 }
 
 //Query Selector All - return array instead of node list
-function qsa(selector){
+function qsarray(selector){
     return Array.from(document.querySelectorAll(selector));
 }
  
