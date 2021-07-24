@@ -55,9 +55,9 @@ function NewElement(type, classes, referenceElement){
 }
 
 //Get size and position of element
-function GetDimensions(element){
+function MeasureElement(element){
     let rect = element.getBoundingClientRect();
-    let dims = {
+    let dimensions = {
         top: rect.top,
         left: rect.left,
         bottom: rect.bottom,
@@ -65,5 +65,15 @@ function GetDimensions(element){
         width: rect.width,
         height: rect.height
     }
-    return dims;
+    return dimensions;
 }
+
+//Get width and height of viewport
+function MeasureViewport(){
+    let viewportDimensions = {
+        width: Math.max(document.documentElement.clientWidth || 0, window.innerWidth || 0),
+        height: Math.max(document.documentElement.clientHeight || 0, window.innerHeight || 0)
+    }
+    return viewportDimensions;
+}
+
