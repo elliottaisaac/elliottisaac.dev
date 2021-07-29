@@ -165,7 +165,7 @@ function RenderInternalContent(category){
     }); 
     setTimeout( () => { sections.forEach(s => {
         if(!isMobile) s.style.transition = "all 0.625s linear";
-        if(s != c)s.style.background = `rgba(${rbg.r},${rbg.g},${rbg.b},0.125)`; 
+        if(s != c)s.style.background = `linear-gradient(to top, rgba(${rbg.r},${rbg.g},${rbg.b},0.375) 0%, rgba(${rbg.r},${rbg.g},${rbg.b},0.0) 50%`; 
         else s.style.background = "rgba(255,255,255,0.99)"
     });}, 100);
 }
