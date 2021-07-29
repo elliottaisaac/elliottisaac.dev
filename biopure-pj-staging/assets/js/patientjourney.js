@@ -91,6 +91,7 @@ function ActivateGrid(){
 }
 
 function RenderInternalContent(category){
+
     const c = qs(`.pj-section[data-idx='${category}']`);
     qsa(".pj-internal-content").forEach(int => { int.remove(); });
     const internalContainer = NewElement("div", ["pj-internal-content", "hzero"], false);
@@ -156,8 +157,8 @@ function RenderInternalContent(category){
     let g = ["#009444","#fae200","#ee8922","#e12727","#de1b83","#935aa5","#1e2859","#049fda"];
     let rbg = hexToRgb(g[category - 1]);
     let rbga = `rbga(${rbg.r},${rbg.g},${rbg.b},0.5)`;
-    sections.forEach(s => {if(s != c)s.style.background = `rgba(${rbg.r},${rbg.g},${rbg.b},0.125)`; else s.style.background = "rgba(255,255,255,0.99)"});
-
+    sections.forEach(s => {s.style.transition = "none"; s.style.background = "rgba(255,255,255,0.01)";}); 
+    setTimeout( () => { sections.forEach(s => {s.style.transition = "all 0.625s linear"; if(s != c)s.style.background = `rgba(${rbg.r},${rbg.g},${rbg.b},0.125)`; else s.style.background = "rgba(255,255,255,0.99)";});}, 100);
 }
 
 function hexToRgb(hex) {
