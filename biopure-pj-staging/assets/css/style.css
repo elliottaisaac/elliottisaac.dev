@@ -20,7 +20,7 @@ article, aside, figcaption, figure, footer, header, hgroup, main, nav, section {
   display:block; }
 
 body{
-	font-family: 'MetaPro-Book', sans-serif;
+	font-family: ff-meta-correspondence-web-p, sans-serif;
 	color: var(--default-color);
 	font-size: 16px;
   overflow-x: hidden;
@@ -37,7 +37,7 @@ h1,h2,h3,h4,h5,h6{
 	color: var(--primary-color);
 }
 a{
-  font-family: 'MetaPro-Book', sans-serif;
+  font-family: ff-meta-correspondence-web-p, sans-serif;
 	color: var(--primary-color);
 	transition: 0.3s;
 }
@@ -52,12 +52,12 @@ a:hover{
 }
 
 ul{
-  font-family: 'MetaPro-Book', sans-serif;
+  font-family: ff-meta-correspondence-web-p, sans-serif;
 	margin: 0;
 	padding: 0;
 }
 li{
-  font-family: 'MetaPro-Book', sans-serif;
+  font-family: ff-meta-correspondence-web-p, sans-serif;
 	list-style: none;
 }
 
@@ -4246,7 +4246,7 @@ left:260px;
     padding: 32px 8px;
     text-align: center;
     height: 64px;
-    font-family: 'MetaPro-Book', sans-serif;
+    font-family: ff-meta-correspondence-web-p, sans-serif;
     text-transform: uppercase;
     width: 100%;
 }
@@ -4308,6 +4308,10 @@ left:260px;
 .pj-internal-content *{
   opacity: 0;
   transition: opacity 2s ease-in;
+}
+
+.pj-internal-content p{
+  font-family: ff-meta-correspondence-web-p, sans-serif;
 }
 
 .pj-internal-sidebar{
@@ -4394,7 +4398,7 @@ left:260px;
   font-weight: bold;
   text-transform: capitalize;
   margin-bottom: 12px;
-  font-family: 'MetaPro-Book', sans-serif;
+  font-family: ff-meta-correspondence-web-p, sans-serif;
 }
 
 .pj-internal-subnav{
@@ -4521,12 +4525,13 @@ left:260px;
     grid-template-columns: auto;
     height: auto !important;
     margin-top: 60px;
-    background-image: url(../img/wave.jpg);
-    background-size: contain;
-    background-repeat: no-repeat;
-    background-position-x: right;
     max-height: 1620px;
+    background-image: url(../img/wave.jpg);
+    background-size: 100vw;
+    background-repeat: no-repeat;
+    background-position-x: 15vw;
   }
+  
 
   .pj-section{
     width: 100vw !important;

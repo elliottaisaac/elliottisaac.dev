@@ -7,6 +7,9 @@ const fields = {
     introText:
     "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore. All page content is populated from <a href='assets/js/patientjourneycontent.js' target='blank'>this file</a>",
 
+    video:
+    "assets/videos/_wave_.mp4",
+
     categories: [
         {
             title: "Organ Detox Support",
@@ -72,7 +75,7 @@ const fields = {
             buttonText: "Shop all",
             buttonLink: "https://biopurecustomer.myshopify.com/"
         },
-        
+
         {
             title: "Dental Support",
             icon: "assets/icons/Icon_Graphics_Dental_Support.png",
@@ -115,3 +118,14 @@ const fields = {
 }
 
 FillInitialContent();
+
+
+// let html = `<div class="pj-gradient"></div><div class="pj-video"><video loop autoplay muted><source src="${fields.video}" type="video/mp4"></video></div><div class="pj-grid"><div class="pj-section" data-idx="1"></div><div class="pj-section" data-idx="2"></div><div class="pj-section" data-idx="3"></div><div class="pj-section" data-idx="4"></div><div class="pj-section" data-idx="5"></div><div class="pj-section" data-idx="6"></div><div class="pj-section" data-idx="7"></div><div class="pj-section" data-idx="8"></div></div>`;
+
+// let x = 0;
+// qsa(".patient-journey").forEach(pj => {
+//     if(x > 0){
+//     pj.innerHTML = html;
+//     InitializePatientJourney();}
+//     x++;
+// });

@@ -91,7 +91,6 @@ function ActivateGrid(){
 }
 
 function RenderInternalContent(category){
-
     const c = qs(`.pj-section[data-idx='${category}']`);
     qsa(".pj-internal-content").forEach(int => { int.remove(); });
     const internalContainer = NewElement("div", ["pj-internal-content", "hzero"], false);
@@ -159,13 +158,15 @@ function RenderInternalContent(category){
     let rbga = `rbga(${rbg.r},${rbg.g},${rbg.b},0.5)`;
     sections.forEach(s => {
         if(!isMobile){
-            s.style.transition = "none";
+            //s.style.transition = "unset";
             s.style.background = "rgba(255,255,255,0.01)";
+            s.style.transition = "initial";
+            s.style.transition = "all 0.625s linear";
         }
     }); 
     setTimeout( () => { sections.forEach(s => {
         let dir;
-        if(!isMobile){ s.style.transition = "all 0.625s linear";  dir = "top";}
+        if(!isMobile){  dir = "top";}
         else dir = "left";
         if(s != c)s.style.background = `linear-gradient(to ${dir}, rgba(${rbg.r},${rbg.g},${rbg.b},0.375) 0%, rgba(${rbg.r},${rbg.g},${rbg.b},0.0) 50%`; 
         else s.style.background = "rgba(255,255,255,0.99)"
@@ -204,8 +205,8 @@ function CloseCategory(){
 }
 
 function FillInitialContent(){
-    qs(".pj-headline").innerHTML = fields.headline;
-    qs(".pj-introtext").innerHTML = fields.introText;
+    if(qs(".pj-headline")) qs(".pj-headline").innerHTML = fields.headline;
+    if(qs(".pj-introtext")) qs(".pj-introtext").innerHTML = fields.introText;
     for(let i=0; i<sections.length; i++) sections[i].children[0].innerHTML = fields.categories[i].title;
     CheckLocalStorage();
 }
@@ -220,13 +221,17 @@ function CheckLocalStorage(){
     }
 }
 
-ael(window, "resize", () => {
+function InitializePatientJourney(){
+    ael(window, "resize", () => {
+        GetViewPortSize();
+        ResizeGrid();
+    });
+    
     GetViewPortSize();
+    
     ResizeGrid();
-});
+    
+    ActivateGrid();
+}
 
-GetViewPortSize();
-
-ResizeGrid();
-
-ActivateGrid();
+InitializePatientJourney();
