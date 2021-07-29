@@ -158,10 +158,9 @@ function RenderInternalContent(category){
     let rbga = `rbga(${rbg.r},${rbg.g},${rbg.b},0.5)`;
     sections.forEach(s => {
         if(!isMobile){
-            //s.style.transition = "unset";
+      s.style.transition = "width 0.625s linear";
             s.style.background = "rgba(255,255,255,0.01)";
-            s.style.transition = "initial";
-            s.style.transition = "all 0.625s linear";
+         
         }
     }); 
     setTimeout( () => { sections.forEach(s => {
