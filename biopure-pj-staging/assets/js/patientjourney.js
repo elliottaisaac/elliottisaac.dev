@@ -158,7 +158,7 @@ function RenderInternalContent(category){
     let rbga = `rbga(${rbg.r},${rbg.g},${rbg.b},0.5)`;
     sections.forEach(s => {
         if(!isMobile){
-      s.style.transition = "width 0.625s linear";
+      s.style.transition = "width 0.65s linear";
             s.style.background = "rgba(255,255,255,0.01)";
          
         }
