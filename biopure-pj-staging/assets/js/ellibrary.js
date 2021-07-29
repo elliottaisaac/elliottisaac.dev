@@ -18,12 +18,12 @@ function qsarray(selector){
  
 function ael(element, event, Function){
     if(typeof element === 'string' || element instanceof String){
-        qs(element).addEventListener(event, (e) => {
+        qs(element).addEventListener(event, () => {
             Function();
         });
     }
     else{
-        element.addEventListener(event, (e) => {
+        element.addEventListener(event, () => {
             Function();
         });
     }

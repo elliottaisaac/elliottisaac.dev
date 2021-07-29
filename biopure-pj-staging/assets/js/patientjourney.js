@@ -23,7 +23,15 @@ function ResizeGrid(){
 
 function ActivateGrid(){
     for(let i = 0; i < sections.length; i++){
-        sections.forEach(s => s.classList.remove("open-section"));
+        sections.forEach(s => {
+            s.classList.remove("open-section");
+            s.setAttribute("tabindex", "0");
+        });
+        window.addEventListener("keyup", (e) => {
+            if(e.keyCode == 13){
+                document.activeElement.click();
+            }
+        })
         sections[i].style.width = `${vw/sections.length}px`;
         let h2 = NewElement("h2", false, false);
         let icon = NewElement("img", ["plus-icon"], false);
@@ -48,7 +56,7 @@ function ActivateGrid(){
                 }
                 let gradient = ["#009444 ","#fae200 ","#ee8922 ","#e12727 ","#de1b83 ","#935aa5 ","#1e2859 ","#049fda "];
                 let gradientCountingUp = 30;
-                if(isMobile) gradientString = gradient[i];
+                if(isMobile) gradientString = gradientString;
                 else{
                     for(let k = 0; k <= index; k++){
                         gradient[k] = `${gradient[k]}${gradientCountingUp}px`;
@@ -71,8 +79,8 @@ function ActivateGrid(){
                 else{
                     sections[index].style.height = `${GetDimensions(sections[index].children[2]).height}px`;
                     qs("footer").style.marginTop = `${GetDimensions(sections[index].children[2]).height - 390}px`;
-                    sections[i].children[2].style.borderRight = `3px solid transparent`;
-                    if(sections[i].children[2]) sections[i].children[2].style.borderLeft = `3px solid ${gradient[i]}`; 
+                    sections[i].children[2].style.borderRight = `6px solid transparent`;
+                    if(sections[i].children[2]) sections[i].children[2].style.borderLeft = `6px solid ${gradient[i]}`; 
                 }
                 setTimeout( () => { if(qs(".pj-internal-content")) qs(".pj-internal-content").classList.add("fade-in"); }, 2);
                 let closeButton = qs(".cat_close");
@@ -111,6 +119,7 @@ function RenderInternalContent(category){
     NewElement("div", ["close-section-btn"], qs(".pj-internal-main"));
     let closeButton = `<div class="cat_close"><div class="close-inner"><span></span><span></span></div></div>`;
     qs(".close-section-btn").innerHTML = closeButton;
+    qs(".close-section-btn").setAttribute("tabindex", "0");
     ael(qs(".close-section-btn"), "click", CloseCategory);
     let subNav = NewElement("div", ["pj-internal-subnav"], qs(".pj-internal-main p:nth-of-type(2)")); let r;
     for(v=0;v<4;v++){
@@ -121,12 +130,20 @@ function RenderInternalContent(category){
     let snc = qsarray(".pj-internal-subnav a");
     snc.push(qs(".pj-internal-subnav div"));
     snc.push(qsa(".pj-internal-subnav div")[qsa(".pj-internal-subnav div").length - 1]);
+    snc[0].setAttribute("tabindex", "0");
+    snc[1].setAttribute("tabindex", "0");
     if(category == 1) snc[0].innerHTML = "← " + fields.categories[fields.categories.length - 1].title;
     else snc[0].innerHTML = "← " + fields.categories[category - 2].title;
     if(category >= fields.categories.length - 1) snc[1].innerHTML = fields.categories[0].title + " →";
     else snc[1].innerHTML = fields.categories[category].title + " →";
     snc[2].innerHTML = "Previous";
     snc[3].innerHTML = "Next";
+    if(isMobile){
+        snc[0].innerHTML = snc[0].innerHTML.substring(2); 
+        snc[1].innerHTML = snc[1].innerHTML.substring(0, snc[1].innerHTML.length - 1);
+        snc[2].innerHTML = "← Previous";
+        snc[3].innerHTML = "Next →";
+    }
     ael(snc[0], "click", () =>{ 
        if(category == 1) localStorage.setItem("OPENCAT", 7);
        else localStorage.setItem("OPENCAT", category - 2);
@@ -161,17 +178,17 @@ function FillInitialContent(){
     qs(".pj-headline").innerHTML = fields.headline;
     qs(".pj-introtext").innerHTML = fields.introText;
     for(let i=0; i<sections.length; i++) sections[i].children[0].innerHTML = fields.categories[i].title;
+    if(localStorage.getItem("OPENCAT")) sections[parseInt(localStorage.getItem("OPENCAT"))].click();
+    localStorage.clear();
 }
-
-GetViewPortSize();
-ResizeGrid();
 
 ael(window, "resize", () => {
     GetViewPortSize();
     ResizeGrid();
 });
 
-if(localStorage.getItem("OPENCAT")) sections[parseInt(localStorage.getItem("OPENCAT"))].click();
-localStorage.clear();
+GetViewPortSize();
+
+ResizeGrid();
 
 ActivateGrid();
