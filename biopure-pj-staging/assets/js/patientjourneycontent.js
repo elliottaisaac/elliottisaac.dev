@@ -118,14 +118,3 @@ const fields = {
 }
 
 FillInitialContent();
-
-
-// let html = `<div class="pj-gradient"></div><div class="pj-video"><video loop autoplay muted><source src="${fields.video}" type="video/mp4"></video></div><div class="pj-grid"><div class="pj-section" data-idx="1"></div><div class="pj-section" data-idx="2"></div><div class="pj-section" data-idx="3"></div><div class="pj-section" data-idx="4"></div><div class="pj-section" data-idx="5"></div><div class="pj-section" data-idx="6"></div><div class="pj-section" data-idx="7"></div><div class="pj-section" data-idx="8"></div></div>`;
-
-// let x = 0;
-// qsa(".patient-journey").forEach(pj => {
-//     if(x > 0){
-//     pj.innerHTML = html;
-//     InitializePatientJourney();}
-//     x++;
-// });
