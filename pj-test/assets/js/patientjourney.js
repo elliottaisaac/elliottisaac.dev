@@ -48,7 +48,7 @@ function ActivateGrid(){
                 }
                 let gradient = ["#009444 ","#fae200 ","#ee8922 ","#e12727 ","#de1b83 ","#935aa5 ","#1e2859 ","#049fda "];
                 let gradientCountingUp = 30;
-                if(isMobile) gradientString = gradient[i];
+                if(isMobile) gradientString = gradientString;
                 else{
                     for(let k = 0; k <= index; k++){
                         gradient[k] = `${gradient[k]}${gradientCountingUp}px`;
@@ -72,6 +72,17 @@ function ActivateGrid(){
                     sections[index].style.height = `${GetDimensions(sections[index].children[2]).height}px`;
                     qs("footer").style.marginTop = `${GetDimensions(sections[index].children[2]).height - 390}px`;
                     sections[index].style.borderColor = gradient[i];
+                    for(let v = 0; v < sections.length; v++) sections[v].style.background = gradient[i];
+                    if(i != 1){
+                        for(let f = 0; f < sections.length; f++) sections[f].firstElementChild.style.color = "#fff";
+                        for(let y = 0; y < sections.length; y++) sections[y].children[1].style.filter = "brightness(99)";
+                        for(let w = 0; w < sections.length; w++) sections[w].style.borderColor = "#fff";
+                    }
+                    else{
+                        for(let p = 0; p < sections.length; p++) sections[p].firstElementChild.style.color = "var(--primary-color)";
+                        for(let b = 0; b < sections.length; b++) sections[b].children[1].style.filter = "none";
+                        for(let u = 0; u < sections.length; u++) sections[u].style.borderColor = "var(--primary-color)";
+                    }
                 }
                 setTimeout( () => { if(qs(".pj-internal-content")) qs(".pj-internal-content").classList.add("fade-in"); }, 2);
                 let closeButton = qs(".cat_close");
@@ -151,6 +162,10 @@ function CloseCategory(){
         qs("footer").style.marginTop = "0px";
         qs(".open-section").style.borderColor = "rgba(0, 160, 223, 0.5)";
         for(let i = 0; i < sections.length; i++) sections[i].style.borderColor = "rgba(0, 160, 223, 0.5)";
+        grid.style.background = "transparent";
+        for(let f = 0; f < sections.length; f++) sections[f].firstElementChild.style.color = "var(--primary-color)";
+        for(let y = 0; y < sections.length; y++) sections[y].children[1].style.filter = "none";
+        for(let v = 0; v < sections.length; v++) sections[v].style.background = "none";
     }
     setTimeout( () => {if(qs(".open-section")) qs(".open-section").classList.remove("open-section") }, 200);
 }
