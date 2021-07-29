@@ -79,7 +79,6 @@ function ActivateGrid(){
                 else{
                     sections[index].style.height = `${GetDimensions(sections[index].children[2]).height}px`;
                     qs("footer").style.marginTop = `${GetDimensions(sections[index].children[2]).height - 390}px`;
-                    sections[i].children[2].style.borderRight = `6px solid transparent`;
                     if(sections[i].children[2]) sections[i].children[2].style.borderLeft = `6px solid ${gradient[i]}`; 
                 }
                 setTimeout( () => { if(qs(".pj-internal-content")) qs(".pj-internal-content").classList.add("fade-in"); }, 2);
@@ -178,8 +177,17 @@ function FillInitialContent(){
     qs(".pj-headline").innerHTML = fields.headline;
     qs(".pj-introtext").innerHTML = fields.introText;
     for(let i=0; i<sections.length; i++) sections[i].children[0].innerHTML = fields.categories[i].title;
-    if(localStorage.getItem("OPENCAT")) sections[parseInt(localStorage.getItem("OPENCAT"))].click();
-    localStorage.clear();
+    CheckLocalStorage();
+}
+
+function CheckLocalStorage(){
+    if(localStorage.getItem("OPENCAT")){
+        let oc = sections[parseInt(localStorage.getItem("OPENCAT"))];
+        oc.click();
+        setTimeout( () => { window.scrollTo(0, oc.getBoundingClientRect().top + oc.ownerDocument.defaultView.pageYOffset - 18); }, 200);
+        log(oc.getBoundingClientRect().top + oc.ownerDocument.defaultView.pageYOffset - 18);
+        localStorage.clear();
+    }
 }
 
 ael(window, "resize", () => {

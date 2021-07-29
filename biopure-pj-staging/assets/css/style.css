@@ -4181,6 +4181,7 @@ left:260px;
 
 .pj-video video{
   position: absolute;
+  border-bottom: 1px solid  rgba(0, 160, 223, 0.5);
 }
 
 .pj-grid{
@@ -4197,7 +4198,8 @@ left:260px;
   cursor: pointer;
   position: relative;
   border-right: 1px solid rgba(0, 160, 223, 0.5);
-  border-bottom: 1px solid #072E5C;
+  border-bottom: 1px solid  rgba(0, 160, 223, 0.5); 
+  /* border-bottom: 1px solid  rgba(0, 160, 223, 0.5); */
   transition: all 0.625s linear;
   grid-row: 1 / 2;
   display: flex;
@@ -4235,10 +4237,9 @@ left:260px;
 .pj-section:hover{
   background-color: rgba(255, 255, 255, 0.875);
   border-color:rgba(0, 160, 223, 1);
-  border-bottom-color: #072E5C;
+  border-bottom: 1px solid  rgba(0, 160, 223, 0.5);
  
 }
-
 
 .pj-section h2{
     font-size: 14px;
@@ -4517,7 +4518,8 @@ left:260px;
     height: 60px;
     grid-column: 1 / 2 !important;
     margin: 0;
-    background-color: rgba(255, 255, 255, 0.625);
+    /*background-color: rgba(255, 255, 255, 0.25);*/
+    background-image: linear-gradient(to right, #fff 50%, transparent 100%);
     transition: none;
     border-bottom: 1px solid rgba(0, 160, 223, 0.5);
     border-right: none;
@@ -4577,6 +4579,7 @@ left:260px;
     align-items: center;
     overflow:hidden !important;
     background: linear-gradient(to bottom, #fff 50%, #EDEDED 100%);
+    border-right: 6px solid transparent;
     transition: all 0.5s linear !important; 
   }
 
@@ -4588,18 +4591,15 @@ left:260px;
     padding: 120px;
     order: 1;
     grid-area: 1 / 1 / 2 / 2;
+    background-color: transparent;
   }
 
   .pj-internal-main h3 img {
     margin-bottom: 24px;
-    margin-left: calc(50% - 24px);
-    margin-right: calc(50% - 24px);
+    /* margin-left: calc(50% - 24px); */
+    margin-right: calc(100% - 60px);
   }
 
-  .pj-internal-main p{
-    font-size: 14px;
-  }
-  
   .pj-internal-main h3, .pj-internal-main h4, .pj-internal-main p{
     padding-left: 16px;
     padding-right: 16px;
@@ -4621,23 +4621,31 @@ left:260px;
   }
 
   .close-section-btn{
-    left: calc(100vw - 64px);
+    left: calc(100vw - 83px);
     top: 24px;
   }
 
 } 
 
-@media screen and (max-width: 500px){
+@media screen and (max-width: 600px){
   #pj-page .bg-content {
     position: static !important;
     transform: none !important;
     margin-bottom: 16px;
   }
+  .pj-section:hover{
+    background-color: initial;
+  }
+
   .pj-internal-main {
-    padding: 48px 16px;
+    padding: 48px 10px 48px 16px;
   }
   .pj-internal-sidebar{
     padding: 32px;
+  }
+
+  .pj-internal-sidebar p{
+    text-align: center;
   }
 
   .patient-journey{
