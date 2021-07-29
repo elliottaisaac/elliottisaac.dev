@@ -4495,6 +4495,21 @@ left:260px;
   background-color: #fff;
 } 
 
+.footer-spacer{
+  display: none;
+}
+
+@media screen and (min-width: 1500px){
+  .footer-spacer{
+    display: block;
+    height: 200px;
+    width: 100vw;
+    background: #fff;
+    position: relative;
+    z-index: 34;
+  }
+}
+
 
 
 @media screen and (max-width: 999px){

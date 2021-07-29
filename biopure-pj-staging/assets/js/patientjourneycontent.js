@@ -72,6 +72,7 @@ const fields = {
             buttonText: "Shop all",
             buttonLink: "https://biopurecustomer.myshopify.com/"
         },
+        
         {
             title: "Dental Support",
             icon: "assets/icons/Icon_Graphics_Dental_Support.png",
