@@ -156,8 +156,8 @@ function RenderInternalContent(category){
     let g = ["#009444","#fae200","#ee8922","#e12727","#de1b83","#935aa5","#1e2859","#049fda"];
     let rbg = hexToRgb(g[category - 1]);
     let rbga = `rbga(${rbg.r},${rbg.g},${rbg.b},0.5)`;
-    log(rbga);
     sections.forEach(s => {if(s != c)s.style.background = `rgba(${rbg.r},${rbg.g},${rbg.b},0.125)`; else s.style.background = "rgba(255,255,255,0.99)"});
+
 }
 
 function hexToRgb(hex) {
@@ -173,7 +173,8 @@ function hexToRgb(hex) {
 function CloseCategory(){
     grid.classList.remove("vertical-text");
     qs(".pj-gradient").style.background = "linear-gradient(to right, #009444 6.25%, #fae200 18.75%, #ee8922 31.25%, #e12727 43.75%, #de1b83 56.25%, #935aa5 68.75%, #1e2859 81.25%, #049fda 93.75%, #009444 106.25%)";
-    if(!isMobile) for(let i = 0; i < sections.length; i++){sections[i].style.width = `initial !important`; sections[i].style.background = "initial";}
+    if(!isMobile) for(let i = 0; i < sections.length; i++){sections[i].style.width = `initial !important`; }
+    //else for(i = 0; i < sections.length; i++) sections[i].style.background = "linear-gradient(to right, rgba(255, 255, 255, 1.0) 0%, rgba(255, 255, 255, 0.5) 75%, rgba(255, 255, 255, 0.0) 100%);";
     if(!isMobile) grid.style.gridTemplateColumns = "1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr";
     if(!isMobile) sections.forEach(s => { s.style.width = `${vw/sections.length}px`;});
     else sections.forEach(s => { s.style.height = "60px";});
@@ -185,6 +186,9 @@ function CloseCategory(){
         for(let i = 0; i < sections.length; i++) sections[i].style.borderColor = "rgba(0, 160, 223, 0.5)";
     }
     setTimeout( () => {if(qs(".open-section")) qs(".open-section").classList.remove("open-section") }, 200);
+    sections.forEach(s => {s.style.background = "initial";});
+
+   
 }
 
 function FillInitialContent(){
