@@ -77,3 +77,19 @@ function MeasureViewport(){
     return viewportDimensions;
 }
 
+//Get RBG color values from hex code
+function ConvertHexToRGB(hex) {
+    let c = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex);
+    const red = parseInt(c[1], 16);
+    const green = parseInt(c[2], 16);
+    const blue = parseInt(c[3], 16);
+    let RBG = {
+        r: red,
+        g: green,
+        b: blue,
+        rbg: `rgb(${red}, ${green}, ${blue})`
+    };
+    return RBG;
+}
+    
+
