@@ -83,13 +83,12 @@ function ConvertHexToRGB(hex) {
     const red = parseInt(c[1], 16);
     const green = parseInt(c[2], 16);
     const blue = parseInt(c[3], 16);
-    let RBG = {
+    return {
         r: red,
         g: green,
         b: blue,
         rbg: `rgb(${red}, ${green}, ${blue})`
     };
-    return RBG;
 }
     
 

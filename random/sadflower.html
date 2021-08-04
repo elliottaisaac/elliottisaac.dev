@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+        <style>
+            body{
+                background-color: pink;
+            }
+
+            .stroke{
+                stroke: #10733D;
+                fill: transparent;
+                stroke-linejoin: round;
+            }
+        </style>
+    </head>
+    <body>
+        <style id="stroke-animations"></style>
+        <style id="keyframes"></style> 
+
+        <svg id="strokes" width="1000" height="1000" style="margin:0 auto 180px auto" stroke-width="8">
+            <path class="stroke" id="shy"></path>
+        </svg>
+        
+        <script>
+        let paths = 
+            [
+                {
+                id: "shy",
+                path: "M 214 543, C 187 498, 289 414, 312 395, C 330 370, 340 342, 347 324, C 350 308, 344 299, 335 284, C 311 286, 313 304, 314 326, C 342 374, 349 433, 349 433, C 356 530, 272 502, 247 494, C 229 471, 229 444,230 406, C 269 412, 312 424, 368 438, C 406 405, 415 384, 423 366, C 448 288, 412 288, 399 289, C 388 299, 388 313, 386 367, C 387 466, 388 514, 388 519, C 395 520, 396 515, 396 515, C 436 365, 465 453, 465 453, C 473 543, 505 485, 511 465, L 513 414, C 504 526, 542 506, 550 502, C 558 494, 559 485, 559 485, L 570 416, C 572 414, 572 416, 569 461, C 585 550, 587 606, 588 631, C 569 653, 544 655, 524 656, C 520 645, 521 635, 521 625, C 525 616, 532 609, 659 486, C 662 371, 609 291, 534 176, C 342 133, 232 240, 89 379"
+                },
+            ];
+
+            function draw(i){
+            document.querySelector(`#${paths[i].id}`).setAttribute("d", paths[i].path);
+            document.querySelector(`#stroke-animations`).innerHTML += `#${paths[i].id}{animation: draw-${paths[i].id} ease-in ${GetPathLength(paths[i].id)/420}s 1 forwards; stroke-dasharray: ${GetPathLength(paths[i].id)}; stroke-dashoffset: ${GetPathLength(paths[i].id)};}`;
+            keyframes(document.querySelector(`#${paths[i].id}`));
+            }
+
+            function keyframes(stroke){
+            let length = GetPathLength(stroke.id);
+            document.querySelector("#keyframes").innerHTML +=
+            `@keyframes draw-${stroke.id} {
+                    from { stroke-dashoffset: ${length}; }
+                    to { stroke-dashoffset: 0; }
+            }`;
+            }
+
+            function GetPathLength(id){
+            return document.querySelector(`#${id}`).getTotalLength();
+            }
+
+            for(i=0; i < paths.length; i++) draw(i); 
+        </script>
+    <body>
+</html>
