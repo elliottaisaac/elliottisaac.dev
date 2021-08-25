@@ -1,0 +1,15 @@
+@charset "UTF-8";
+/* CSS Document */
+
+body {
+	font-family: Baskerville, "Palatino Linotype", Palatino, "Century Schoolbook L", "Times New Roman", "serif";
+}
+
+h1,h2,h3,h4 {
+	font-family: Arial, "sans-serif"
+}
+
+nav, #homepage, #selfportrait, #videopad, #skillpage, #letter, #macs, #website {
+	display:none;
+}
+

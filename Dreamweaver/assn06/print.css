@@ -1,0 +1,163 @@
+@charset "UTF-8";
+/* CSS Document */
+
+
+
+#sign {
+	background-image:url(assets/header.png);
+	background-repeat:no-repeat;
+	background-size: 100%;
+	background-position:top;
+	display: none;
+	width:89%;
+	max-width: 1400px;
+	height: 557px;
+	position:absolute;
+	z-index: 0;
+	top:0px;
+}
+
+
+h1 {
+	text-align:right;
+	padding-right:25px;
+	font-family: Arial, sans-serif;
+}
+
+#hero {
+	display: none;
+	height:500px;
+	width:auto;
+	background-image:url(assets/hero.jpg);
+	background-repeat: no-repeat;
+	background-size:cover;
+	background-position: center;
+	border-radius: 12px;
+	filter: grayscale(22%)}
+
+nav {
+	display:none;
+	
+}
+
+
+aside {
+	float:right;
+	width:25%;
+	text-align:center;
+	padding: 2% 2.5%;
+}
+
+aside p {
+	color:darkgoldenrod;
+	font-style:italic;
+	padding: 5px;
+}
+
+
+
+footer {
+	font-size:70%;
+	text-align: right;
+	font-style:italic;
+	color:white;
+	background-color:#600c0c;
+	padding:1%;
+	clear:both;
+}
+
+ a {
+	text-decoration: none;
+}
+
+a:link {
+	color:darkgoldenrod;
+}
+
+a:visited {
+	color:goldenrod;
+}
+
+a:hover {
+	color:gold;
+}
+
+a:active {
+	color:darkred;
+}
+
+footer a:link {
+	color:#fff7cb;
+}
+
+footer a:visited {
+	color:#fff7cb
+}
+
+footer a:hover {
+	color:#65a6fe;
+}
+
+footer a:active {
+	color:#65a6fe;
+}
+
+figcaption {
+	font-size:.8em;
+	color:darkgoldenrod;
+	font-style:italic;
+	text-align:center;
+}
+
+h2 {
+	font-size:1.0em;
+	color:darkgoldenrod;
+	text-shadow: 2px 1px 0px #771107;
+}
+
+.highlight {
+	color:goldenrod;
+}
+
+h3 {
+	color:darkred;
+	font-size:0.9em;
+	text-shadow: 1px 1px 0px darkgoldenrod;
+	
+}
+
+p {
+	color:white;
+	font-size:0.7em;
+
+}
+
+.image {
+	max-width:100%;
+	height:auto;
+}
+
+#video {
+	display:none;
+}
+
+table {
+	margin: 5px 10px 10px 40px;
+	background-color:#cccccc;
+	font-size:0.75em;
+	
+}
+
+th {
+	color:darkred
+}
+
+td {
+	color:#0b2208;
+	text-align: center;
+}
+
+
+	
+	
+

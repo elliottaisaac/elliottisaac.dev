@@ -1,0 +1,241 @@
+@charset "UTF-8";
+/* CSS Document */
+
+body {
+	color:#666666;
+	font-family: Gotham, "Helvetica Neue", Helvetica, Arial, "sans-serif";
+	font-size:1em/100%;
+	background-image:url(assets/ptrbg.png);
+	background-color:#d8dbca;  }
+
+#wrapper {
+	width: 1000px;
+	margin: auto;
+	background-image:linear-gradient(to bottom, #415139, #e8f7df, #ffffff, #e4f5f9, #709e9a);
+	box-shadow: 3px 3px 3px #333;	}
+
+nav {
+	background-color:#874a35;
+	background-image:linear-gradient(to bottom,#ea8e6e, #874a35);
+	text-align:center;
+	padding:5px;
+	font-size: 1.25em;
+	font-weight: bold;
+	font-family:Baskerville, "Palatino Linotype", Palatino, "Century Schoolbook L", "Times New Roman", "serif";
+}
+
+
+#coast {
+	float:right;
+	border: 3px #5c7fa3 solid;
+	padding: 5px;
+	margin: 0px 40px 0px 20px;
+	border-radius:50%;
+	transform: scalex(-1);
+	filter:FlipH;
+	filter:grayscale(22%); 	}
+
+#yurt {
+	float:left;
+	border: 5px #395460 solid;
+	padding: 5px;
+	margin: 15px 40px 100px 40px;
+	filter:grayscale(22%);
+}
+
+#trail {
+	float:left;
+	border: 5px #395460 solid;
+	padding: 5px;
+	margin: 50px 33px 25px 33px;
+	border-radius:33%;
+	filter:grayscale(22%); 
+}
+
+#imagemap {
+	border: 5px #395460 solid;
+	padding: 5px;
+	margin: 50px 30px 50px 30px;
+}
+
+#activities {
+	text-align: right;
+	font-size: 1.1em;
+	margin: 10px 30px 150px 30px;
+}
+
+header {
+	background-color:#709e9a;
+	color:white;
+	text-align:center;
+	height:20px;
+	background-image:linear-gradient(to right, #395460, #709e9a, #e5a930);
+	background-repeat: no-repeat;
+	background-position: right;	
+	font-size:1em;
+}
+
+h1 {
+	font-size:1em;
+	text-align:left;
+	padding-top: 3px;
+	padding-left: 5px;
+}
+ 
+a:link {
+	color:#ce6334;
+}
+a:visited {
+	color:#ce6334;
+}
+a:hover {
+	color:#709e9a;
+	text-decoration: none;
+}
+a:active {
+	color:#709e9a;
+    text-decoration: none;
+}
+
+
+nav a:link {
+	color:azure;
+	padding:20px;
+	text-decoration: none;
+	font-weight:bold;
+}
+
+nav a:visited {
+	color:azure;
+	padding:20px;
+	text-decoration:none;
+	font-weight:bold;
+}
+
+nav a:hover {
+	color:#6f979b;
+	padding:20px;
+	text-decoration: none;
+	font-weight:bold;	
+}
+
+nav a:active {
+	padding:20px;
+	text-decoration: none;
+	color:#395460;
+	font-weight:bold;
+}
+
+ul {
+	list-style-image:url(assets/marker.gif);
+	font-size:1.25em;
+	padding-top:20px;
+	padding-bottom: 75px;
+}
+
+h2 {
+	color:#395460;
+	font-size:1.5em;
+	background-color:#94a89f;
+	background-image:linear-gradient(to right, #94a89f, #fff);
+	padding: 10px;	
+}
+
+h3 {
+	color:#ce6334;
+	font-size: 1.25em;
+	text-decoration: underline;
+}
+
+h4 {
+	color:#566342;
+	font-family:Baskerville, "Palatino Linotype", Palatino, "Century Schoolbook L", "Times New Roman", "serif";
+	font-size:1.1em;
+	padding-left:15px;
+}
+
+p {
+	padding:10px;
+	font-family: Constantia, "Lucida Bright", "DejaVu Serif", Georgia, "serif";
+}
+
+footer{
+	background-color:#48565e;
+	color:azure;
+	font-size:.75em;
+}
+
+footer a:link {
+	color:cadetblue;
+	text-decoration: none;
+}
+
+footer a:visited {
+	color:cadetblue;
+	text-decoration: none;
+}
+
+footer a:hover {
+	color:#874a35;
+	text-decoration: none;	
+}
+
+footer a:active {
+	text-decoration: none;
+	color:#874a35;
+ }
+
+dl {
+	padding:25px;
+}
+	
+	
+
+dt {
+	color:#874a35;
+	font-size:1.1em;
+	font-weight:bold;
+	padding:2px 20px 2px 50px;
+}
+dd {
+  padding:5px 100px 15px 75px;
+  font-family:Constantia, "Lucida Bright", "DejaVu Serif", Georgia, "serif";
+}
+
+
+#homehero {
+	background-image:url(assets/coasthero.jpg);
+	height:300px;
+	background-repeat: no-repeat;
+	background-size:100% 100%;	}
+
+#yurthero {
+	background-image:url(assets/yurthero.jpg);
+	height:300px;
+	background-repeat: no-repeat;
+	background-size:100% 100%;	}
+
+#trailhero {
+	background-image:url(assets/trailhero.jpg);
+	height:300px;
+	background-repeat: no-repeat;
+	background-size:100% 100%;
+}
+
+#sunsethero {
+	background-image:url(assets/sunset.jpg);
+	height:300px;
+	background-repeat: no-repeat;
+	background-size:100% 100%;
+}
+
+#intro {
+	color:#874a35;
+	padding:20px;
+}
+
+.stylizedletter {
+	text-transform: uppercase;
+	font-size:1.125em;
+	color:#566342;
+}

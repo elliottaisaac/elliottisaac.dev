@@ -1,0 +1,112 @@
+<!doctype html>
+<html lang="en-US">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Websyte</title>
+<link rel="icon" href="assets/favicon.ico" type="image/x-icon">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<link href="style.css" rel="stylesheet" type="text/css">
+</head>
+
+<body id="bg" class="bg" onLoad="selectBackground();">
+
+<script>
+//loads one of 4 possible background designs
+function selectBackground(){
+var bgSelect = Math.floor(Math.random() * 4);
+var bgNumber = "";
+switch(bgSelect) {
+    case 1:
+        bgNumber = "one";
+        break;
+    case 2:
+        bgNumber = "two";
+        break;
+	case 3:
+        bgNumber = "three";
+        break;
+    default:
+        bgNumber = "zero";
+}
+var Bg = document.getElementById("bg");
+bg.className += " " + bgNumber; }
+
+</script>
+
+<div id="wrapper">
+
+<header id="head" class="h" onLoad="Head();">
+<picture>
+  <source media="(min-width: 701px)" srcset="assets/websyte.png">
+  <source media="(max-width: 700px)" srcset="assets/websyte2.png">
+  <img src="assets/websyte.png" alt="Websyte!" style="width:auto;">
+</picture>
+ </header>
+
+<nav>
+<button id="button">&#9776;</button>
+<ul id="menu"> <li> &#9664; <a href="index.html">home</a> &#9655;</li><li> &#9664; <a href="#leftCol">about</a> &#9655;</li><li> &#9664; <a href="#chart">explore</a> &#9655;</li><li> &#9664; <a href="#foot">contact</a> &#9655;</li></ul>
+</nav>
+<script>
+	$("#button").click(function(){
+		$("#menu").toggle('slow');
+	});
+</script>
+
+<div id="leftCol">
+	<h2>Welcome to <span class="yellow">Websyte</span></h2>
+	<p class="black">Websyte is here. And it's a game changer. the latest tech. the most features. wrapped up in a beautiful and responsive interface.</p> <p class="black">Be the first of your friends to experience the new era of ..<a href="http://gizmodo.com/10-predictions-about-the-future-that-should-scare-the-h-1783538821" target="_blank">stuff.</a></p>
+	<h3>The next big thing is here.</h3>
+	
+	<h2><em>What is <span class="yellow">Websyte</span>?</em></h2><br>
+	
+	<p><span class="yellow">Websyte is the thing you've been waiting for!</span></p>
+	
+	<h3>Websyte can help you:</h3>
+ <ul class="black">
+	 <li>achieve that goal you have</li>
+	 <li>Impress your friends</li>
+	 <li>improve your life</li>
+	 <li>and much more</li>
+	</ul>
+	
+<picture>
+  <source media="(min-width: 1270px)" srcset="assets/coolchart.png">
+  <source media="(min-width: 920px)" srcset="assets/coolchart2.png">
+  <source media="(min-width: 800px)" srcset="assets/coolchart3.png">
+  <source media="(min-width: 500px)" srcset="assets/coolchart.png">
+  <source media="(max-width: 499px)" srcset="assets/coolchart3.png">
+  <img src="assets/coolchart.png" id="chart" alt="This informative chart clearly demonstrates Websyte's superiority" style="width:auto;">
+</picture>
+</div>
+
+
+<div id="rightCol" > 
+<img id="logo" src="assets/websytelogo.png" width="250" height="250" alt="Websyte"/>
+ <br>
+ 
+	  <p>Our engineering team worked tirelessly with all their skill and ingenuity to find the solutions to the problems we've all been suffering through. You know, <em>those</em> problems. We all know what the product is. But websyte <span class="yellow"><a href="http://www.smithsonianmag.com/smithsonian-institution/the-future-is-here-whats-next-for-mobile-phones-180951479/" target="_blank">reimagines</a></span> it.</p>
+<br>
+<h2 class="white">The <span class="yellow"><a href="#chart">numbers</a></span> don't lie.</h2>
+	<p class="white"><span class="yellow">Websyte</span> has boosted things to<br>a whole <em>new level</em>.</p>
+</div>
+
+<div class="container">
+  <form action="/imaginaryFile.php">
+	  <h2 class="white" id="contact">Contact the <span class="yellow">Websyte</span> Team</h2>
+    <input type="text" id="contactus" name="contact" placeholder="Say hello...">
+    <input type="submit" value="Submit">
+  </form>
+	 <p class="white">Please include return contact information in your message if you wish to hear back from us.<br>We'll respond as promptly as we can.</p>
+</div>
+
+<footer id="foot">
+<p><span class="yellow">Elliott Isaac</span><br>
+<a href="http://www.elliottisaacdesign.com">Personal Syte</a> - <a href="mailto:eisaac22@gmail.com" target="_blank">Contact me</a><br>
+last updated: <!-- #BeginDate format:Am1 -->June 15, 2018<!-- #EndDate -->
+	</p>
+</footer>
+</div>
+</body>
+</html>
