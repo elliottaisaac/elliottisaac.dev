@@ -45,9 +45,11 @@ function ael(element, event, Function){
 // Assigns element a the CSS class named in each value of the array...
 // UNLESS the string starts with '!' in which case it removes the class whose name follows
 function UpdateClasses(element, classNameArray){
-    for(let i = 0; i < classNameArray.length; i++){
-        if(classNameArray[i].charAt(0) != "!") element.classList.add(classNameArray[i]);
-        else element.classList.remove(classNameArray[i].substring(1));
+    if(classNameArray){
+        for(let i = 0; i < classNameArray.length; i++){
+            if(classNameArray[i].charAt(0) != "!") element.classList.add(classNameArray[i]);
+            else element.classList.remove(classNameArray[i].substring(1));
+        }
     }
 }
 
