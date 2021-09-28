@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<title>Ellibrary</title>
+        <style>
+            div:first-of-type{
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                height: 200px;
+                background-color: orangered;
+                color: ghostwhite;
+                font-size: 42px;
+                letter-spacing: 2px;
+                font-weight: 900;
+                font-family: monospace;
+            }
+            .red{
+                color: red;
+            }
+            .big{
+                font-size: 150%;
+            }
+        </style>
+    </head>
+    <body>
+     
+        <div><p class="big">Welcome to the Ellibrary</p></div>
+        ><iframe src="ellibrary.js" frameborder="0"></iframe>
+    </body>
+    <footer>
+        <script src="ellibrary.js"></script>
+        <script>
+            function qs(selector){
+                return document.querySelector(selector);
+            }
+            console.log(qs("div p").innerHTML);
+        </script>
+    </footer>
+</html>
