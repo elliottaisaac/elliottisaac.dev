@@ -15,12 +15,29 @@
       body{
         background-color: #e9ebee;
       }
-      input[type="number"], button {
+      input[type="number"],button {
           width: 100px;
           height: 100px;
           margin: 66px auto;
           text-align: center;
           border-radius: 28%;
+          border-width: 6px;
+          border-color: #aa0114;
+          background-color: ghostwhite !important;
+          border-right-width: 0px;
+          border-left-width: 0px;
+          font-size: 44px;
+          font-family: sans-serif;
+          font-weight: 800;
+          padding: 12px;
+          color: #cc062e;
+         display: block;
+      }
+      ::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+      color: lightslategray;
+      opacity: 0.6; /* Firefox */
+    }
+        button{
           border-width: 1px;
           border-color: #aa0114;
           background-color: #cc062e !important;
@@ -31,9 +48,6 @@
           font-weight: 800;
           padding: 12px;
           color: ghostwhite;
-         
-      }
-      button{
         width: fit-content;
         padding: 12px 22px;
         display: block;
@@ -52,6 +66,8 @@
         color: #4a4646;
         font-size: 22px;
         text-align: center;
+        font-family: sans-serif;
+        margin-top: 62px;
       }
     </style>
   </head>
