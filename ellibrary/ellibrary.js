@@ -66,7 +66,7 @@ function InsertAfter(newNode, existingNode) {
 // Use a node object for referenceElement param to add new element to document after reference element
 function NewElement(type, classes, referenceElement){
     const newElement = document.createElement(type);
-    newElement(UpdateClasses(classes));
+    UpdateClasses(newElement, classes);
     if(referenceElement) InsertAfter(newElement, referenceElement);
     return newElement;
 }
