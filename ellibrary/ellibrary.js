@@ -113,3 +113,13 @@ function CheckViewportResponsiveness(breakpoints){
     return breakpointChecks;
 }
 function CVR(){ return CheckViewportResponsiveness(false); } // shorthand for using defaults
+
+//convert int to binary string
+function toBinary(x){
+    let binary = "";
+    for(let i = 0; x/Math.pow(2,i) >= 1; i++){
+        if(Math.floor((x/Math.pow(2,i))) % 2 == 0) binary += '0';
+        else binary += '1';
+    }
+    return binary.split('').reverse().join('');
+}
