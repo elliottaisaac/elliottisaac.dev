@@ -18,7 +18,6 @@ canvas{
 	color:#222;
 	background-image: radial-gradient(#fff, whitesmoke);
 	border: 1px solid black;
-	transition:all 0.125s linear;
 	outline:none;
 	justify-content: flex-end;
 	cursor: pointer;
@@ -41,7 +40,7 @@ canvas{
 
 #hide, #show{
 	padding: 10px;
-	width: 75%;
+	width: 73%;
 	height: 50px;
 	margin:2% 0 0 2%;
 	border-radius: 33px;
@@ -56,16 +55,15 @@ canvas{
 	margin-left:80%;
 }
 
-#reset{
-	padding: 10px;
-	width: 50%;
+#reset, #save{
+	padding:8px;
+	width: 35%;
 	height: 40px;
 	margin:2% 0 0 2%;
 	border-radius: 22px;
 	float: right;
-	font-size:1rem;
+	font-size:0.875rem;
 }
-
 
 .controls{
 	border: 4px solid ghostwhite;

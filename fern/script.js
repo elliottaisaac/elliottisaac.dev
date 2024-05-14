@@ -108,3 +108,16 @@ function Draw(){
 		}, 1);	
 	}
 }
+
+// Save | Download image
+document.getElementById('save').addEventListener("click", function(e) {
+    const dataURL = canvasElement.toDataURL("image/png", 1.0);
+    downloadImage(dataURL, 'fractal-fern.png');
+});
+function downloadImage(data, filename = 'untitled.jpeg') {
+    const a = document.createElement('a');
+    a.href = data;
+    a.download = filename;
+    document.body.appendChild(a);
+    a.click();
+}
