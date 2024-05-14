@@ -1,4 +1,6 @@
-/* Javascript Fractal Ferns */
+/* Javascript Fractal Fern Drawer */
+
+// adapted from https://en.wikipedia.org/wiki/Barnsley_fern
 
 //rotates the arrow when the slider thumb is moved
 const rotation = document.querySelector("#rot");
@@ -30,17 +32,18 @@ document.querySelector("#show").addEventListener("click", () => {
 		document.querySelector("#show").style.display = "none";
 });
 
-//reloads the DOM to clear the canvas
-document.querySelector("#reset").addEventListener("click", () => {
-	location.reload();
-});	
-
 const colors = document.querySelectorAll(".sliders input");
 for(let i = 0; i < colors.length; i++){
 	colors[i].addEventListener("input", () => {
 		displayColors();
 	});
 }
+
+//reloads the DOM to clear the canvas
+document.querySelector("#reset").addEventListener("click", () => { location.reload(); });	
+
+//call Draw function
+document.querySelector("#draw").addEventListener("click", Draw);
 
 // colors the big circle dot and the rotational arrow to show the combined color of the 3 RGB values
 function displayColors(){
@@ -67,18 +70,18 @@ function fillSliders(){
 	}
 }
 
+//Draw on HTML canvas
 const canvasElement = document.querySelector("#canvas");
 const context = canvasElement.getContext("2d");
 canvasElement.height = 1500;
 canvasElement.width = 1500;	
 let X = 0;
 let Y = 0;
-let x;
-let y;
+let x, y;
 
-//adapted from python code found at https://en.wikipedia.org/wiki/Barnsley_fern#Python
 function Draw(){
-	for(let n = 1; n <= 1000000; n++){
+	context.clearRect(0, 0, canvas.width, canvas.height);
+	for(let n = 1; n <= 1000000; n++){	
 		const dot = setTimeout( () => { 
 			r = Math.random()*100;
 			if(r < 1.0){
@@ -102,7 +105,6 @@ function Draw(){
 			context.fillStyle = `rgb(${red.value}, ${green.value}, ${blue.value})`;
 			context.fillRect(x * 125 + 375, y * 125 + 225, 1,1);
 			document.querySelector("p").innerHTML = `dots: ${n}`;
-		}, n % 2);	
+		}, 1);	
 	}
 }
-document.querySelector("#draw").addEventListener("click", Draw);
