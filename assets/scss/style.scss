@@ -666,6 +666,7 @@ body{
 
             .prof:hover, .prof:active{
                 background-color: #cc3333;
+                filter: invert(0);
             }
 
             #tileInst{
