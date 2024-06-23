@@ -73,7 +73,7 @@ canvas{
 	width: 50%;
 	margin-left: 48%;
 	position: fixed;
-	transition: opacity 0.333s linear;
+	transition: opacity 0.2s linear;
 }
 
 #color-display{
