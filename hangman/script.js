@@ -213,8 +213,6 @@ document.querySelector("#reset").addEventListener("click", () => {
 
 
 let goog = document.querySelector("#googleIt");
-goog.addEventListener("mouseover", () => { document.querySelector("#googleIt").innerHTML = "Look up word"; });
-goog.addEventListener("mouseout", () => { document.querySelector("#googleIt").innerHTML = "Huh?"; });
 goog.addEventListener("click", () => { 
 	googleQuery = "https://www.google.com/search?q=" + document.querySelector("#mysteryBox").innerHTML.toLowerCase() + "+definition";
 	window.open(googleQuery);
