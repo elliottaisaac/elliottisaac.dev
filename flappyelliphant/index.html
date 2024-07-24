@@ -53,6 +53,51 @@
 		transform: scale(1.083);
 		filter: invert(1);
 	}
+	.pushable {
+	    background: transparent;
+    border-radius: 75%;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    outline-offset: 4px;
+    position: absolute;
+    bottom: 0vh;
+    left: calc(50% - 200px);
+    font-size: 400px;
+    height: 300px;
+	display: block;
+	transform: scale(0.5);
+  }
+  .front {
+	display: block;
+    padding: 96px 42px 0;
+    border-radius: 45%;
+    font-size: 9.5rem;
+    background: hsl(345deg 100% 47%);
+    color:aliceblue;
+    transform: translate(12px, -49px);
+    font-family: "badaboom-pro", sans-serif;
+    font-weight: bold;
+    height: 300px;
+    width: 300px;
+    border-bottom: 6px solid #a30036;
+	border-right: 2px solid #a30036;
+    border-bottom-width: 25px;
+	transition: 0.125s all ease-out;
+  }
+
+  .pushable:active .front {
+    border-bottom-width: 3px;
+	border-bottom-width: 0px;
+	color: #a9d8eb;
+  }
+
+  @media (min-width:1200px) {
+	.pushable {
+		display: none;
+	}
+  }
+  
 </style>
 <link rel="stylesheet" href="https://use.typekit.net/kyi1jiz.css">
 <script src="https://code.createjs.com/createjs-2015.11.26.min.js"></script>
@@ -119,6 +164,7 @@ function handleComplete(evt,comp) {
 	AdobeAn.compositionLoaded(lib.properties.id);
 	fnStartAnimation();
 }
+
 </script>
 <!-- write your code here -->
 </head>
@@ -134,5 +180,29 @@ background-repeat: repeat;">
 		<div id="dom_overlay_container" style="pointer-events:none; overflow:hidden; width:300px; height:400px; position: absolute; left: 0px; top: 0px; display: block;">
 		</div>
 	</div>
+<button class="pushable">
+	<span class="front">
+		Flap!
+	</span>
+	</button>
 </body>
+<script>document.querySelector('button').addEventListener("click", () =>{
+	document.querySelector('canvas').focus();
+	var keyboardEvent = document.createEvent('KeyboardEvent');
+var initMethod = typeof keyboardEvent.initKeyboardEvent !== 'undefined' ? 'initKeyboardEvent' : 'initKeyEvent';
+    
+keyboardEvent[initMethod](
+  'keydown', // event type: keydown, keyup, keypress
+  true, // bubbles
+  true, // cancelable
+  window, // view: should be window
+  false, // ctrlKey
+  false, // altKey
+  false, // shiftKey
+  false, // metaKey
+  40, // keyCode: unsigned long - the virtual key code, else 0
+  0, // charCode: unsigned long - the Unicode character associated with the depressed key, else 0
+);
+document.dispatchEvent(keyboardEvent);
+});</script>
 </html>
