@@ -20,7 +20,40 @@
 	left:0;right:0;
 	top:0;bottom:0;
   }
+  #scorebox, h1{
+	font-family: "badaboom-pro", sans-serif;
+	font-weight: 400;
+	font-style: normal;
+	color:#fff;
+	font-size:120px;
+	text-shadow: black 0px 2px 4px;
+	text-align: center;
+    margin: 40px auto;
+  }
+  h1{
+	font-size:72px;
+	writing-mode: vertical-rl;
+    position: absolute;
+    right: calc(50% - 300px);
+    letter-spacing: 3px;
+    top: calc(50% - 300px);
+  }
+  #back{
+		display: block;
+		position: fixed;
+		top: 32px;
+		left: 64px;
+		width: 64px;
+		transition: all 0.375s ease-in-out;
+		cursor: pointer;
+		filter: invert(0);
+	}
+	#back:hover{
+		transform: scale(1.083);
+		filter: invert(1);
+	}
 </style>
+<link rel="stylesheet" href="https://use.typekit.net/kyi1jiz.css">
 <script src="https://code.createjs.com/createjs-2015.11.26.min.js"></script>
 <script src="Ernie_game.js"></script>
 <script>
@@ -88,9 +121,15 @@ function handleComplete(evt,comp) {
 </script>
 <!-- write your code here -->
 </head>
-<body onload="init();" style="margin:0px;">
+<body onload="init();" style="margin:0px;background-color: #a82016; background-image:  linear-gradient(135deg, #f5332c 25%, transparent 25%), linear-gradient(225deg, #f5332c 25%, transparent 25%), linear-gradient(45deg, #f5332c  25%, transparent 25%), linear-gradient(315deg, #f5332c 25%, #a82016 25%);
+background-position:  10px 0, 10px 0, 0 0, 0 0;
+background-size: 20px 20px;
+background-repeat: repeat;">
+<a href="/"><img id="back" src="../assets/img/back.png"></a>
+<h1>Phlappy 'Phant!'</h1>
+<div id="scorebox";>0</div>
 	<div id="animation_container" style="background-color:rgba(204, 204, 204, 1.00); width:300px; height:400px">
-		<canvas id="canvas" width="300" height="400" style="position: absolute; display: block; background-color:rgba(204, 204, 204, 1.00);"></canvas>
+		<canvas id="canvas" width="300" height="400" style="position: absolute; display: block; background-color:rgba(204, 204, 204, 1.00); border: 2px solid gray; border-radius: 12px; box-shadow: #000 -6px 6px 24px; transform: scale(1.5);"></canvas>
 		<div id="dom_overlay_container" style="pointer-events:none; overflow:hidden; width:300px; height:400px; position: absolute; left: 0px; top: 0px; display: block;">
 		</div>
 	</div>

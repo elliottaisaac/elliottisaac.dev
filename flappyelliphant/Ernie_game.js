@@ -962,7 +962,7 @@ p.nominalBounds = new cjs.Rectangle(-62,-58.4,156.6,116.7);
 		  {
 		    this.state = Ernie.DYING;
 		    this.velocity = 0;
-			createjs.Sound.play("hit");
+			//createjs.Sound.play("hit");
 			//while (this.velocity <= 0) {this.state = Ernie.DEAD}
 		}
 		  }
@@ -1289,6 +1289,8 @@ p.nominalBounds = new cjs.Rectangle(-62,-58.4,156.6,116.7);
 		      console.log("Main::checkForErniePassingPipe() - Scored a point!");
 			  this.scoredPoint();
 			  scoreMsg += 1;
+			  document.querySelector("#scorebox").innerHTML = parseInt(document.querySelector("#scorebox").innerHTML) + 1;
+			  createjs.Sound.play("point");
 		    }
 		  }
 		}
@@ -1296,16 +1298,18 @@ p.nominalBounds = new cjs.Rectangle(-62,-58.4,156.6,116.7);
 		Main.prototype.scoredPoint = function()
 		{
 		  this.score++;
-		  document.getElementById("scoreOutPut").innerHTML = this.score;
-		  this.ui.updateScore(this.score);
-		  createjs.Sound.play("point");
+		//   document.getElementById("scoreOutPut").innerHTML = this.score;
+		//   this.ui.updateScore(this.score);
+		//   createjs.Sound.play("point");
+		  console.log(this.score);
+		//   document.querySelector("#scorebox").innerHTML = this.score;
 		}
 		
 		Main.prototype.registerSound = function()
 		{
 		  createjs.Sound.registerSound("sound/point.wav", "point");
 		  createjs.Sound.registerSound("sound/flap.wav", "flap");
-		  createjs.Sound.registerSound("sound/hit.wav", "hit");
+		   createjs.Sound.registerSound("sound/hit.wav", "hit");
 		}
 		
 		var main = new Main();
@@ -1340,6 +1344,9 @@ p.nominalBounds = new cjs.Rectangle(-62,-58.4,156.6,116.7);
 	this.gameOver.cache(-111,-9,220,42);
 
 	this.timeline.addTween(cjs.Tween.get(this.gameOver).wait(1));
+
+	this.addEventListener("click", (e) => {location.reload();});
+	this.addEventListener("keypress", (e) => {location.reload();})
 
 	// flash
 	this.screenFlash = new lib.screenflash();
