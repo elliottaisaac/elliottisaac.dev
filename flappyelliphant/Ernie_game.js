@@ -1151,7 +1151,7 @@ p.nominalBounds = new cjs.Rectangle(-62,-58.4,156.6,116.7);
 		
 		UI.prototype.updateScore = function(score)
 		{
-		  document.getElementById("scoreOutPut").innerHTML = score;
+		//   document.getElementById("scoreOutPut").innerHTML = score;
 		}
 		
 		UI.prototype.gameStart = function()

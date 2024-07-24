@@ -141,18 +141,19 @@ canvas{
 #googleIt{
 	display: none;
 	border-radius: 4px;
-	padding: 4px;
-	margin:auto;
-	width: 44px;
-	transform: translateY(-36px);
-	padding: 4px 12px;
-	float: right;
-	margin-right: 33%;
-	text-align: center;
-	cursor: pointer !important;
+    padding: 4px;
+    margin: auto;
+    width: fit-content;
+    transform: translateY(-35px);
+    padding: 6px 12px;
+    float: right;
+    margin-right: 15%;
+    text-align: center;
+    cursor: pointer !important;
+    font-size: 0.75em;
 }
 #googleIt:hover{
-	font-size: 8px;
+	filter:invert(1);
 }
 
 #reset:hover{
@@ -207,9 +208,9 @@ canvas{
 	} 
 
 	#googleIt, #googleIt:hover{
-		margin-right: 0;
-		width: fit-content;
-		font-size: 1.125em;
-		padding: 8px;
+		margin-right: 0%;
+        width: fit-content;
+        font-size: .875em;
+        padding: 8px;
 	}
 }
