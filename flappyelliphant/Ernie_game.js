@@ -822,7 +822,7 @@ p.nominalBounds = new cjs.Rectangle(-62,-58.4,156.6,116.7);
 	this.shape_36.graphics.f("#2277BA").s().p("AhrDBIAAmBIDXAAIAABVIh0AAIAABBIBtAAIAABUIhtAAIAABCIB0AAIAABVg");
 	this.shape_36.setTransform(106.8,135.1,0.42,0.42);
 
-	this.timeline.addTween(cjs.Tween.get({}).to({state:[{t:this.shape_36},{t:this.shape_35},{t:this.shape_34},{t:this.shape_33},{t:this.shape_32},{t:this.shape_31},{t:this.shape_30},{t:this.shape_29},{t:this.shape_28},{t:this.shape_27},{t:this.shape_26},{t:this.shape_25},{t:this.shape_24},{t:this.shape_23},{t:this.shape_22},{t:this.shape_21},{t:this.shape_20},{t:this.shape_19},{t:this.shape_18},{t:this.shape_17},{t:this.shape_16},{t:this.shape_15},{t:this.shape_14},{t:this.shape_13},{t:this.shape_12},{t:this.shape_11},{t:this.shape_10},{t:this.shape_9},{t:this.shape_8},{t:this.shape_7},{t:this.shape_6},{t:this.shape_5},{t:this.shape_4},{t:this.shape_3},{t:this.shape_2},{t:this.shape_1},{t:this.shape}]}).wait(1));
+	this.timeline.addTween(cjs.Tween.get({}).to({state:[{t:this.shape_36},{t:this.shape_35},{t:this.shape_34},{t:this.shape_33},{t:this.shape_32},{t:this.shape_31},{t:this.shape_30},{t:this.shape_29},{t:this.shape_28},{t:this.shape_27},{t:this.shape_26},{t:this.shape_25},{t:this.shape_2},{t:this.shape_1},{t:this.shape}]}).wait(1));
 
 	// Trees
 	this.instance = new lib.Trees();
@@ -964,6 +964,7 @@ p.nominalBounds = new cjs.Rectangle(-62,-58.4,156.6,116.7);
 		    this.velocity = 0;
 			//createjs.Sound.play("hit");
 			//while (this.velocity <= 0) {this.state = Ernie.DEAD}
+			window.addEventListener("keypress", (e) => {console.log("new game"); location.reload();})
 		}
 		  }
 		  
@@ -1345,8 +1346,6 @@ p.nominalBounds = new cjs.Rectangle(-62,-58.4,156.6,116.7);
 
 	this.timeline.addTween(cjs.Tween.get(this.gameOver).wait(1));
 
-	this.addEventListener("click", (e) => {location.reload();});
-	this.addEventListener("keypress", (e) => {location.reload();})
 
 	// flash
 	this.screenFlash = new lib.screenflash();
