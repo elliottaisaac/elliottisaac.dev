@@ -52,37 +52,40 @@ if(window.innerWidth > 1200){
 // homepage animated text typing ----------------------------------------------------------->
 //----------------------------------------------------------------------------------------->
 if(document.querySelector("#typing") && document.querySelector("#typing").scrollTop > -100){
-    // Note/reminder: for some frustrating reason this only works on apple browsers if 'var' is used to declare variables rather than the ES6 keywords
-    var Typing = document.querySelector("#typing");
-    var copy, backspacing, TypedChars, backspaceTo, lag, lag2;
-
-       copy = ["development","Adobe CC suite","JavaScript frameworks","API's","Graphic Design","HTML","emails","Information Architecture","PHP","React","Animation","UX","Web Accessibility","Web Design","WordPress","pixel-perfect web experiences"];
-       for(i=0; i<copy.length; i++) copy[i] = `I do ${copy[i]}.`;
-        backspaceTo = 5;
-        var cycle = 0;
-        TypedChars = copy[cycle].split("");
-        backspacing = false;
-        Typing.innerHTML = copy[0];
+    var copy, cycle, backspacing, Typing, TypedChars, backspaceTo, lag; 
+    copy = ["development","Adobe CC (all the good ones)","JavaScript (like a boss)","HTML","React","Animation","UX","Web Accessibility","Graphic and Web Design","WordPress","pixel-perfect web experiences"];
+    for(i=0; i<copy.length; i++) copy[i] = `I do ${copy[i]}.`;
+    backspaceTo = 5;
+    cycle = 0;
+    backspacing = false;
+    Typing = document.querySelector("#typing");
+    Typing.innerHTML = copy[0];
        
-        function Type(){
-            lag = setInterval( () => {  
-                    if (Typing.innerHTML.length == copy[cycle].length) backspacing = true;
-                    else if(Typing.innerHTML.length == backspaceTo){
-                            backspacing = false;
-                            cycle = Math.floor(Math.random() * copy.length);
-                            TypedChars = copy[cycle].split("");
-                    }
+    function Type(){
+        lag = setInterval( () => {  
+                if (Typing.innerHTML.length == copy[cycle].length) backspacing = true;
+                else if(Typing.innerHTML.length == backspaceTo){
+                        backspacing = false;
+                        Randomize();
+                        TypedChars = copy[cycle].split("");
+                }
 
-                    if (backspacing == true && Typing.innerHTML.length > backspaceTo) Typing.innerHTML = Typing.innerHTML.slice(0, -1);  
-    
-                    if(backspacing == false && Typing.innerHTML.length >= backspaceTo){ 
-                        if (Typing.innerHTML.length < copy[cycle].length) Typing.innerHTML += TypedChars[Typing.innerHTML.length];
-                        if (Typing.innerHTML.length == copy[cycle].length){
-                            clearInterval(lag);
-                            setTimeout( () => { Type(); }, 2000);
-                        }  
-                    }
-            }, 200);     
+                if (backspacing == true && Typing.innerHTML.length > backspaceTo) Typing.innerHTML = Typing.innerHTML.slice(0, -1);  
+
+                if(backspacing == false && Typing.innerHTML.length >= backspaceTo){ 
+                    if (Typing.innerHTML.length < copy[cycle].length) Typing.innerHTML += TypedChars[Typing.innerHTML.length];
+                    if (Typing.innerHTML.length == copy[cycle].length){
+                        clearInterval(lag);
+                        setTimeout( () => { Type(); }, 2000);
+                    }  
+                }
+        }, 200);     
+    }
+
+    function Randomize(){ 
+        let prev = cycle;
+        cycle = Math.floor(Math.random() * copy.length);
+        if(cycle == prev) Randomize();
     }
 
     window.addEventListener("load", () => {setTimeout( () => { Type(); }, 1000);});
