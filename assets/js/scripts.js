@@ -55,27 +55,21 @@ if(document.querySelector("#typing") && document.querySelector("#typing").scroll
     // Note/reminder: for some frustrating reason this only works on apple browsers if 'var' is used to declare variables rather than the ES6 keywords
     var Typing = document.querySelector("#typing");
     var copy, backspacing, TypedChars, backspaceTo, lag, lag2;
-    var cycle = 0;
 
-    window.addEventListener("load", Type);
-    window.addEventListener("resize", Type);
-    window.addEventListener("blur", Reset);
-
-    function Type(){
-        copy = ["I can code.", "I can design.", "I can create.", "I can get it done!"];
+       copy = ["development","Adobe CC suite","JavaScript frameworks","API's","Graphic Design","HTML","emails","Information Architecture","PHP","React","Animation","UX","Web Accessibility","Web Design","WordPress","pixel-perfect web experiences"];
+       for(i=0; i<copy.length; i++) copy[i] = `I do ${copy[i]}.`;
         backspaceTo = 5;
+        var cycle = 0;
         TypedChars = copy[cycle].split("");
         backspacing = false;
-        Typing.innerHTML = copy[cycle];
-        clearInterval(lag2); 
-        lag2  = setInterval( () => {   
+        Typing.innerHTML = copy[0];
+       
+        function Type(){
             lag = setInterval( () => {  
                     if (Typing.innerHTML.length == copy[cycle].length) backspacing = true;
-                    
                     else if(Typing.innerHTML.length == backspaceTo){
                             backspacing = false;
-                            cycle++;
-                            if(cycle == 4) cycle = 0;
+                            cycle = Math.floor(Math.random() * copy.length);
                             TypedChars = copy[cycle].split("");
                     }
 
@@ -83,19 +77,15 @@ if(document.querySelector("#typing") && document.querySelector("#typing").scroll
     
                     if(backspacing == false && Typing.innerHTML.length >= backspaceTo){ 
                         if (Typing.innerHTML.length < copy[cycle].length) Typing.innerHTML += TypedChars[Typing.innerHTML.length];
-                        if (Typing.innerHTML.length == copy[cycle].length) clearInterval(lag); 
+                        if (Typing.innerHTML.length == copy[cycle].length){
+                            clearInterval(lag);
+                            setTimeout( () => { Type(); }, 2000);
+                        }  
                     }
             }, 200);     
-        }, 6000);  
     }
-    
-    function Reset(){
-        clearInterval(lag2); 
-        window.addEventListener("focus", () => {
-            Type();
-        });
-    } 
 
+    window.addEventListener("load", () => {setTimeout( () => { Type(); }, 1000);});
 
     //blinks the cursor----------------------------------------------->
     const cursor = document.querySelector("#cursor");
@@ -197,20 +187,22 @@ function Blob(blobElement, size, top, left){
         if(sw < size/4) sw = size;
         if(sh > size*2) sh = size;
         if(sw > size*2) sw = size;
-        switch(c){
-            case 0:
-                blob.style.borderTopLeftRadius = br + "% "; break;
-            case 1:
-                blob.style.borderTopRightRadius = br + "% "; break;
-            case 2:
-                blob.style.borderBottomRightRadius = br + "% "; break;
-            case 3:
-                blob.style.borderBottomLeftRadius = br + "% "; break;
-        }
+        if(blob){
+                switch(c){
+                case 0:
+                    blob.style.borderTopLeftRadius = br + "% "; break;
+                case 1:
+                    blob.style.borderTopRightRadius = br + "% "; break;
+                case 2:
+                    blob.style.borderBottomRightRadius = br + "% "; break;
+                case 3:
+                    blob.style.borderBottomLeftRadius = br + "% "; break;
+            }
         blob.style.top = tp + "px";
         blob.style.left = lf + "vw";
         blob.style.height = sh + "px";
         blob.style.width = sw + "px";
+        }
     }, 5);    
 }
 
