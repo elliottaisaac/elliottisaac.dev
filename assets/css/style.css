@@ -9903,7 +9903,8 @@ body #page .homepageText.bio {
     line-height: 150%;
     margin-left: calc((100vw - 1180px)/ 2);
     font-size: 16px;
-    margin-right: calc((100vw - 240px)/ 2)
+    /* margin-right: calc((100vw - 240px)/ 2) */
+    padding: 0 33% 0 0;
 }
 
 body #page .dot {
@@ -9924,12 +9925,17 @@ body #page #me {
     top: -160px;
     margin-bottom: 20px;
     position: relative;
-    left: 120%;
+    left: 67%;
     filter: grayscale(1);
     transform: rotate(0);
     border: 0 solid var(--white);
     transition: 125ms ease-out
 }
+
+body #page #me:hover {
+    filter: grayscale(0);
+}
+
 
 body #page #lowerText:hover p #me,
 body #page #resume-btn:hover #me,
@@ -10402,6 +10408,10 @@ body #page .certs p a {
 
 @media only screen and (max-width:600px) {
 
+    body #page #me {
+        display: none !important;
+    }
+
     .about-cont{
         display: block;
     }
@@ -10714,7 +10724,8 @@ body #page .certs p a {
     body #page .homepageText.bio {
         width: 76%;
         font-size: 14px;
-        line-height: 140%
+        line-height: 140%;
+        padding: 0;
     }
 
     body #page #aboutMe {
