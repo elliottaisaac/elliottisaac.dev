@@ -10017,20 +10017,26 @@ body #page .homepageText.upper {
     line-height: 112%;
     margin-top: 48px !important
 }
+.about-cont{
+    display: flex; flex-wrap: wrap; justify-content: flex-start;
+}
 
 body #page #resume-btn {
     width: 240px;
-    height: 48px;
+    min-height: 48px;
     text-align: center;
     color: var(--white);
     font-weight: bolder;
-    font-size: 20px;
+    font-size: 24px;
     letter-spacing: 0;
     padding-top: 8px;
     border-radius: 24px;
-    margin:48px 500px 0 calc((100vw - 1180px) / 2);
+    min-width: 50%;
+    margin: 100px auto 0 auto;
     background-color: #0031ff;
     border-top: 2px solid var(--white);
+    padding: 12px;
+    letter-spacing: 2px;
 }
 
 body #page #aboutMe {
@@ -10094,7 +10100,9 @@ body #page #tileInst {
 @media (max-width:801px) {
     body #page #resume-btn {
         font-size: 16px;
-        padding-top: 12px
+        padding-top: 12px;
+        margin: 50px;
+        display: block;
     }
 
     body #page #tileInst {
@@ -10128,7 +10136,8 @@ body #page .certs {
     flex-wrap: wrap;
     justify-content: center;
     width: 100%;
-    transform: translateY(0px)
+    height: 350px;
+    margin-bottom: 200px;
 }
 
 body #page .certs a:not(p a) {
@@ -10388,11 +10397,15 @@ body #page .certs p a {
         justify-content: center;
         margin-left: 0;
         width: 100%;
-        transform: translateY(-200px)
+
     }
 }
 
 @media only screen and (max-width:600px) {
+
+    .about-cont{
+        display: block;
+    }
 
     #top-bar,
     #x:active,
