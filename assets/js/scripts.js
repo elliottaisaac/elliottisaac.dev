@@ -53,7 +53,7 @@ if(window.innerWidth > 1200){
 //----------------------------------------------------------------------------------------->
 if(document.querySelector("#typing") && document.querySelector("#typing").scrollTop > -100){
     var copy, cycle, backspacing, Typing, TypedChars, backspaceTo, lag; 
-    copy = ["development","Adobe CC (all the good ones)","JavaScript (like a boss)","HTML","React","Animation","UX","Web Accessibility","Graphic and Web Design","WordPress","pixel-perfect web experiences"];
+    copy = ["Development","JavaScript (like a boss)","Animation","UX","Web Design","HTML","CSS","WordPress","Pixel-perfect websites"];
     for(i=0; i<copy.length; i++) copy[i] = `I do ${copy[i]}.`;
     backspaceTo = 5;
     cycle = 0;
@@ -145,73 +145,6 @@ if(window.innerWidth > 820 && document.querySelector("html").scrollTop < 328){
         return Math.sqrt(Math.pow(x2 - x1, 2) + Math.pow(y2 - y1, 2));
     }
 
-}
-//----------------------------------------------------------------------------------------->
-//----------------------------------------------------------------------------------------->
-//----------------------------------------------------------------------------------------->
-
-
-//----------------------------------------------------------------------------------------->
-// floating blob -------------------------------------------------------------------------------->
-//----------------------------------------------------------------------------------------->
-function Blob(blobElement, size, top, left){
-    const blob = blobElement;
-    let br = 50;
-    let sh = size;
-    let sw = size;
-    let tp = top;
-    let lf = left;
-    let rd,t,l,sr,c;
-    let blobInt = setInterval( () => {
-        rd = Math.random();
-        t = Math.random();
-        l = Math.random();
-        shr = Math.random();
-        swr = Math.random();
-        c = Math.floor(Math.random()*4);
-        if(rd > 0.5) br+= 1;
-        else br-= 1;
-        if(shr > 0.5) sh+= 1;
-        else sh-= 1;
-        if(swr > 0.5) sw+= 1;
-        else sw-= 1;
-        c = Math.floor(Math.random()*4);
-        if(t > 0.5) tp+= 0.5;
-        else tp-= 0.5;
-        if(l > 0.5) lf+= 0.25;
-        else lf-= 0.25;
-        if(br > 100) br = 50;
-        else if(br <= 20) br = 70; 
-        if(tp <= top - 300) tp = top;
-        if(tp <= top + 300) tp = top;
-        if(lf >= 90) lf = 50; 
-        if(lf <= 10) lf = 50; 
-        if(sh < size/4) sh = size;
-        if(sw < size/4) sw = size;
-        if(sh > size*2) sh = size;
-        if(sw > size*2) sw = size;
-        if(blob){
-                switch(c){
-                case 0:
-                    blob.style.borderTopLeftRadius = br + "% "; break;
-                case 1:
-                    blob.style.borderTopRightRadius = br + "% "; break;
-                case 2:
-                    blob.style.borderBottomRightRadius = br + "% "; break;
-                case 3:
-                    blob.style.borderBottomLeftRadius = br + "% "; break;
-            }
-        blob.style.top = tp + "px";
-        blob.style.left = lf + "vw";
-        blob.style.height = sh + "px";
-        blob.style.width = sw + "px";
-        }
-    }, 5);    
-}
-
-if(window.innerWidth > 820){
-    Blob(document.querySelector(".botblob"), 400, 2600, 40);
-    Blob(document.querySelector(".topblob"), 200, 300, 20);
 }
 //----------------------------------------------------------------------------------------->
 //----------------------------------------------------------------------------------------->
