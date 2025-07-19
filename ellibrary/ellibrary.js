@@ -57,7 +57,7 @@ function ael(element, event, Function){
 
 // Adds and/or removes CSS classes
 // Takes a node object/element and an array of strings as inputs
-// Assigns element a the CSS class named in each value of the array...
+// Assigns element the CSS class named in each value of the array...
 // UNLESS the string starts with '!' in which case it removes the class whose name follows
 
 function UpdateClasses(element, classNameArray){
