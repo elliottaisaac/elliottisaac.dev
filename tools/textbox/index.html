@@ -90,12 +90,12 @@
     });
 
     document.querySelector(".close-section-btn").addEventListener("click", () => {
-      if(confirm("Clear textbox?") == true) {
+      // if(confirm("Clear textbox?") == true) {
         document.querySelector("textarea").value = "";
         document.querySelector("textarea").focus();
         document.querySelector(".close-section-btn div span:first-of-type").style.transform = "transform: translate(-2px, 9px) rotate(15deg)";
         document.querySelector(".close-section-btn div span:last-of-type").style.transform = "transform: translate(-2px, 9px) rotate(-45deg)";
-      }
+     // }
     });
   </script>
 </html>
