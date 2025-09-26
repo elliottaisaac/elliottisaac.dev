@@ -3,6 +3,7 @@
 <html dir="ltr" lang="en">
   <head>
     <meta charset="utf-8">
+    
     <style>
       body {
         background-color: #000000;
@@ -24,7 +25,7 @@
           background: rgba(248, 248, 255, 0.95);
           line-height: 110%;
       }
-      .close-section-btn{
+      .close-section-btn, #download{
           width: 20px;
           height: 20px;
           position: absolute;
@@ -33,7 +34,20 @@
           cursor: pointer;
           padding: 12px;
           left: calc(50% - 10px);
-          top: 32px;
+          top: 25px;
+          color: gray;
+        }
+
+        #download{
+          top: 8px;
+          left: calc(50% + 45px);
+          transform: scale(1.4);
+        }
+
+        #download:hover{
+          transform: scale(1.75);
+          transition: ease-out 0.125s;
+          color: #17d46f;
         }
 
       .close-section-btn div{
@@ -59,9 +73,11 @@
       }
       .cat_close:hover div span:first-of-type, .close-section-btn:focus .cat_close div span:first-of-type{
         transform: translate(-2px, 9px) rotate(15deg);
+        background-color: #cf484d;
       }
       .cat_close:hover div span:last-of-type, .close-section-btn:focus .cat_close div span:last-of-type{
         transform: translate(-2px, 9px) rotate(-15deg);
+        background-color: #cf484d;
       }
 
       .pj-internal-content{
@@ -79,6 +95,9 @@
         </div>
       </div>
     </div>
+    <p class="fa-solid fa-arrow-down" id="download" onclick="saveTextAsFile()">
+      ⬇
+    </p>
     <textarea rows="10" cols="75" placeholder="Type something..."></textarea>
   </body>
   <script>
@@ -97,5 +116,22 @@
         document.querySelector(".close-section-btn div span:last-of-type").style.transform = "transform: translate(-2px, 9px) rotate(-45deg)";
      // }
     });
+
+    function saveTextAsFile() {
+      const textToSave = document.querySelector("textarea").value;
+      const filename = 'my_document.txt'; // Desired filename
+
+      const blob = new Blob([textToSave], { type: 'text/plain' });
+      const url = URL.createObjectURL(blob);
+
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = filename;
+      document.body.appendChild(a); // Append the link to the body (can be hidden)
+      a.click(); // Programmatically click the link to trigger download
+      document.body.removeChild(a); // Remove the link
+      URL.revokeObjectURL(url); // Clean up the object URL
+    }
+
   </script>
 </html>
