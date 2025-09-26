@@ -25,11 +25,11 @@
           background: rgba(248, 248, 255, 0.95);
           line-height: 110%;
       }
-      .close-section-btn, #download{
+      .clear-text-btn, #download{
           width: 20px;
           height: 20px;
           position: absolute;
-          z-index: 9;
+          z-index: 2;
           outline: none;
           cursor: pointer;
           padding: 12px;
@@ -37,67 +37,50 @@
           top: 25px;
           color: gray;
         }
-
-        #download{
-          top: 8px;
-          left: calc(50% + 45px);
-          transform: scale(1.4);
-        }
-
-        #download:hover{
-          transform: scale(1.75);
-          transition: ease-out 0.125s;
-          color: #17d46f;
-        }
-
-      .close-section-btn div{
+      .clear-text-btn div{
         position: relative;
         width: 20px;
         height: 20px;
       }
-      .close-section-btn div span{
+      .clear-text-btn div span{
           width: 24px;
           height: 4px;
           background-color: gray;
           position: absolute;
           transition: all 125ms ease-out;
       }
-      .close-section-btn div span:first-of-type{
+      .clear-text-btn div span:first-of-type{
         transform: translate(-2px, 9px) rotate(45deg);
       }
-      .close-section-btn div span:last-of-type{
+      .clear-text-btn div span:last-of-type{
         transform: translate(-2px, 9px) rotate(-45deg);
       }
-      .cat_close{
+      .text_clear{
         pointer-events: all !important;
       }
-      .cat_close:hover div span:first-of-type, .close-section-btn:focus .cat_close div span:first-of-type{
+      .text_clear:hover div span:first-of-type, .clear-text-btn:focus .text_clear div span:first-of-type{
         transform: translate(-2px, 9px) rotate(15deg);
         background-color: #cf484d;
       }
-      .cat_close:hover div span:last-of-type, .close-section-btn:focus .cat_close div span:last-of-type{
+      .text_clear:hover div span:last-of-type, .clear-text-btn:focus .text_clear div span:last-of-type{
         transform: translate(-2px, 9px) rotate(-15deg);
         background-color: #cf484d;
       }
-
-      .pj-internal-content{
-        transition: none;
-        background-color: #fff;
-      } 
+      #download{
+          top: 8px;
+          left: calc(50% + 45px);
+          transform: scale(1.4);
+        }
+      #download:hover{
+        transform: scale(1.75);
+        transition: ease-out 0.125s;
+        color: #17d46f;
+      }
     </style>
   </head>
   <body>
-    <div class="close-section-btn" tabindex="0">
-      <div class="cat_close">
-        <div class="close-inner">
-          <span></span>
-          <span></span>
-        </div>
-      </div>
-    </div>
-    <p class="fa-solid fa-arrow-down" id="download" onclick="SaveTextFile()">
-      ⬇
-    </p>
+    <div class="clear-text-btn" tabindex="0"><div class="text_clear"><div><span></span><span></span></div></div></div>
+    <p id="download" onclick="SaveTextFile()">⬇</p>
     <textarea rows="10" cols="75" placeholder="Type something..."></textarea>
   </body>
   <script>
@@ -108,12 +91,12 @@
       localStorage.setItem("TEXT", document.querySelector("textarea").value);
     });
 
-    document.querySelector(".close-section-btn").addEventListener("click", () => {
+    document.querySelector(".clear-text-btn").addEventListener("click", () => {
       // if(confirm("Clear textbox?") == true) {
         document.querySelector("textarea").value = "";
         document.querySelector("textarea").focus();
-        document.querySelector(".close-section-btn div span:first-of-type").style.transform = "transform: translate(-2px, 9px) rotate(15deg)";
-        document.querySelector(".close-section-btn div span:last-of-type").style.transform = "transform: translate(-2px, 9px) rotate(-45deg)";
+        document.querySelector(".clear-text-btn div span:first-of-type").style.transform = "transform: translate(-2px, 9px) rotate(15deg)";
+        document.querySelector(".clear-text-btn div span:last-of-type").style.transform = "transform: translate(-2px, 9px) rotate(-45deg)";
      // }
     });
 
