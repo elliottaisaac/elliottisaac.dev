@@ -24,9 +24,61 @@
           background: rgba(248, 248, 255, 0.95);
           line-height: 110%;
       }
+      .close-section-btn{
+          width: 20px;
+          height: 20px;
+          position: absolute;
+          z-index: 9;
+          outline: none;
+          cursor: pointer;
+          padding: 12px;
+          left: calc(50% - 10px);
+          top: 32px;
+        }
+
+      .close-section-btn div{
+        position: relative;
+        width: 20px;
+        height: 20px;
+      }
+      .close-section-btn div span{
+          width: 24px;
+          height: 4px;
+          background-color: gray;
+          position: absolute;
+          transition: all 250ms ease-out;
+      }
+      .close-section-btn div span:first-of-type{
+        transform: translate(-2px, 9px) rotate(45deg);
+      }
+      .close-section-btn div span:last-of-type{
+        transform: translate(-2px, 9px) rotate(-45deg);
+      }
+      .cat_close{
+        pointer-events: all !important;
+      }
+      .cat_close:hover div span:first-of-type, .close-section-btn:focus .cat_close div span:first-of-type{
+        transform: translate(-2px, 9px) rotate(15deg);
+      }
+      .cat_close:hover div span:last-of-type, .close-section-btn:focus .cat_close div span:last-of-type{
+        transform: translate(-2px, 9px) rotate(-15deg);
+      }
+
+      .pj-internal-content{
+        transition: none;
+        background-color: #fff;
+      } 
     </style>
   </head>
   <body>
+    <div class="close-section-btn" tabindex="0">
+      <div class="cat_close">
+        <div class="close-inner">
+          <span></span>
+          <span></span>
+        </div>
+      </div>
+    </div>
     <textarea rows="10" cols="75" placeholder="Type something..."></textarea>
   </body>
   <script>
@@ -35,6 +87,15 @@
     }
     window.addEventListener("keyup", () => {
       localStorage.setItem("TEXT", document.querySelector("textarea").value);
+    });
+
+    document.querySelector(".close-section-btn").addEventListener("click", () => {
+      if(confirm("Clear textbox?") == true) {
+        document.querySelector("textarea").value = "";
+        document.querySelector("textarea").focus();
+        document.querySelector(".close-section-btn div span:first-of-type").style.transform = "transform: translate(-2px, 9px) rotate(15deg)";
+        document.querySelector(".close-section-btn div span:last-of-type").style.transform = "transform: translate(-2px, 9px) rotate(-45deg)";
+      }
     });
   </script>
 </html>
