@@ -95,7 +95,7 @@
         </div>
       </div>
     </div>
-    <p class="fa-solid fa-arrow-down" id="download" onclick="saveTextAsFile()">
+    <p class="fa-solid fa-arrow-down" id="download" onclick="SaveTextFile()">
       ⬇
     </p>
     <textarea rows="10" cols="75" placeholder="Type something..."></textarea>
@@ -117,21 +117,18 @@
      // }
     });
 
-    function saveTextAsFile() {
+    function SaveTextFile() {
       const textToSave = document.querySelector("textarea").value;
-      const filename = window.prompt("Name file:"); // Desired filename
-
+      const filename = window.prompt("Name file:");
       const blob = new Blob([textToSave], { type: 'text/plain' });
       const url = URL.createObjectURL(blob);
-
       const a = document.createElement('a');
       a.href = url;
       a.download = filename;
-      document.body.appendChild(a); // Append the link to the body (can be hidden)
-      a.click(); // Programmatically click the link to trigger download
-      document.body.removeChild(a); // Remove the link
-      URL.revokeObjectURL(url); // Clean up the object URL
+      document.body.appendChild(a);
+      a.click();
+      document.body.removeChild(a);
+      URL.revokeObjectURL(url);
     }
-
   </script>
 </html>
