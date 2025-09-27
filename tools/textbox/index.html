@@ -102,7 +102,7 @@
 
     function SaveTextFile() {
       let fileName = window.prompt("Name file:");
-      if(fileName != null){
+      if(fileName){
         const textToSave = document.querySelector("textarea").value;
         const filename = fileName;
         const blob = new Blob([textToSave], { type: 'text/plain' });
