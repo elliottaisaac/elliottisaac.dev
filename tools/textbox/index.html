@@ -35,7 +35,7 @@
           padding: 12px;
           left: calc(50% - 50px);
           top: 25px;
-          color: #5e5e5e;
+          color: #fff;
         }
       .clear-text-btn div{
         position: relative;
@@ -45,7 +45,7 @@
       .clear-text-btn div span{
           width: 24px;
           height: 4px;
-          background-color: #5e5e5e;
+          background-color: #fff;
           position: absolute;
           transition: all 125ms ease-out;
       }
@@ -69,6 +69,7 @@
       .copy-btn{
         left: calc(50%);
         transform: scale(1.625) translateY(-1px);
+        filter:brightness(10);
       }
       .copy-btn sup{
         opacity: 0;
@@ -76,12 +77,14 @@
       }
       .copy-btn:hover{
         color: #2c82e6;
-        transition: ease-out 0.125s;
+        transition: ease-out 0.25s;
         transform: scale(1.75);
+        filter:brightness(1);
       }
       .copy-btn:hover sup{
         opacity: 1;
-        transition: ease-out 0.2s;
+        transition: ease-out 0.25s;
+        filter:brightness(2);
       }
       .download-btn{
           left: calc(50% + 50px);
@@ -95,50 +98,51 @@
     </style>
   </head>
   <body>
-    <div class="clear-text-btn" tabindex="0"><div class="text_clear"><div><span></span><span></span></div></div></div>
-    <div class="copy-btn" tabindex="0" onclick="copyToClipboard(document.querySelector('textarea').value)">&#x2795<sup>+</sup></div>
-    <div class="download-btn" onclick="SaveTextFile(document.querySelector('textarea').value);" tabindex="0">&#11015</div>
+    <div class="clear-text-btn" tabindex="0" onclick="ClearText()"><div class="text_clear"><div><span></span><span></span></div></div></div>
+    <div class="copy-btn" tabindex="0" onclick="CopyToClipboard(document.querySelector('textarea').value)">&#x2795<sup>+</sup></div>
+    <div class="download-btn" tabindex="0" onclick="SaveTextFile(document.querySelector('textarea').value)">&#11015</div>
     <textarea rows="10" cols="75" placeholder="Type something..."></textarea>
   </body>
   <script>
     if(localStorage.getItem("TEXT")){
       document.querySelector("textarea").value = localStorage.getItem("TEXT"); 
     }
+    
     window.addEventListener("keyup", () => {
       localStorage.setItem("TEXT", document.querySelector("textarea").value);
     });
 
-    document.querySelector(".clear-text-btn").addEventListener("click", () => {
-        document.querySelector("textarea").value = "";
-        document.querySelector("textarea").focus();
-        document.querySelector(".clear-text-btn div span:first-of-type").style.transform = "transform: translate(-2px, 9px) rotate(15deg)";
-        document.querySelector(".clear-text-btn div span:last-of-type").style.transform = "transform: translate(-2px, 9px) rotate(-45deg)";
-    });
+    function ClearText(){
+      document.querySelector(".clear-text-btn div span:first-of-type").style.transform = "transform: translate(-2px, 9px) rotate(15deg)";
+      document.querySelector(".clear-text-btn div span:last-of-type").style.transform = "transform: translate(-2px, 9px) rotate(-45deg)";
+      document.querySelector("textarea").value = "";
+      document.querySelector("textarea").focus();
+    }
 
-    async function copyToClipboard(text) {
+    async function CopyToClipboard(text) {
       try {
         await navigator.clipboard.writeText(text);
-        console.log('Text copied to clipboard:', text);
       } catch (err) {
         console.error('Failed to copy text:', err);
       }
+      document.querySelector("textarea").focus();
     }
 
-  function SaveTextFile(text) {
-    const fileName = window.prompt("Name your file: (.txt)");
-    if(fileName && text){
-      const filename = fileName;
-      const blob = new Blob([text], { type: 'text/plain' });
-      const url = URL.createObjectURL(blob);
-      const a = document.createElement('a');
-      a.href = url;
-      a.download = filename;
-      document.body.appendChild(a);
-      a.click();
-      document.body.removeChild(a);
-      URL.revokeObjectURL(url);
+    function SaveTextFile(text) {
+      const fileName = window.prompt("Name your file: (.txt)");
+      if(fileName && text){
+        const filename = fileName;
+        const blob = new Blob([text], { type: 'text/plain' });
+        const url = URL.createObjectURL(blob);
+        const a = document.createElement('a');
+        a.href = url;
+        a.download = filename;
+        document.body.appendChild(a);
+        a.click();
+        document.body.removeChild(a);
+        URL.revokeObjectURL(url);
+      }
+      else document.querySelector("textarea").focus();
     }
-    else document.querySelector("textarea").focus();
-  }
   </script>
 </html>
