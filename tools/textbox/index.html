@@ -25,7 +25,7 @@
           background: rgba(248, 248, 255, 0.95);
           line-height: 110%;
       }
-      .clear-text-btn, #download-btn{
+      .clear-text-btn, .copy-btn, .download-btn{
           width: 20px;
           height: 20px;
           position: absolute;
@@ -33,9 +33,9 @@
           outline: none;
           cursor: pointer;
           padding: 12px;
-          left: calc(50% - 10px);
+          left: calc(50% - 50px);
           top: 25px;
-          color: gray;
+          color: #5e5e5e;
         }
       .clear-text-btn div{
         position: relative;
@@ -45,7 +45,7 @@
       .clear-text-btn div span{
           width: 24px;
           height: 4px;
-          background-color: gray;
+          background-color: #5e5e5e;
           position: absolute;
           transition: all 125ms ease-out;
       }
@@ -66,11 +66,28 @@
         transform: translate(-2px, 9px) rotate(-15deg);
         background-color: #cf484d;
       }
-      #download-btn{
-          left: calc(50% + 45px);
+      .copy-btn{
+        left: calc(50%);
+        transform: scale(1.625) translateY(-1px);
+      }
+      .copy-btn sup{
+        opacity: 0;
+        font-weight: bold;
+      }
+      .copy-btn:hover{
+        color: #2c82e6;
+        transition: ease-out 0.125s;
+        transform: scale(1.75);
+      }
+      .copy-btn:hover sup{
+        opacity: 1;
+        transition: ease-out 0.2s;
+      }
+      .download-btn{
+          left: calc(50% + 50px);
           transform: scale(1.4) translateY(-1px);
       }
-      #download-btn:hover, #download-btn:focus{
+      .download-btn:hover, #download-btn:focus{
         transform: scale(1.75);
         transition: ease-out 0.125s;
         color: #17d46f;
@@ -79,7 +96,8 @@
   </head>
   <body>
     <div class="clear-text-btn" tabindex="0"><div class="text_clear"><div><span></span><span></span></div></div></div>
-    <div id="download-btn" onclick="SaveTextFile()" tabindex="0">&#11015</div>
+    <div class="copy-btn" tabindex="0" onclick="copyToClipboard(document.querySelector('textarea').value)">&#x2795<sup>+</sup></div>
+    <div class="download-btn" onclick="SaveTextFile(document.querySelector('textarea').value);" tabindex="0">&#11015</div>
     <textarea rows="10" cols="75" placeholder="Type something..."></textarea>
   </body>
   <script>
@@ -97,21 +115,30 @@
         document.querySelector(".clear-text-btn div span:last-of-type").style.transform = "transform: translate(-2px, 9px) rotate(-45deg)";
     });
 
-    function SaveTextFile() {
-      let fileName = window.prompt("Name file:");
-      if(fileName){
-        const textToSave = document.querySelector("textarea").value;
-        const filename = fileName;
-        const blob = new Blob([textToSave], { type: 'text/plain' });
-        const url = URL.createObjectURL(blob);
-        const a = document.createElement('a');
-        a.href = url;
-        a.download = filename;
-        document.body.appendChild(a);
-        a.click();
-        document.body.removeChild(a);
-        URL.revokeObjectURL(url);
+    async function copyToClipboard(text) {
+      try {
+        await navigator.clipboard.writeText(text);
+        console.log('Text copied to clipboard:', text);
+      } catch (err) {
+        console.error('Failed to copy text:', err);
       }
     }
+
+  function SaveTextFile(text) {
+    const fileName = window.prompt("Name your file: (.txt)");
+    if(fileName && text){
+      const filename = fileName;
+      const blob = new Blob([text], { type: 'text/plain' });
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = filename;
+      document.body.appendChild(a);
+      a.click();
+      document.body.removeChild(a);
+      URL.revokeObjectURL(url);
+    }
+    else document.querySelector("textarea").focus();
+  }
   </script>
 </html>
