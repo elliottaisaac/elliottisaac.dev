@@ -34,7 +34,7 @@
           outline: none;
           cursor: pointer;
           padding: 12px;
-          left: calc(50% - 50px);
+          left: calc(50% - 70px);
           top: 25px;
           color: #fff;
         }
@@ -68,7 +68,7 @@
         background-color: #cf484d;
       }
       .copy-btn{
-        left: calc(50%);
+        left: calc(50% - 20px);
         transform: scale(1.625) translateY(-1px);
         filter:brightness(10);
       }
@@ -88,7 +88,7 @@
         filter:brightness(2);
       }
       .download-btn{
-          left: calc(50% + 50px);
+          left: calc(50% + 30px);
           transform: scale(1.4) translateY(-1px);
       }
       .download-btn:hover{
@@ -112,6 +112,10 @@
     window.addEventListener("keyup", () => {
       localStorage.setItem("TEXT", document.querySelector("textarea").value);
     });
+
+    if(Math.max(document.documentElement.clientWidth || 0, window.innerWidth || 0) < 640){
+       document.querySelector("textarea").cols = 32;
+    };
 
     function ClearText(){
       document.querySelector(".clear-text-btn div span:first-of-type").style.transform = "transform: translate(-2px, 9px) rotate(15deg)";
@@ -144,6 +148,6 @@
         URL.revokeObjectURL(url);
       }
       else document.querySelector("textarea").focus();
-    }
+    }  
   </script>
 </html>
