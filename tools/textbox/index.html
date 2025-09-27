@@ -19,9 +19,10 @@
           display: block;
           margin: 80px auto;
           padding: 16px;
-          border: 1px solid orange;
+          border: 1px solid black;
           border-radius: 12px;
-          box-shadow: 2px 1px 1px orange;
+          border-bottom-right-radius: 2px;
+          box-shadow: 2px 1px 1px black;
           background: rgba(248, 248, 255, 0.95);
           line-height: 110%;
       }
@@ -58,11 +59,11 @@
       .text_clear{
         pointer-events: all !important;
       }
-      .text_clear:hover div span:first-of-type, .clear-text-btn:focus .text_clear div span:first-of-type{
+      .text_clear:hover div span:first-of-type{
         transform: translate(-2px, 9px) rotate(15deg);
         background-color: #cf484d;
       }
-      .text_clear:hover div span:last-of-type, .clear-text-btn:focus .text_clear div span:last-of-type{
+      .text_clear:hover div span:last-of-type{
         transform: translate(-2px, 9px) rotate(-15deg);
         background-color: #cf484d;
       }
@@ -75,13 +76,13 @@
         opacity: 0;
         font-weight: bold;
       }
-      .copy-btn:hover, copy-btn:focus{
+      .copy-btn:hover{
         color: #2c82e6;
         transition: ease-out 0.25s;
         transform: scale(1.75);
         filter:brightness(1);
       }
-      .copy-btn:hover sup, copy-btn:focus sup{
+      .copy-btn:hover sup{
         opacity: 1;
         transition: ease-out 0.25s;
         filter:brightness(2);
@@ -90,7 +91,7 @@
           left: calc(50% + 50px);
           transform: scale(1.4) translateY(-1px);
       }
-      .download-btn:hover, #download-btn:focus{
+      .download-btn:hover{
         transform: scale(1.75);
         transition: ease-out 0.125s;
         color: #17d46f;
@@ -98,10 +99,10 @@
     </style>
   </head>
   <body>
-    <div class="clear-text-btn" tabindex="0" onclick="ClearText()"><div class="text_clear"><div><span></span><span></span></div></div></div>
-    <div class="copy-btn" tabindex="0" onclick="CopyToClipboard(document.querySelector('textarea').value)">&#x2795<sup>+</sup></div>
-    <div class="download-btn" tabindex="0" onclick="SaveTextFile(document.querySelector('textarea').value)">&#11015</div>
-    <textarea rows="10" cols="75" placeholder="Type something..."></textarea>
+    <div class="clear-text-btn" onclick="ClearText()"><div class="text_clear"><div><span></span><span></span></div></div></div>
+    <div class="copy-btn" onclick="CopyToClipboard(document.querySelector('textarea').value)">&#x2795<sup>+</sup></div>
+    <div class="download-btn" onclick="SaveTextFile(document.querySelector('textarea').value)">&#11015</div>
+    <textarea rows="10" cols="50" placeholder="Type something..."></textarea>
   </body>
   <script>
     if(localStorage.getItem("TEXT")){
