@@ -67,11 +67,10 @@
         background-color: #cf484d;
       }
       #download{
-          top: 8px;
           left: calc(50% + 45px);
           transform: scale(1.4);
       }
-      #download:hover{
+      #download:hover, #download:focus{
         transform: scale(1.75);
         transition: ease-out 0.125s;
         color: #17d46f;
@@ -80,7 +79,7 @@
   </head>
   <body>
     <div class="clear-text-btn" tabindex="0"><div class="text_clear"><div><span></span><span></span></div></div></div>
-    <p id="download" onclick="SaveTextFile()">&#11015</p>
+    <div id="download" onclick="SaveTextFile()" tabindex="0">&#11015</div>
     <textarea rows="10" cols="75" placeholder="Type something..."></textarea>
   </body>
   <script>
