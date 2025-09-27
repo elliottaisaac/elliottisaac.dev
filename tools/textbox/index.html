@@ -119,7 +119,7 @@
       document.querySelector("textarea").focus();
     }
 
-    async function CopyToClipboard(text) {
+    async function CopyToClipboard(text){
       try {
         await navigator.clipboard.writeText(text);
       } catch (err) {
@@ -128,7 +128,7 @@
       document.querySelector("textarea").focus();
     }
 
-    function SaveTextFile(text) {
+    function SaveTextFile(text){
       const fileName = window.prompt("Name your file: (.txt)");
       if(fileName && text){
         const filename = fileName;
