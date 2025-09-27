@@ -101,17 +101,20 @@
     });
 
     function SaveTextFile() {
-      const textToSave = document.querySelector("textarea").value;
-      const filename = window.prompt("Name file:");
-      const blob = new Blob([textToSave], { type: 'text/plain' });
-      const url = URL.createObjectURL(blob);
-      const a = document.createElement('a');
-      a.href = url;
-      a.download = filename;
-      document.body.appendChild(a);
-      a.click();
-      document.body.removeChild(a);
-      URL.revokeObjectURL(url);
+      let fileName = window.prompt("Name file:");
+      if(fileName != null){
+        const textToSave = document.querySelector("textarea").value;
+        const filename = fileName;
+        const blob = new Blob([textToSave], { type: 'text/plain' });
+        const url = URL.createObjectURL(blob);
+        const a = document.createElement('a');
+        a.href = url;
+        a.download = filename;
+        document.body.appendChild(a);
+        a.click();
+        document.body.removeChild(a);
+        URL.revokeObjectURL(url);
+      }
     }
   </script>
 </html>
