@@ -25,7 +25,7 @@
           background: rgba(248, 248, 255, 0.95);
           line-height: 110%;
       }
-      .clear-text-btn, #download{
+      .clear-text-btn, #download-btn{
           width: 20px;
           height: 20px;
           position: absolute;
@@ -66,11 +66,11 @@
         transform: translate(-2px, 9px) rotate(-15deg);
         background-color: #cf484d;
       }
-      #download{
+      #download-btn{
           left: calc(50% + 45px);
-          transform: scale(1.4);
+          transform: scale(1.4) translateY(-1px);
       }
-      #download:hover, #download:focus{
+      #download-btn:hover, #download-btn:focus{
         transform: scale(1.75);
         transition: ease-out 0.125s;
         color: #17d46f;
@@ -79,7 +79,7 @@
   </head>
   <body>
     <div class="clear-text-btn" tabindex="0"><div class="text_clear"><div><span></span><span></span></div></div></div>
-    <div id="download" onclick="SaveTextFile()" tabindex="0">&#11015</div>
+    <div id="download-btn" onclick="SaveTextFile()" tabindex="0">&#11015</div>
     <textarea rows="10" cols="75" placeholder="Type something..."></textarea>
   </body>
   <script>
