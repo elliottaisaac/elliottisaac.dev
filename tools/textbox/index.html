@@ -14,6 +14,8 @@
         background-repeat: repeat;
       }
       textarea{
+          width: 33vw;
+          height: 300px;
           font-family: monospace;
           font-size: 125%;
           display: block;
@@ -96,13 +98,19 @@
         transition: ease-out 0.125s;
         color: #17d46f;
       }
+      @media (max-width:640px){
+        textarea{
+          width: 67vw;
+          height: 80vh;
+         }
+      }
     </style>
   </head>
   <body>
     <div class="clear-text-btn" onclick="ClearText()"><div class="text_clear"><div><span></span><span></span></div></div></div>
     <div class="copy-btn" onclick="CopyToClipboard(document.querySelector('textarea').value)">&#x2795<sup>+</sup></div>
     <div class="download-btn" onclick="SaveTextFile(document.querySelector('textarea').value)">&#11015</div>
-    <textarea rows="10" cols="50" placeholder="Type something..."></textarea>
+    <textarea placeholder="Type something..."></textarea>
   </body>
   <script>
     if(localStorage.getItem("TEXT")){
