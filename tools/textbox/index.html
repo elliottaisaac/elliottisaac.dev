@@ -124,11 +124,6 @@
       localStorage.setItem("TEXT", document.querySelector("textarea").value);
     });
 
-    if(Math.max(document.documentElement.clientWidth || 0, window.innerWidth || 0) < 640){
-       document.querySelector("textarea").cols = 24;
-       document.querySelector("textarea").rows = 48;
-    };
-
     function ClearText(){
       document.querySelector(".clear-text-btn div span:first-of-type").style.transform = "transform: translate(-2px, 9px) rotate(15deg)";
       document.querySelector(".clear-text-btn div span:last-of-type").style.transform = "transform: translate(-2px, 9px) rotate(-45deg)";
